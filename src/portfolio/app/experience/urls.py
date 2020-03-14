@@ -1,12 +1,10 @@
-from django.urls import path
+from rest_framework import routers
 
 from .views import ExperienceViewSet
 
 
 app_name = 'experience'
 
-urlpatterns = [
-    path('', ExperienceViewSet.as_view({
-        'get': 'list',
-    })),
-]
+router = routers.SimpleRouter()
+router.register('', ExperienceViewSet)
+urlpatterns = router.urls

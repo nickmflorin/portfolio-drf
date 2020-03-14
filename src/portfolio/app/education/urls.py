@@ -1,12 +1,10 @@
-from django.urls import path
+from rest_framework import routers
 
 from .views import EducationViewSet
 
 
 app_name = 'education'
 
-urlpatterns = [
-    path('', EducationViewSet.as_view({
-        'get': 'list',
-    })),
-]
+router = routers.SimpleRouter()
+router.register('', EducationViewSet)
+urlpatterns = router.urls
