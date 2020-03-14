@@ -1,0 +1,45 @@
+__pycache__
+.Python
+/static/
+/build/
+/dist/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/uwsgi/
+/wheels/
+*.egg-info
+.installed.cfg
+*.egg
+MANIFEST
+db.sqlite3
+
+# Testing
+.pytest_cache
+htmlcov
+/.tox/
+.coverage*
+/coverage.xml
+/reports/
+
+# Logs
+*.log
+pip-log.txt
+
+# Local Development
+/src/portfolio/conf/settings/dev.py
+
+# Environment
+.venv
+venv
+.python-version
+.env
+.env-docker
+
+# Miscellaneous
+.DS_Store
+.build_info
+.cache
+pip-delete-this-directory.txt
+/pip-wheel-metadata/
