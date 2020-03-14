@@ -16,8 +16,8 @@ class CompanyAdmin(admin.ModelAdmin):
 
 class ExperienceAdmin(admin.ModelAdmin):
     model = Experience
-    list_display = ['start_date', 'end_date', 'title']
-    search_fields = ['start_date', 'degree']
+    list_display = ['title', 'company', 'start_date', 'end_date']
+    search_fields = ['title', 'company']
 
     def has_delete_permission(self, request, obj=None):
         return True
