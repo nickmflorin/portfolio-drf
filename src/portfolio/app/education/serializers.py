@@ -3,16 +3,18 @@ from .models import School, Education
 
 
 class SchoolSerializer(serializers.ModelSerializer):
+    id = serializers.ReadOnlyField()
     name = serializers.CharField()
     city = serializers.CharField()
     state = serializers.CharField()
 
     class Meta:
         model = School
-        fields = ('name', 'city', 'state', )
+        fields = ('id', 'name', 'city', 'state', )
 
 
 class EducationSerializer(serializers.Serializer):
+    id = serializers.ReadOnlyField()
     school = SchoolSerializer()
     start_date = serializers.DateTimeField()
     end_date = serializers.DateTimeField()
@@ -24,5 +26,5 @@ class EducationSerializer(serializers.Serializer):
     class Meta:
         model = Education
         fields = (
-            'school', 'start_date', 'end_date', 'degree', 'major', 'minor',
+            'id', 'school', 'start_date', 'end_date', 'degree', 'major', 'minor',
             'concentration')
