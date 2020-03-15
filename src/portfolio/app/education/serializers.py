@@ -9,12 +9,11 @@ class SchoolSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = School
-        fields = ('__all__', )
+        fields = ('name', 'city', 'state', )
 
 
 class EducationSerializer(serializers.Serializer):
     school = SchoolSerializer()
-    snoozed_until = serializers.DateTimeField()
     start_date = serializers.DateTimeField()
     end_date = serializers.DateTimeField()
     degree = serializers.CharField()
@@ -24,4 +23,6 @@ class EducationSerializer(serializers.Serializer):
 
     class Meta:
         model = Education
-        fields = ('__all__', )
+        fields = (
+            'school', 'start_date', 'end_date', 'degree', 'major', 'minor',
+            'concentration')
