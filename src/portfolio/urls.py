@@ -10,5 +10,6 @@ urlpatterns = [
     path('api/v1/', include([
         path('experience/', include('portfolio.app.experience.urls')),
         path('education/', include('portfolio.app.education.urls')),
+        path('skills/', include('portfolio.app.skills.urls')),
     ])),
 ]
