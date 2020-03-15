@@ -2,7 +2,8 @@ import logging
 
 import dj_database_url
 
-from .base import BASE_DIR
+from .base import *  # noqa
+
 
 ALLOWED_HOSTS = ['testserver']
 

@@ -8,14 +8,27 @@ homepage = "https://github.com/nickmflorin/portfolio-drf"
 packages = [
   { include = "portfolio", from = "src" },
 ]
-license = "UNLICENSED"  # closed source, all rights reserved
+license = "UNLICENSED"
 include = [
   "README.rst",
   "pyproject.toml"
 ]
 
+[tool.poetry.extras]
+docs = [
+  "sphinx",
+  "sphinx-rtd-theme",
+  "sphinxcontrib.documentedlist",
+  "sphinxcontrib.httpdomain",
+  "sphinxcontrib.httpexample"
+]
+debug = [ "ipython", "ipdb" ]
+
 [tool.poetry.dependencies]
 python = "^3.7"
+pytest-django = "^3.8"
+dj-database-url = "^0.5.0"
+tox = "^3.14"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
