@@ -16,8 +16,8 @@ class SchoolAdmin(admin.ModelAdmin):
 
 class EducationAdmin(admin.ModelAdmin):
     model = Education
-    list_display = ['start_date', 'end_date', 'degree', 'major']
-    search_fields = ['start_date', 'degree', 'major']
+    list_display = ['school', 'degree', 'major']
+    search_fields = ['school', 'degree', 'major']
 
     def has_delete_permission(self, request, obj=None):
         return True
