@@ -22,3 +22,6 @@ class Education(models.Model):
     major = models.CharField(max_length=64, unique=False)
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, unique=True, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.degree} in {self.major} from {self.school.name}"

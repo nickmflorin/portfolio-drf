@@ -7,10 +7,11 @@ class CompanySerializer(serializers.ModelSerializer):
     name = serializers.CharField()
     city = serializers.CharField()
     state = serializers.CharField()
+    logo = serializers.ImageField()
 
     class Meta:
         model = Company
-        fields = ('id', 'name', 'city', 'state')
+        fields = ('id', 'name', 'city', 'state', 'logo')
 
 
 class ExperienceSerializer(serializers.Serializer):
