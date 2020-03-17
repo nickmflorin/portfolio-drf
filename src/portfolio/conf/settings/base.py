@@ -20,6 +20,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = "%s/static/" % BASE_DIR
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 SECRET_KEY = 'sc8en5z!!0jc4!mb5mom_ox-ucn)bajz^b%xcich8@0n!rd(n*'
 DEBUG = True
 

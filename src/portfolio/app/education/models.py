@@ -5,6 +5,7 @@ class School(models.Model):
     name = models.CharField(max_length=64, unique=False)
     city = models.CharField(max_length=64, unique=False)
     state = models.CharField(max_length=2, unique=False)
+    logo = models.ImageField(upload_to='uploads/', null=True)
 
     def __str__(self):
         return self.name
