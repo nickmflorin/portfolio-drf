@@ -23,9 +23,10 @@ class EducationSerializer(serializers.Serializer):
     major = serializers.CharField()
     minor = serializers.CharField()
     concentration = serializers.CharField()
+    description = serializers.CharField()
 
     class Meta:
         model = Education
         fields = (
             'id', 'school', 'start_date', 'end_date', 'degree', 'major', 'minor',
-            'concentration')
+            'concentration', 'description')

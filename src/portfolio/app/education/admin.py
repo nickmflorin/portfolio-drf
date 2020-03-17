@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from portfolio.app.education.forms import EducationForm
 from portfolio.app.education.models import Education, School
 
 
@@ -18,6 +20,7 @@ class EducationAdmin(admin.ModelAdmin):
     model = Education
     list_display = ['school', 'degree', 'major']
     search_fields = ['school', 'degree', 'major']
+    form = EducationForm
 
     def has_delete_permission(self, request, obj=None):
         return True
