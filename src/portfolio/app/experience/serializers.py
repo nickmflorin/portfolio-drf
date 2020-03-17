@@ -18,7 +18,8 @@ class ExperienceSerializer(serializers.Serializer):
     company = CompanySerializer()
     start_date = serializers.DateTimeField()
     end_date = serializers.DateTimeField()
+    title = serializers.CharField()
 
     class Meta:
         model = Experience
-        fields = ('id', 'company', 'start_date', 'end_date')
+        fields = ('id', 'company', 'start_date', 'end_date', 'title')
