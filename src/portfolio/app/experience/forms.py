@@ -1,25 +1,25 @@
 from django import forms
 
-from .models import Education, School
+from .models import Experience, Company
 
 
-class SchoolForm(forms.ModelForm):
+class CompanyForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.Textarea,
         required=False,
     )
 
     class Meta:
-        model = School
+        model = Company
         fields = '__all__'
 
 
-class EducationForm(forms.ModelForm):
+class ExperienceForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.Textarea,
         required=False,
     )
 
     class Meta:
-        model = Education
+        model = Experience
         fields = '__all__'

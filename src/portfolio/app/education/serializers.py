@@ -8,10 +8,11 @@ class SchoolSerializer(serializers.ModelSerializer):
     city = serializers.CharField()
     state = serializers.CharField()
     logo = serializers.ImageField()
+    description = serializers.CharField()
 
     class Meta:
         model = School
-        fields = ('id', 'name', 'city', 'state', 'logo')
+        fields = ('id', 'name', 'city', 'state', 'logo', 'description')
 
 
 class EducationSerializer(serializers.Serializer):

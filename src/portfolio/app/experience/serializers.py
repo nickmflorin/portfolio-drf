@@ -8,10 +8,20 @@ class CompanySerializer(serializers.ModelSerializer):
     city = serializers.CharField()
     state = serializers.CharField()
     logo = serializers.ImageField()
+    description = serializers.CharField()
 
     class Meta:
         model = Company
-        fields = ('id', 'name', 'city', 'state', 'logo')
+        fields = ('id', 'name', 'city', 'state', 'logo', 'description')
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+    description = serializers.CharField()
+
+    class Meta:
+        model = Company
+        fields = ('id', 'name', 'description')
 
 
 class ExperienceSerializer(serializers.Serializer):
@@ -20,7 +30,10 @@ class ExperienceSerializer(serializers.Serializer):
     start_date = serializers.DateTimeField()
     end_date = serializers.DateTimeField()
     title = serializers.CharField()
+    description = serializers.CharField()
+    projects = ProjectSerializer(many=True)
 
     class Meta:
         model = Experience
-        fields = ('id', 'company', 'start_date', 'end_date', 'title')
+        fields = ('id', 'company', 'start_date', 'end_date', 'title',
+            'description', 'projects')

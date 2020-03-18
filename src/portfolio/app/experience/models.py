@@ -12,6 +12,7 @@ class Company(models.Model):
     city = models.CharField(max_length=64)
     state = models.CharField(max_length=2)
     logo = models.ImageField(upload_to=upload_to, null=True)
+    description = models.CharField(max_length=512, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -25,6 +26,11 @@ class Experience(models.Model):
     start_date = models.DateTimeField(null=False, blank=False)
     end_date = models.DateTimeField(null=True, blank=True)
     title = models.CharField(max_length=64)
+    description = models.CharField(max_length=512, null=True, blank=True)
+    projects = models.ManyToManyField('projects.Project',
+        blank=True,
+        related_name='%(app_label)s_%(class)s_projects',
+        help_text="Projects worked on during employment.")
 
     def __str__(self):
         return f"{self.title} at {self.company.name}"

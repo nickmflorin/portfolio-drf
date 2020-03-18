@@ -12,6 +12,7 @@ class School(models.Model):
     city = models.CharField(max_length=64, unique=False)
     state = models.CharField(max_length=2, unique=False)
     logo = models.ImageField(upload_to='upload_to', null=True)
+    description = models.CharField(max_length=512, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -29,6 +30,10 @@ class Education(models.Model):
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, unique=True, null=True, blank=True)
     description = models.CharField(max_length=512, null=True, blank=True)
+    projects = models.ManyToManyField('projects.Project',
+        blank=True,
+        related_name='%(app_label)s_%(class)s_projects',
+        help_text="Projects worked on during education.")
 
     def __str__(self):
         return f"{self.degree} in {self.major} from {self.school.name}"
