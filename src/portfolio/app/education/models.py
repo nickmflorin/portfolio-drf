@@ -36,5 +36,8 @@ class Education(models.Model):
         related_name='%(app_label)s_%(class)s_projects',
         help_text="Projects worked on during education.")
 
+    class Meta:
+        verbose_name_plural = "Education History"
+
     def __str__(self):
         return f"{self.degree} in {self.major} from {self.school.name}"

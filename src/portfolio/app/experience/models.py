@@ -14,6 +14,9 @@ class Company(models.Model):
     logo = models.ImageField(upload_to=upload_to, null=True)
     description = models.CharField(max_length=512, null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Companies"
+
     def __str__(self):
         return self.name
 
@@ -33,6 +36,9 @@ class Experience(models.Model):
         blank=True,
         related_name='%(app_label)s_%(class)s_projects',
         help_text="Projects worked on during employment.")
+
+    class Meta:
+        verbose_name_plural = "Experience History"
 
     def __str__(self):
         return f"{self.title} at {self.company.name}"
