@@ -11,7 +11,7 @@ class School(models.Model):
     name = models.CharField(max_length=64, unique=False)
     city = models.CharField(max_length=64, unique=False)
     state = models.CharField(max_length=2, unique=False)
-    logo = models.ImageField(upload_to='upload_to', null=True)
+    logo = models.ImageField(upload_to=upload_to, null=True)
     description = models.CharField(max_length=512, null=True, blank=True)
 
     def __str__(self):
@@ -23,8 +23,8 @@ class Education(models.Model):
         School,
         on_delete=models.CASCADE,
     )
-    start_date = models.DateTimeField(null=False, blank=False)
-    end_date = models.DateTimeField(null=True, blank=True)
+    start_date = models.DateField(null=False, blank=False)
+    end_date = models.DateField(null=True, blank=True)
     degree = models.CharField(max_length=64, unique=False)
     major = models.CharField(max_length=64, unique=False)
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)

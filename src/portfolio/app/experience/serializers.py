@@ -20,8 +20,8 @@ class CompanySerializer(serializers.ModelSerializer):
 class ExperienceSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
     company = CompanySerializer()
-    start_date = serializers.DateTimeField()
-    end_date = serializers.DateTimeField()
+    start_date = serializers.DateField()
+    end_date = serializers.DateField()
     title = serializers.CharField()
     description = serializers.CharField()
     projects = ProjectSerializer(many=True)

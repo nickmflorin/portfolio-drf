@@ -19,7 +19,7 @@ def test_list_response_200(api_client, projects, schools):
     assert response.status_code == 200
     assert response.json() == [{
         'id': 1,
-        'start_date': '2020-01-01T00:00:00Z',
+        'start_date': '2020-01-01',
         'end_date': None,
         'degree': 'BS',
         'major': 'Engineering',
@@ -63,7 +63,7 @@ def test_detail_response_200(api_client, projects, schools):
     assert response.status_code == 200
     assert response.json() == {
         'id': 1,
-        'start_date': '2020-01-01T00:00:00Z',
+        'start_date': '2020-01-01',
         'end_date': None,
         'degree': 'BS',
         'major': 'Engineering',

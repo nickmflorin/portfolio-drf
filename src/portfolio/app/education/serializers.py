@@ -20,8 +20,8 @@ class SchoolSerializer(serializers.ModelSerializer):
 class EducationSerializer(serializers.Serializer):
     id = serializers.ReadOnlyField()
     school = SchoolSerializer()
-    start_date = serializers.DateTimeField()
-    end_date = serializers.DateTimeField()
+    start_date = serializers.DateField()
+    end_date = serializers.DateField()
     degree = serializers.CharField()
     major = serializers.CharField()
     minor = serializers.CharField()

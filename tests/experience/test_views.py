@@ -18,8 +18,8 @@ def test_list_response_200(api_client, projects, companies):
     assert response.status_code == 200
     assert response.json() == [{
         'id': experience.pk,
-        'start_date': '2018-01-01T00:00:00Z',
-        'end_date': '2020-01-01T00:00:00Z',
+        'start_date': '2018-01-01',
+        'end_date': '2020-01-01',
         'title': 'Engineer',
         'description': 'Some Experience',
         'company': {
@@ -59,8 +59,8 @@ def test_detail_response_200(api_client, projects, companies):
     assert response.status_code == 200
     assert response.json() == {
         'id': experience.pk,
-        'start_date': '2018-01-01T00:00:00Z',
-        'end_date': '2020-01-01T00:00:00Z',
+        'start_date': '2018-01-01',
+        'end_date': '2020-01-01',
         'title': 'Engineer',
         'description': 'Some Experience',
         'company': {
