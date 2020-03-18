@@ -24,6 +24,7 @@ class EducationSerializer(serializers.Serializer):
     end_date = serializers.DateField()
     degree = serializers.CharField()
     major = serializers.CharField()
+    gpa = serializers.FloatField()
     minor = serializers.CharField()
     concentration = serializers.CharField()
     description = serializers.CharField()
@@ -34,4 +35,4 @@ class EducationSerializer(serializers.Serializer):
         model = Education
         fields = (
             'id', 'school', 'start_date', 'end_date', 'degree', 'major', 'minor',
-            'concentration', 'description', 'projects')
+            'concentration', 'description', 'projects', 'gpa')

@@ -27,6 +27,7 @@ class Education(models.Model):
     end_date = models.DateField(null=True, blank=True)
     degree = models.CharField(max_length=64, unique=False)
     major = models.CharField(max_length=64, unique=False)
+    gpa = models.FloatField(null=True)
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, unique=True, null=True, blank=True)
     description = models.CharField(max_length=512, null=True, blank=True)
