@@ -1,6 +1,10 @@
 import pytest
 from rest_framework.test import APIClient
 
+from portfolio.app.projects.models import Project
+from portfolio.app.education.models import School
+from portfolio.app.experience.models import Company
+
 
 @pytest.fixture
 def api_client(monkeypatch):
@@ -13,3 +17,56 @@ def api_client(monkeypatch):
         pass
 
     return CustomApiClient()
+
+
+@pytest.fixture
+@pytest.mark.django_db
+def projects():
+    return [
+        Project.objects.create(
+            name="Project 1",
+            description="Some Project",
+        ),
+        Project.objects.create(
+            name="Project 2",
+            description="Some Other Project",
+        )
+    ]
+
+
+@pytest.fixture
+@pytest.mark.django_db
+def schools():
+    return [
+        School.objects.create(
+            name="Harvard",
+            city="Boston",
+            state="MA",
+            description="Ivy League School",
+        ),
+        School.objects.create(
+            name="University of Connecticut",
+            city="Danbury",
+            state="CT",
+            description="State School",
+        )
+    ]
+
+
+@pytest.fixture
+@pytest.mark.django_db
+def companies():
+    return [
+        Company.objects.create(
+            name="Google",
+            city="San Francisco",
+            state="CA",
+            description="A Tech Company",
+        ),
+        Company.objects.create(
+            name="Walmart",
+            city="Boston",
+            state="MA",
+            description="A Retail Company",
+        ),
+    ]

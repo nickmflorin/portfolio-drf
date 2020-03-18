@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from portfolio.app.projects.serializers import ProjectSerializer
 from .models import School, Education
 
 
@@ -25,9 +27,10 @@ class EducationSerializer(serializers.Serializer):
     minor = serializers.CharField()
     concentration = serializers.CharField()
     description = serializers.CharField()
+    projects = ProjectSerializer(many=True)
 
     class Meta:
         model = Education
         fields = (
             'id', 'school', 'start_date', 'end_date', 'degree', 'major', 'minor',
-            'concentration', 'description')
+            'concentration', 'description', 'projects')

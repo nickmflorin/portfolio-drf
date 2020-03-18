@@ -13,6 +13,7 @@ urlpatterns = [
         path('experience/', include('portfolio.app.experience.urls')),
         path('education/', include('portfolio.app.education.urls')),
         path('skills/', include('portfolio.app.skills.urls')),
+        path('projects/', include('portfolio.app.projects.urls')),
     ])),
 ]
 

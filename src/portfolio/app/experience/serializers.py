@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from portfolio.app.projects.serializers import ProjectSerializer
 from .models import Experience, Company
 
 
@@ -13,15 +15,6 @@ class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = ('id', 'name', 'city', 'state', 'logo', 'description')
-
-
-class ProjectSerializer(serializers.ModelSerializer):
-    name = serializers.CharField()
-    description = serializers.CharField()
-
-    class Meta:
-        model = Company
-        fields = ('id', 'name', 'description')
 
 
 class ExperienceSerializer(serializers.Serializer):
