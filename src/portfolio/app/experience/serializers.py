@@ -24,6 +24,7 @@ class ExperienceSerializer(serializers.Serializer):
     end_date = serializers.DateField()
     title = serializers.CharField()
     description = serializers.CharField()
+    current = serializers.BooleanField()
     projects = ProjectSerializer(many=True)
 
     class Meta:

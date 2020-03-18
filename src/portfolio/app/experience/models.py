@@ -23,10 +23,12 @@ class Experience(models.Model):
         Company,
         on_delete=models.CASCADE,
     )
-    start_date = models.DateField(null=False, blank=False)
-    end_date = models.DateField(null=True, blank=True)
     title = models.CharField(max_length=64)
     description = models.CharField(max_length=512, null=True, blank=True)
+    start_date = models.DateField(null=False, blank=False)
+    end_date = models.DateField(null=True, blank=True)
+    current = models.BooleanField(default=False)
+
     projects = models.ManyToManyField('projects.Project',
         blank=True,
         related_name='%(app_label)s_%(class)s_projects',

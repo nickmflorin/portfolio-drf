@@ -30,6 +30,7 @@ class Education(models.Model):
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, unique=True, null=True, blank=True)
     description = models.CharField(max_length=512, null=True, blank=True)
+    ongoing = models.BooleanField(default=False)
     projects = models.ManyToManyField('projects.Project',
         blank=True,
         related_name='%(app_label)s_%(class)s_projects',

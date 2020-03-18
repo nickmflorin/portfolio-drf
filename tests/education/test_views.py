@@ -11,6 +11,7 @@ def test_list_response_200(api_client, projects, schools):
         start_date=datetime.datetime(2020, 1, 1),
         degree="BS",
         major="Engineering",
+        ongoing=True,
         description="A Really Good Degree If You Want to Have No Life",
     )
     education.projects.set(projects)
@@ -25,6 +26,7 @@ def test_list_response_200(api_client, projects, schools):
         'major': 'Engineering',
         'minor': None,
         'concentration': None,
+        'ongoing': True,
         'description': "A Really Good Degree If You Want to Have No Life",
         'school': {
             'id': schools[0].pk,
@@ -56,6 +58,7 @@ def test_detail_response_200(api_client, projects, schools):
         start_date=datetime.datetime(2020, 1, 1),
         degree="BS",
         major="Engineering",
+        ongoing=True,
         description="A Really Good Degree If You Want to Have No Life",
     )
     education.projects.set(projects)
@@ -69,6 +72,7 @@ def test_detail_response_200(api_client, projects, schools):
         'major': 'Engineering',
         'minor': None,
         'concentration': None,
+        'ongoing': True,
         'description': "A Really Good Degree If You Want to Have No Life",
         'school': {
             'id': schools[0].pk,

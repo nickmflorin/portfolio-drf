@@ -22,6 +22,7 @@ def test_list_response_200(api_client, projects, companies):
         'end_date': '2020-01-01',
         'title': 'Engineer',
         'description': 'Some Experience',
+        'current': False,
         'company': {
             'id': companies[0].pk,
             'name': companies[0].name,
@@ -63,6 +64,7 @@ def test_detail_response_200(api_client, projects, companies):
         'end_date': '2020-01-01',
         'title': 'Engineer',
         'description': 'Some Experience',
+        'current': False,
         'company': {
             'id': companies[0].pk,
             'name': companies[0].name,

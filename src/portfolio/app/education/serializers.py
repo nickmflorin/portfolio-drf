@@ -27,6 +27,7 @@ class EducationSerializer(serializers.Serializer):
     minor = serializers.CharField()
     concentration = serializers.CharField()
     description = serializers.CharField()
+    ongoing = serializers.BooleanField()
     projects = ProjectSerializer(many=True)
 
     class Meta:
