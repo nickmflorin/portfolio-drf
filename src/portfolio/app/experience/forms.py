@@ -31,9 +31,14 @@ class ExperienceForm(forms.ModelForm):
 
         errors = {}
         if current is True and end_date:
-            errors['end_date'] = "Cannot provide `end_date` when flagging experience as current."
+            errors['end_date'] = (
+                "Cannot provide `end_date` when flagging experience as current."
+            )
         elif current is False and not end_date:
-            errors['end_date'] = "Must provide `end_date` when not flagging experience as current."
+            errors['end_date'] = (
+                "Must provide `end_date` when not flagging experience as "
+                "current."
+            )
         if errors:
             raise forms.ValidationError(errors)
         return data
