@@ -5,7 +5,7 @@ from portfolio.app.experience.models import Experience
 
 
 @pytest.mark.django_db
-def test_list_response_200(api_client, projects, companies):
+def test_list_response_200(api_client, projects, companies, skills):
     experience = Experience.objects.create(
         company=companies[0],
         start_date=datetime.datetime(2018, 1, 1),
@@ -14,6 +14,8 @@ def test_list_response_200(api_client, projects, companies):
         description="Some Experience",
     )
     experience.projects.set(projects)
+    experience.skills.set(skills)
+
     response = api_client.get('/api/v1/experience/')
     assert response.status_code == 200
     assert response.json() == [{
@@ -31,6 +33,16 @@ def test_list_response_200(api_client, projects, companies):
             'logo': None,
             'description': companies[0].description,
         },
+        'skills': [
+            {
+                'id': skills[0].pk,
+                'name': skills[0].name
+            },
+            {
+                'id': skills[1].pk,
+                'name': skills[1].name
+            }
+        ],
         'projects': [
             {
                 'id': projects[0].pk,
@@ -47,7 +59,7 @@ def test_list_response_200(api_client, projects, companies):
 
 
 @pytest.mark.django_db
-def test_detail_response_200(api_client, projects, companies):
+def test_detail_response_200(api_client, projects, companies, skills):
     experience = Experience.objects.create(
         company=companies[0],
         start_date=datetime.datetime(2018, 1, 1),
@@ -56,6 +68,8 @@ def test_detail_response_200(api_client, projects, companies):
         description="Some Experience",
     )
     experience.projects.set(projects)
+    experience.skills.set(skills)
+
     response = api_client.get('/api/v1/experience/%s/' % experience.pk)
     assert response.status_code == 200
     assert response.json() == {
@@ -73,6 +87,16 @@ def test_detail_response_200(api_client, projects, companies):
             'logo': None,
             'description': companies[0].description,
         },
+        'skills': [
+            {
+                'id': skills[0].pk,
+                'name': skills[0].name
+            },
+            {
+                'id': skills[1].pk,
+                'name': skills[1].name
+            }
+        ],
         'projects': [
             {
                 'id': projects[0].pk,

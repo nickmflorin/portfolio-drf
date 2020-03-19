@@ -29,13 +29,21 @@ class Education(models.Model):
     major = models.CharField(max_length=64, unique=False)
     gpa = models.FloatField(null=True)
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
-    concentration = models.CharField(max_length=64, unique=True, null=True, blank=True)
+    concentration = models.CharField(max_length=64, null=True, blank=True)
     description = models.CharField(max_length=512, null=True, blank=True)
     ongoing = models.BooleanField(default=False)
+
     projects = models.ManyToManyField('projects.Project',
         blank=True,
         related_name='%(app_label)s_%(class)s_projects',
-        help_text="Projects worked on during education.")
+        help_text="Projects worked on during education."
+    )
+
+    skills = models.ManyToManyField('skills.Skill',
+        blank=True,
+        related_name='%(app_label)s_%(class)s_skills',
+        help_text="Skilled worked on during education."
+    )
 
     class Meta:
         verbose_name_plural = "Education History"

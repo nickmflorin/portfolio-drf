@@ -35,7 +35,14 @@ class Experience(models.Model):
     projects = models.ManyToManyField('projects.Project',
         blank=True,
         related_name='%(app_label)s_%(class)s_projects',
-        help_text="Projects worked on during employment.")
+        help_text="Projects worked on during employment."
+    )
+
+    skills = models.ManyToManyField('skills.Skill',
+        blank=True,
+        related_name='%(app_label)s_%(class)s_skills',
+        help_text="Skilled worked on during employment."
+    )
 
     class Meta:
         verbose_name_plural = "Experience History"

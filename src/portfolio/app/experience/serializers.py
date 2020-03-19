@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
 from portfolio.app.projects.serializers import ProjectSerializer
+from portfolio.app.skills.serializers import SkillSerializer
+
 from .models import Experience, Company
 
 
@@ -26,8 +28,9 @@ class ExperienceSerializer(serializers.Serializer):
     description = serializers.CharField()
     current = serializers.BooleanField()
     projects = ProjectSerializer(many=True)
+    skills = SkillSerializer(many=True)
 
     class Meta:
         model = Experience
         fields = ('id', 'company', 'start_date', 'end_date', 'title',
-            'description', 'projects')
+            'description', 'projects', 'skills')

@@ -5,7 +5,7 @@ from portfolio.app.education.models import Education
 
 
 @pytest.mark.django_db
-def test_list_response_200(api_client, projects, schools):
+def test_list_response_200(api_client, projects, schools, skills):
     education = Education.objects.create(
         school=schools[0],
         start_date=datetime.datetime(2020, 1, 1),
@@ -15,6 +15,7 @@ def test_list_response_200(api_client, projects, schools):
         description="A Really Good Degree If You Want to Have No Life",
     )
     education.projects.set(projects)
+    education.skills.set(skills)
 
     response = api_client.get('/api/v1/education/')
     assert response.status_code == 200
@@ -37,6 +38,16 @@ def test_list_response_200(api_client, projects, schools):
             'logo': schools[0].logo,
             'description': schools[0].description,
         },
+        'skills': [
+            {
+                'id': skills[0].pk,
+                'name': skills[0].name
+            },
+            {
+                'id': skills[1].pk,
+                'name': skills[1].name
+            }
+        ],
         'projects': [
             {
                 'id': projects[0].pk,
@@ -53,7 +64,7 @@ def test_list_response_200(api_client, projects, schools):
 
 
 @pytest.mark.django_db
-def test_detail_response_200(api_client, projects, schools):
+def test_detail_response_200(api_client, projects, schools, skills):
     education = Education.objects.create(
         school=schools[0],
         start_date=datetime.datetime(2020, 1, 1),
@@ -63,6 +74,8 @@ def test_detail_response_200(api_client, projects, schools):
         description="A Really Good Degree If You Want to Have No Life",
     )
     education.projects.set(projects)
+    education.skills.set(skills)
+
     response = api_client.get('/api/v1/education/%s/' % education.pk)
     assert response.status_code == 200
     assert response.json() == {
@@ -84,6 +97,16 @@ def test_detail_response_200(api_client, projects, schools):
             'logo': schools[0].logo,
             'description': schools[0].description,
         },
+        'skills': [
+            {
+                'id': skills[0].pk,
+                'name': skills[0].name
+            },
+            {
+                'id': skills[1].pk,
+                'name': skills[1].name
+            }
+        ],
         'projects': [
             {
                 'id': projects[0].pk,
