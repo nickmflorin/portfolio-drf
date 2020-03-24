@@ -7,6 +7,11 @@ def upload_to(instance, filename):
     return f'uploads/{filename}'
 
 
+class Course(models.Model):
+    name = models.CharField(max_length=64, unique=False)
+    description = models.CharField(max_length=512, null=True, blank=True)
+
+
 class School(models.Model):
     name = models.CharField(max_length=64, unique=False)
     city = models.CharField(max_length=64, unique=False)
@@ -20,10 +25,7 @@ class School(models.Model):
 
 
 class Education(models.Model):
-    school = models.ForeignKey(
-        School,
-        on_delete=models.CASCADE,
-    )
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
     start_date = models.DateField(null=False, blank=False)
     end_date = models.DateField(null=True, blank=True)
     degree = models.CharField(max_length=64, unique=False)
@@ -44,6 +46,12 @@ class Education(models.Model):
         blank=True,
         related_name='%(app_label)s_%(class)s_skills',
         help_text="Skilled worked on during education."
+    )
+
+    courses = models.ManyToManyField(Course,
+        blank=True,
+        related_name='%(app_label)s_%(class)s_courses',
+        help_text="Courses taken during education."
     )
 
     class Meta:
