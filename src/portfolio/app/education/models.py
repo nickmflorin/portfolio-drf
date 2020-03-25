@@ -3,15 +3,20 @@ from django.db import models
 
 class Education(models.Model):
     school = models.ForeignKey('schools.School', on_delete=models.CASCADE)
-    start_date = models.DateField(null=False, blank=False)
-    end_date = models.DateField(null=True, blank=True)
     degree = models.CharField(max_length=64, unique=False)
     major = models.CharField(max_length=64, unique=False)
-    gpa = models.FloatField(null=True)
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, null=True, blank=True)
-    description = models.CharField(max_length=512, null=True, blank=True)
+    gpa = models.FloatField(null=True)
+
+    start_date = models.DateField(null=False, blank=False)
+    end_date = models.DateField(null=True, blank=True)
     ongoing = models.BooleanField(default=False)
+
+    description = models.CharField(max_length=512, null=True, blank=True)
+
+    date_created = models.DateTimeField(auto_now_add=True, db_index=True)
+    date_modified = models.DateTimeField(auto_now=True, db_index=True)
 
     projects = models.ManyToManyField('projects.Project',
         blank=True,
