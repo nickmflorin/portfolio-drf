@@ -1,31 +1,8 @@
 from django.db import models
 
 
-def upload_to(instance, filename):
-    ext = filename.split('.')[-1]
-    filename = f"{instance.name.lower().replace(' ','')}.{ext}"
-    return f'uploads/{filename}'
-
-
-class Course(models.Model):
-    name = models.CharField(max_length=64, unique=False)
-    description = models.CharField(max_length=512, null=True, blank=True)
-
-
-class School(models.Model):
-    name = models.CharField(max_length=64, unique=False)
-    city = models.CharField(max_length=64, unique=False)
-    state = models.CharField(max_length=2, unique=False)
-    # TODO: Migrate to django-filer
-    logo = models.ImageField(upload_to=upload_to, null=True)
-    description = models.CharField(max_length=512, null=True, blank=True)
-
-    def __str__(self):
-        return self.name
-
-
 class Education(models.Model):
-    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    school = models.ForeignKey('schools.School', on_delete=models.CASCADE)
     start_date = models.DateField(null=False, blank=False)
     end_date = models.DateField(null=True, blank=True)
     degree = models.CharField(max_length=64, unique=False)
@@ -48,7 +25,7 @@ class Education(models.Model):
         help_text="Skilled worked on during education."
     )
 
-    courses = models.ManyToManyField(Course,
+    courses = models.ManyToManyField('courses.Course',
         blank=True,
         related_name='%(app_label)s_%(class)s_courses',
         help_text="Courses taken during education."

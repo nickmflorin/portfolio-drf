@@ -1,32 +1,11 @@
 from rest_framework import serializers
 
+from portfolio.app.courses.serializers import CourseSerializer
 from portfolio.app.projects.serializers import ProjectSerializer
 from portfolio.app.skills.serializers import SkillSerializer
+from portfolio.app.schools.serializers import SchoolSerializer
 
-from .models import School, Education, Course
-
-
-class CourseSerializer(serializers.ModelSerializer):
-    id = serializers.ReadOnlyField()
-    name = serializers.CharField()
-    description = serializers.CharField()
-
-    class Meta:
-        model = Course
-        fields = ('id', 'name', 'description')
-
-
-class SchoolSerializer(serializers.ModelSerializer):
-    id = serializers.ReadOnlyField()
-    name = serializers.CharField()
-    city = serializers.CharField()
-    state = serializers.CharField()
-    logo = serializers.ImageField()
-    description = serializers.CharField()
-
-    class Meta:
-        model = School
-        fields = ('id', 'name', 'city', 'state', 'logo', 'description')
+from .models import Education
 
 
 class EducationSerializer(serializers.Serializer):

@@ -1,12 +1,14 @@
 from django.contrib import admin
 
-from .models import Skill
+from .forms import CourseForm
+from .models import Course
 
 
-class SkillAdmin(admin.ModelAdmin):
-    model = Skill
+class CourseAdmin(admin.ModelAdmin):
+    model = Course
     list_display = ['name']
     search_fields = ['name']
+    form = CourseForm
 
     def has_delete_permission(self, request, obj=None):
         return True
@@ -15,4 +17,4 @@ class SkillAdmin(admin.ModelAdmin):
         return True
 
 
-admin.site.register(Skill, SkillAdmin)
+admin.site.register(Course, CourseAdmin)

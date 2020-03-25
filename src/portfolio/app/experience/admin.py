@@ -1,20 +1,7 @@
 from django.contrib import admin
 
-from portfolio.app.experience.forms import ExperienceForm, CompanyForm
-from portfolio.app.experience.models import Experience, Company
-
-
-class CompanyAdmin(admin.ModelAdmin):
-    model = Company
-    list_display = ['name']
-    search_fields = ['name']
-    form = CompanyForm
-
-    def has_delete_permission(self, request, obj=None):
-        return True
-
-    def has_add_permission(self, request):
-        return True
+from .forms import ExperienceForm
+from .models import Experience
 
 
 class ExperienceAdmin(admin.ModelAdmin):
@@ -31,4 +18,3 @@ class ExperienceAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Experience, ExperienceAdmin)
-admin.site.register(Company, CompanyAdmin)

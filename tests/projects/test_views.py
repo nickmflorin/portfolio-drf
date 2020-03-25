@@ -1,7 +1,4 @@
-import datetime
 import pytest
-
-from portfolio.app.experience.models import Experience
 
 
 @pytest.mark.django_db

@@ -12,4 +12,7 @@ INSTALLED_APPS = [
     'portfolio.app.experience',
     'portfolio.app.projects',
     'portfolio.app.skills',
+    'portfolio.app.companies',
+    'portfolio.app.courses',
+    'portfolio.app.schools',
 ]

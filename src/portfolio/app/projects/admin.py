@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from portfolio.app.projects.forms import ProjectForm
-from portfolio.app.projects.models import Project
+from .forms import ProjectForm
+from .models import Project
 
 
 class ProjectAdmin(admin.ModelAdmin):

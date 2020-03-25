@@ -1,20 +1,7 @@
 from django.contrib import admin
 
-from portfolio.app.education.forms import EducationForm, SchoolForm
-from portfolio.app.education.models import Education, School
-
-
-class SchoolAdmin(admin.ModelAdmin):
-    model = School
-    list_display = ['name']
-    search_fields = ['name']
-    form = SchoolForm
-
-    def has_delete_permission(self, request, obj=None):
-        return True
-
-    def has_add_permission(self, request):
-        return True
+from .forms import EducationForm
+from .models import Education
 
 
 class EducationAdmin(admin.ModelAdmin):
@@ -31,4 +18,3 @@ class EducationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Education, EducationAdmin)
-admin.site.register(School, SchoolAdmin)
