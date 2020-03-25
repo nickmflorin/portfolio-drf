@@ -1,7 +1,7 @@
 import pytest
 from rest_framework.test import APIClient
 
-from portfolio.app.education.models import School
+from portfolio.app.education.models import School, Course
 from portfolio.app.experience.models import Company
 from portfolio.app.projects.models import Project
 from portfolio.app.skills.models import Skill
@@ -79,4 +79,13 @@ def skills():
     return [
         Skill.objects.create(name='Programming'),
         Skill.objects.create(name='HTML'),
+    ]
+
+
+@pytest.fixture
+@pytest.mark.django_db
+def courses():
+    return [
+        Course.objects.create(name='Computer Science'),
+        Course.objects.create(name='Calculus'),
     ]

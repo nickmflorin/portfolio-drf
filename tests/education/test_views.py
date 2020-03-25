@@ -5,7 +5,7 @@ from portfolio.app.education.models import Education
 
 
 @pytest.mark.django_db
-def test_list_response_200(api_client, projects, schools, skills):
+def test_list_response_200(api_client, projects, schools, skills, courses):
     education = Education.objects.create(
         school=schools[0],
         start_date=datetime.datetime(2020, 1, 1),
@@ -16,6 +16,7 @@ def test_list_response_200(api_client, projects, schools, skills):
     )
     education.projects.set(projects)
     education.skills.set(skills)
+    education.courses.set(courses)
 
     response = api_client.get('/api/v1/education/')
     assert response.status_code == 200
@@ -48,6 +49,18 @@ def test_list_response_200(api_client, projects, schools, skills):
                 'name': skills[1].name
             }
         ],
+        'courses': [
+            {
+                'id': courses[0].pk,
+                'name': courses[0].name,
+                'description': courses[0].description
+            },
+            {
+                'id': courses[1].pk,
+                'name': courses[1].name,
+                'description': courses[1].description
+            }
+        ],
         'projects': [
             {
                 'id': projects[0].pk,
@@ -64,7 +77,7 @@ def test_list_response_200(api_client, projects, schools, skills):
 
 
 @pytest.mark.django_db
-def test_detail_response_200(api_client, projects, schools, skills):
+def test_detail_response_200(api_client, projects, schools, skills, courses):
     education = Education.objects.create(
         school=schools[0],
         start_date=datetime.datetime(2020, 1, 1),
@@ -75,6 +88,7 @@ def test_detail_response_200(api_client, projects, schools, skills):
     )
     education.projects.set(projects)
     education.skills.set(skills)
+    education.courses.set(courses)
 
     response = api_client.get('/api/v1/education/%s/' % education.pk)
     assert response.status_code == 200
@@ -105,6 +119,18 @@ def test_detail_response_200(api_client, projects, schools, skills):
             {
                 'id': skills[1].pk,
                 'name': skills[1].name
+            }
+        ],
+        'courses': [
+            {
+                'id': courses[0].pk,
+                'name': courses[0].name,
+                'description': courses[0].description
+            },
+            {
+                'id': courses[1].pk,
+                'name': courses[1].name,
+                'description': courses[1].description
             }
         ],
         'projects': [
