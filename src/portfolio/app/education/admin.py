@@ -9,6 +9,27 @@ class EducationAdmin(admin.ModelAdmin):
     list_display = ['school', 'degree', 'major']
     search_fields = ['school', 'degree', 'major']
     form = EducationForm
+    fieldsets = (
+        ('Fields of Study', {
+            'fields': (
+                'school', 'degree', 'major', 'minor', 'concentration',
+                'description',
+            )
+        }),
+        ('Dates Attended', {
+            'fields': (
+                ('start_month', 'start_year'),
+                ('end_month', 'end_year'),
+                'ongoing'
+            )
+        }),
+        ('Projects & Skills', {
+            'fields': (
+                'projects',
+                'skills'
+            )
+        }),
+    )
 
     def has_delete_permission(self, request, obj=None):
         return True

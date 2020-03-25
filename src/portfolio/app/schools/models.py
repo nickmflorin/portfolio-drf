@@ -1,5 +1,6 @@
 from django.db import models
 
+from portfolio.app.common.models import PortfolioModel
 from portfolio.app.common.constants import STATES
 
 
@@ -9,16 +10,10 @@ def upload_to(instance, filename):
     return f'uploads/{filename}'
 
 
-class School(models.Model):
+class School(PortfolioModel):
     name = models.CharField(max_length=64, unique=False)
     city = models.CharField(max_length=64, unique=False)
     state = models.CharField(choices=STATES, max_length=2)
     # TODO: Migrate to django-filer
     logo = models.ImageField(upload_to=upload_to, null=True)
     description = models.CharField(max_length=512, null=True, blank=True)
-
-    date_created = models.DateTimeField(auto_now_add=True, db_index=True)
-    date_modified = models.DateTimeField(auto_now=True, db_index=True)
-
-    def __str__(self):
-        return self.name

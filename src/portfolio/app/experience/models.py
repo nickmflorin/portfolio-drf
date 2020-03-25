@@ -1,16 +1,15 @@
 from django.db import models
 
+from portfolio.app.common.models import HorizonModel
 
-class Experience(models.Model):
+
+class Experience(HorizonModel):
     company = models.ForeignKey('companies.Company', on_delete=models.CASCADE)
-    title = models.CharField(max_length=64)
-    start_date = models.DateField(null=False, blank=False)
-    end_date = models.DateField(null=True, blank=True)
-    current = models.BooleanField(default=False)
+    title = models.CharField(
+        max_length=64,
+        help_text="Name of your role at the company."
+    )
     description = models.CharField(max_length=512, null=True, blank=True)
-
-    date_created = models.DateTimeField(auto_now_add=True, db_index=True)
-    date_modified = models.DateTimeField(auto_now=True, db_index=True)
 
     projects = models.ManyToManyField('projects.Project',
         blank=True,
