@@ -1,46 +1,39 @@
-import datetime
 import pytest
-
-from portfolio.app.experience.models import Experience
 
 
 @pytest.mark.django_db
-def test_list_response_200(api_client, projects, companies, skills):
-    experience = Experience.objects.create(
-        company=companies[0],
-        start_date=datetime.datetime(2018, 1, 1),
-        end_date=datetime.datetime(2020, 1, 1),
-        title="Engineer",
-        description="Some Experience",
-    )
-    experience.projects.set(projects)
-    experience.skills.set(skills)
+def test_list_response_200(api_client, create_experience, create_project,
+        create_skill):
+    experience = create_experience()
+    projects = [
+        create_project(content_object=experience),
+        create_project(content_object=experience)
+    ]
+    skill = create_skill()
+    skill.experiences.set([experience])
 
     response = api_client.get('/api/v1/experience/')
-    assert response.status_code == 200
     assert response.json() == [{
         'id': experience.pk,
-        'start_date': '2018-01-01',
-        'end_date': '2020-01-01',
-        'title': 'Engineer',
-        'description': 'Some Experience',
-        'current': False,
+        'start_month': experience.start_month,
+        'end_month': experience.end_month,
+        'start_year': experience.start_year,
+        'end_year': experience.end_year,
+        'current': experience.current,
+        'description': experience.description,
+        'title': experience.title,
         'company': {
-            'id': companies[0].pk,
-            'name': companies[0].name,
-            'city': companies[0].city,
-            'state': companies[0].state,
+            'id': experience.company.pk,
+            'name': experience.company.name,
+            'city': experience.company.city,
+            'state': experience.company.state,
             'logo': None,
-            'description': companies[0].description,
+            'description': experience.company.description,
         },
         'skills': [
             {
-                'id': skills[0].pk,
-                'name': skills[0].name
-            },
-            {
-                'id': skills[1].pk,
-                'name': skills[1].name
+                'id': skill.pk,
+                'name': skill.name,
             }
         ],
         'projects': [
@@ -59,42 +52,39 @@ def test_list_response_200(api_client, projects, companies, skills):
 
 
 @pytest.mark.django_db
-def test_detail_response_200(api_client, projects, companies, skills):
-    experience = Experience.objects.create(
-        company=companies[0],
-        start_date=datetime.datetime(2018, 1, 1),
-        end_date=datetime.datetime(2020, 1, 1),
-        title="Engineer",
-        description="Some Experience",
-    )
-    experience.projects.set(projects)
-    experience.skills.set(skills)
+def test_detail_response_200(api_client, create_experience, create_project,
+        create_skill):
+    experience = create_experience()
+    projects = [
+        create_project(content_object=experience),
+        create_project(content_object=experience)
+    ]
+    skill = create_skill()
+    skill.experiences.set([experience])
 
     response = api_client.get('/api/v1/experience/%s/' % experience.pk)
     assert response.status_code == 200
     assert response.json() == {
         'id': experience.pk,
-        'start_date': '2018-01-01',
-        'end_date': '2020-01-01',
-        'title': 'Engineer',
-        'description': 'Some Experience',
-        'current': False,
+        'start_month': experience.start_month,
+        'end_month': experience.end_month,
+        'start_year': experience.start_year,
+        'end_year': experience.end_year,
+        'current': experience.current,
+        'description': experience.description,
+        'title': experience.title,
         'company': {
-            'id': companies[0].pk,
-            'name': companies[0].name,
-            'city': companies[0].city,
-            'state': companies[0].state,
+            'id': experience.company.pk,
+            'name': experience.company.name,
+            'city': experience.company.city,
+            'state': experience.company.state,
             'logo': None,
-            'description': companies[0].description,
+            'description': experience.company.description,
         },
         'skills': [
             {
-                'id': skills[0].pk,
-                'name': skills[0].name
-            },
-            {
-                'id': skills[1].pk,
-                'name': skills[1].name
+                'id': skill.pk,
+                'name': skill.name,
             }
         ],
         'projects': [

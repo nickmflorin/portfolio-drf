@@ -7,6 +7,8 @@ from portfolio.app.companies.models import Company
 from portfolio.app.projects.models import Project
 from portfolio.app.skills.models import Skill
 
+from tests.factories import factories
+
 
 @pytest.fixture
 def api_client(monkeypatch):
@@ -19,6 +21,38 @@ def api_client(monkeypatch):
         pass
 
     return CustomApiClient()
+
+
+def inject_factory_fixtures():
+    """
+    This method will dynamically create factory fixtures for all of the
+    factories present in the factories module.
+
+    If we have a factory:
+    >>> class SomeFactory():
+    >>>     ...
+
+    Then, a fixture will be generated with the name `some` which can be used
+    as:
+
+    >>> def test_something(create_some):
+    >>>     model = create_some(attr1='foo', attr2='bar')
+    """
+    def model_factory_fixture_generator(factory_cls):
+        @pytest.fixture(scope='module')
+        def factory_fixture():
+            def factory_generator(**kwargs):
+                return factory_cls(**kwargs)
+            return factory_generator
+        return factory_fixture
+
+    for factory_name in factories.__dict__['__all__']:
+        factory_cls = factories.__dict__[factory_name]
+        name = f"create_{factory_name.split('Factory')[0].lower()}"
+        globals()[name] = model_factory_fixture_generator(factory_cls)
+
+
+inject_factory_fixtures()
 
 
 @pytest.fixture

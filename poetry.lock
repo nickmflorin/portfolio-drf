@@ -81,6 +81,14 @@ Django = ">=1.11"
 
 [[package]]
 category = "main"
+description = "Adds pretty CSS styles for the django CMS admin interface."
+name = "djangocms-admin-style"
+optional = false
+python-versions = "*"
+version = "1.5.0"
+
+[[package]]
+category = "main"
 description = "A platform independent file lock."
 name = "filelock"
 optional = false
@@ -271,7 +279,7 @@ debug = []
 docs = []
 
 [metadata]
-content-hash = "047f5ea730400b67c2f974dfec3fa2de9c624334b6135d4baad2765fab634904"
+content-hash = "599faad4159ef9a7c02b713b1d53e0369ae3935de9a2f26d2ea12b71dc7685df"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -284,6 +292,7 @@ distlib = ["2e166e231a26b36d6dfe35a48c4464346620f8645ed0ace01ee31822b288de21"]
 dj-database-url = ["4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163", "851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"]
 django = ["50b781f6cbeb98f673aa76ed8e572a019a45e52bdd4ad09001072dfd91ab07c8", "89e451bfbb815280b137e33e454ddd56481fdaa6334054e6e031041ee1eda360"]
 django-cors-headers = ["a5960addecc04527ab26617e51b8ed42f0adab4594b24bb0f3c33e2bd3857c3f", "a785b5f446f6635810776d9f5f5d23e6a2a2f728ea982648370afaf0dfdf2627"]
+djangocms-admin-style = ["47d9868aa448e593ce90059d6542a4d907c120d357cd0561c586f5557e3ba316"]
 filelock = ["18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59", "929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"]
 importlib-metadata = ["06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302", "b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"]
 more-itertools = ["5dd8bcf33e5f9513ffa06d5ad33d78f31e1931ac9a18f33d37e77a180d393a7c", "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"]
