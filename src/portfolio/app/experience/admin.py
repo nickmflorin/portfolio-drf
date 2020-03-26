@@ -9,7 +9,6 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ['title', 'company']
     search_fields = ['title', 'company']
     form = ExperienceForm
-    filter_horizontal = ('projects',)
 
     def has_delete_permission(self, request, obj=None):
         return True

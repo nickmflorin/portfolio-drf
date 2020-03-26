@@ -13,14 +13,14 @@ class EducationAdmin(admin.ModelAdmin):
         ('Fields of Study', {
             'fields': (
                 'school', 'degree', 'major', 'minor', 'concentration',
-                'description',
+                'description', 'gpa',
             )
         }),
         ('Dates Attended', {
             'fields': (
                 ('start_month', 'start_year'),
                 ('end_month', 'end_year'),
-                'ongoing'
+                'current'
             )
         }),
         ('Projects & Skills', {

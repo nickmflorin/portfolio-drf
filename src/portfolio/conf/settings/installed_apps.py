@@ -9,11 +9,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'portfolio',
+    'portfolio.app.courses',
     'portfolio.app.education',
     'portfolio.app.experience',
     'portfolio.app.projects',
     'portfolio.app.skills',
     'portfolio.app.companies',
-    'portfolio.app.courses',
     'portfolio.app.schools',
 ]

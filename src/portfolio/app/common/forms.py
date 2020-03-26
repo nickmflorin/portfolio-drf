@@ -4,6 +4,7 @@ from django import forms
 class HorizonForm(forms.ModelForm):
 
     def clean(self):
+        # TODO: Validate that the start date is before the end date.
         data = super().clean()
         ongoing = data.get("ongoing")
 
