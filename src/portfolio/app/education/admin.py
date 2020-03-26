@@ -10,10 +10,10 @@ class EducationAdmin(admin.ModelAdmin):
     search_fields = ['school', 'degree', 'major']
     form = EducationForm
     fieldsets = (
-        ('Fields of Study', {
+        (None, {
             'fields': (
                 'school', 'degree', 'major', 'minor', 'concentration',
-                'description', 'gpa',
+                'gpa',
             )
         }),
         ('Dates Attended', {
@@ -23,11 +23,8 @@ class EducationAdmin(admin.ModelAdmin):
                 'current'
             )
         }),
-        ('Projects & Skills', {
-            'fields': (
-                'projects',
-                'skills'
-            )
+        (None, {
+            'fields': ('description', )
         }),
     )
 

@@ -9,6 +9,21 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ['title', 'company']
     search_fields = ['title', 'company']
     form = ExperienceForm
+    fieldsets = (
+        (None, {
+            'fields': ('company', 'title')
+        }),
+        ('Dates of Employment', {
+            'fields': (
+                ('start_month', 'start_year'),
+                ('end_month', 'end_year'),
+                'current'
+            )
+        }),
+        (None, {
+            'fields': ('description', )
+        }),
+    )
 
     def has_delete_permission(self, request, obj=None):
         return True
