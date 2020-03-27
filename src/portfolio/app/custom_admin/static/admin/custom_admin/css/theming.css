@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap');
+
+#content {
+    padding: 0;
+    margin: 15px;
+}
+
+#header {
+    background: #2196F3 !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#header #branding h1 {
+    border-radius: 25px;
+    height: 31px;
+    margin: 0;
+    padding: 3px 10px;
+    line-height: 34px;
+    font-size: 22px;
+}
+
+a, a:visited, a:link {
+  color: #2196F3 !important;
+}
+
+a:hover {
+    color: #b3b3b3 !important;
+    text-decoration: none !important;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #ffffff !important;
+}
+
+div.breadcrumbs {
+    background: #2196F3;
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    color: #b3b3b3;
+    text-align: left;
+}
+
+div.breadcrumbs a {
+    color: #fff !important;
+}

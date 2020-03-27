@@ -8,6 +8,7 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 
 urlpatterns = [
+    path('admin_tools/', include('admin_tools.urls')),
     path('admin/', admin.site.urls),
     path('api/v1/', include([
         path('experience/', include('portfolio.app.experience.urls')),

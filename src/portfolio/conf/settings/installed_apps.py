@@ -1,5 +1,8 @@
 INSTALLED_APPS = [
-    'portfolio.app.custom_admin',
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -9,6 +12,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'portfolio',
+    'portfolio.app.custom_admin',
     'portfolio.app.courses',
     'portfolio.app.education',
     'portfolio.app.experience',

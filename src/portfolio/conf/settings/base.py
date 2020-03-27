@@ -1,13 +1,12 @@
-import os
-from pathlib import Path
-
+from .databases import DATABASES  # noqa
 from .logging import LOGGING  # noqa
 from .installed_apps import INSTALLED_APPS  # noqa
 from .middleware import MIDDLEWARE  # noqa
 from .restframework import REST_FRAMEWORK  # noqa
-from .paths import *  # noqa
-
-BASE_DIR = Path(os.path.abspath(__file__)).parents[4]
+from .paths import (  # noqa
+    PROJECT_ROOT, APPS_ROOT, STATIC_ROOT, STATICFILES_DIRS, MEDIA_ROOT)
+from .templates import TEMPLATES # noqa
+from .urls import STATIC_URL, MEDIA_URL  # noqa
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -15,13 +14,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-# Static Files
-STATIC_URL = '/static/'
-STATIC_ROOT = "%s/static/" % BASE_DIR
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 SECRET_KEY = 'sc8en5z!!0jc4!mb5mom_ox-ucn)bajz^b%xcich8@0n!rd(n*'
 DEBUG = True
@@ -35,35 +27,7 @@ CORS_ORIGIN_REGEX_WHITELIST = (
 
 ROOT_URLCONF = 'portfolio.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'src', 'portfolio', 'app', 'templates'),
-            os.path.join(BASE_DIR, 'src', 'portfolio', 'app', 'templates', 'admin')
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
 WSGI_APPLICATION = 'portfolio.wsgi.application'
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-DATABASES['default']['ATOMIC_REQUESTS'] = True
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
@@ -71,3 +35,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+ADMIN_TOOLS_INDEX_DASHBOARD = 'portfolio.dashboard.CustomIndexDashboard'
+ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'portfolio.dashboard.CustomAppIndexDashboard'
+ADMIN_TOOLS_THEMING_CSS = 'admin/custom_admin/css/theming.css'
