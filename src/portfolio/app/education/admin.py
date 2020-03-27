@@ -1,5 +1,9 @@
 from django.contrib import admin
 
+from portfolio.app.courses.forms import CourseInline
+from portfolio.app.projects.forms import ProjectInline
+from portfolio.app.skills.admin import SkillEducationInline
+
 from .forms import EducationForm
 from .models import Education
 
@@ -9,6 +13,11 @@ class EducationAdmin(admin.ModelAdmin):
     list_display = ['school', 'degree', 'major']
     search_fields = ['school', 'degree', 'major']
     form = EducationForm
+    inlines = [
+        ProjectInline,
+        CourseInline,
+        SkillEducationInline
+    ]
     fieldsets = (
         (None, {
             'fields': (

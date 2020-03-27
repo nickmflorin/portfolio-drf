@@ -5,7 +5,7 @@ from .logging import LOGGING  # noqa
 from .installed_apps import INSTALLED_APPS  # noqa
 from .middleware import MIDDLEWARE  # noqa
 from .restframework import REST_FRAMEWORK  # noqa
-
+from .paths import *  # noqa
 
 BASE_DIR = Path(os.path.abspath(__file__)).parents[4]
 
@@ -38,7 +38,10 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'src', 'portfolio', 'app', 'templates'),
+            os.path.join(BASE_DIR, 'src', 'portfolio', 'app', 'templates', 'admin')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

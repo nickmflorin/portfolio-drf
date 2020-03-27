@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from portfolio.app.projects.forms import ProjectInline
+from portfolio.app.skills.admin import SkillExperienceInline
 
 from .forms import ExperienceForm
 from .models import Experience
@@ -28,6 +29,7 @@ class ExperienceAdmin(admin.ModelAdmin):
     )
     inlines = [
         ProjectInline,
+        SkillExperienceInline,
     ]
 
     def has_delete_permission(self, request, obj=None):

@@ -1,5 +1,5 @@
 INSTALLED_APPS = [
-    'djangocms_admin_style',
+    'portfolio.app.custom_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
