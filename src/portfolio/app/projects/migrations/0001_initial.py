@@ -9,19 +9,20 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('education', '0001_initial'),
+        ('contenttypes', '0002_remove_content_type_name'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Course',
+            name='Project',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('date_created', models.DateTimeField(auto_now_add=True, db_index=True)),
                 ('date_modified', models.DateTimeField(auto_now=True, db_index=True)),
-                ('name', models.CharField(help_text='Name of the course or class.', max_length=64)),
-                ('description', models.CharField(blank=True, max_length=512, null=True)),
-                ('education', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='courses', to='education.Education')),
+                ('name', models.CharField(max_length=64)),
+                ('description', models.CharField(blank=True, max_length=1024, null=True)),
+                ('object_id', models.PositiveIntegerField()),
+                ('content_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='contenttypes.ContentType')),
             ],
             options={
                 'abstract': False,

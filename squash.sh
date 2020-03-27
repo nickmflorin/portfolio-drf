@@ -7,23 +7,26 @@ cd ../../
 python manage.py migrate
 
 declare -A arr
-arr[0,0]='schools'
-arr[0,1]='companies'
-arr[0,2]='projects'
-arr[1,0]='education'
-arr[1,1]='courses'
-arr[1,2]='experience'
-arr[1,3]='skills'
-
-for (( i=0; i<=2; i++ ))
-do
-  python manage.py makemigrations ${arr[0,i]}
-done
-python manage.py migrate
+arr[0]='schools'
+arr[1]='companies'
+arr[2]='projects'
+arr[3]='education'
+arr[4]='courses'
+arr[5]='experience'
+arr[6]='skills'
 
 for (( i=0; i<=3; i++ ))
 do
-  python manage.py makemigrations ${arr[1,i]}
+  echo "Migrating ${arr[i]}"
+  python manage.py makemigrations ${arr[i]}
+done
+python manage.py migrate
+echo "First Set of Migrations Done"
+
+for (( i=3; i<=6; i++ ))
+do
+  echo "Migrating ${arr[i]}"
+  python manage.py makemigrations ${arr[i]}
 done
 python manage.py migrate
 
