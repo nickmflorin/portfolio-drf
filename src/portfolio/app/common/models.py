@@ -15,8 +15,8 @@ class PortfolioModel(models.Model):
 
 
 class HorizonModel(PortfolioModel):
-    start_month = models.IntegerField(choices=MONTHS)
-    start_year = models.IntegerField(choices=YEARS)
+    start_month = models.IntegerField(choices=MONTHS, null=False, blank=False)
+    start_year = models.IntegerField(choices=YEARS, null=False, blank=False)
     end_month = models.IntegerField(
         choices=MONTHS,
         null=True,

@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+from portfolio.app.projects.forms import ProjectInline
+
 from .forms import ExperienceForm
 from .models import Experience
 
@@ -24,6 +26,9 @@ class ExperienceAdmin(admin.ModelAdmin):
             'fields': ('description', )
         }),
     )
+    inlines = [
+        ProjectInline,
+    ]
 
     def has_delete_permission(self, request, obj=None):
         return True
