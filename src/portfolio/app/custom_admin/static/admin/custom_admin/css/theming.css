@@ -70,16 +70,14 @@
   padding: 5px 8px !important;
 }
 
-
 select {
-    height: 30px;
-    min-width: 150px !important;
+    min-width: 200px !important;
     font-weight: 300 !important;
     font-size: 14px !important;
     border-radius: 0px !important;
 }
 
-input, textarea, select, .form-row p, form .button {
+input, textarea, select, .form-row p {
     margin: 2px 0;
     padding: 2px 3px;
     vertical-align: middle;
@@ -87,6 +85,11 @@ input, textarea, select, .form-row p, form .button {
     font-weight: 300 !important;
     font-size: 14px !important;
     border-radius: 0px !important;
+}
+
+select, input[type='text'] {
+  height: 30px !important;
+  padding: 5px 6px !important;
 }
 
 th {
@@ -120,56 +123,56 @@ textarea {
   max-width: 600px !important;
 }
 
+.button, .object-tools a:link, a.deletelink, input[type=submit], input[type=button]{
+  font-weight: 400 !important;
+  font-family: 'Roboto', sans-serif !important;
+  color: var(--white) !important;
+  border-radius: 4px !important;
+  padding: 8px 15px !important;
+  line-height: 14px !important;
+  background: var(--blue) !important;
+  border: 1px solid var(--blue) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+}
+
+.button:hover, .object-tools a:link:hover, a.deletelink:hover, input[type=submit]:hover, input[type=button]:hover {
+  filter: brightness(0.6) !important;
+}
+
+a.deletelink {
+  background: var(--red) !important;
+  border: 1px solid var(--red) !important;
+}
+
+.object-tools a:link {
+  color: var(--gray-1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
+}
+
+.object-tools a.viewsitelink, .object-tools a.golink, .object-tools a.addlink {
+    background: var(--green) !important;
+    border: 1px solid var(--green) !important;
+}
+
 .button.default, input[type=submit].default, .submit-row input.default {
-    float: right;
-    border: none;
-    font-weight: 400;
-    background: var(--blue) !important;
-}
-
-.button, input[type=submit], input[type=button], .submit-row input, a.button {
-    background: #1f8eca !important;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 0px !important;
-    color: var(--white) !important;
-    cursor: pointer;
-}
-
-.submit-row a.deletelink {
-    display: block;
-    background: var(--red) !important;
-    border-radius: 4px;
-    padding: 10px 15px;
-    height: 15px;
-    line-height: 15px;
-    color: var(--white) !important;
+  float: right;
+  color: var(--gray-1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
 }
 
 #changelist #toolbar form input[type="submit"] {
-    border: 1px solid #ccc;
-    font-size: 12px;
-    padding: 4px 8px;
-    margin: 0;
-    vertical-align: middle;
-    background: var(--light-gray) !important;
-    box-shadow: none !important;
-    cursor: pointer;
-    color: var(--secondary) !important;
+  color: var(--gray-1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
 }
 
 #changelist .actions .button {
-    font-size: 14px;
-    border: 1px solid var(--green);
-    border-radius: 0px !important;
+    border: 1px solid var(--green) !important;
     background: var(--green) !important;
-    box-shadow: none !important;
-    cursor: pointer;
-    height: 24px;
-    line-height: 12px;
-    padding: 6px 8px;
-    margin: 0;
-    color: var(--white) !important;
 }
 
 .module h2, .module caption, .inline-group h2 {
@@ -194,16 +197,17 @@ textarea {
 }
 
 div.breadcrumbs {
-    background: var(--blue) !important;
-    padding: 10px 40px;
+    background: var(--white) !important;
+    padding: 16px 16px;
     border: none;
     font-size: 14px;
-    color: var(--white) !important;
     text-align: left;
 }
 
 div.breadcrumbs a {
-    color: var(--white) !important;
+    color: var(--gray-2) !important;
+    margin-left: 6px !important;
+    margin-right: 6px !important;
 }
 
 div.breadcrumbs a:hover, a:active {
