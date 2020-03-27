@@ -10,12 +10,12 @@ ALLOWED_HOSTS = ['testserver']
 TIME_ZONE = 'UTC'
 
 DATABASES = {
-    'default': dj_database_url.parse('sqlite:///%s/db.sqlite3' % BASE_DIR)  # noqa
+    'default': dj_database_url.parse('sqlite:///%s/db.sqlite3' % PROJECT_ROOT)  # noqa
 }
 
 DATABASES['default']['ATOMIC_REQUESTS'] = True
 
-# Disable logging in tests
+# Disable Logging in Tests
 LOGGING['handlers']['portfoliolog'] = LOGGING['handlers']['null']  # noqa
 LOGGING['loggers'] = {  # noqa
     '': {
