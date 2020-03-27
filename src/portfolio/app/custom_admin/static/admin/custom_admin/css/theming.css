@@ -87,8 +87,15 @@ input, textarea, select, .form-row p {
     border-radius: 0px !important;
 }
 
-select, input[type='text'] {
+select {
   height: 30px !important;
+}
+
+input[type="text"] {
+  height: 20px !important;
+}
+
+select, input[type='text'] {
   padding: 5px 6px !important;
 }
 
@@ -175,6 +182,16 @@ a.deletelink {
     background: var(--green) !important;
 }
 
+#changelist .actions {
+    padding: 10px;
+    background: var(--white) !important;
+    border-top: none;
+    border-bottom: none;
+    line-height: 30px !important;
+    color: var(--gray-3) !important;
+    vertical-align: middle;
+}
+
 .module h2, .module caption, .inline-group h2 {
     margin: 0;
     font-family: 'Roboto', sans-serif !important;
@@ -190,6 +207,10 @@ a.deletelink {
     font-size: 12px;
     letter-spacing: 0.5px;
     text-transform: none !important;
+}
+
+#changelist #toolbar form #searchbar {
+  vertical-align: middle !important;
 }
 
 #branding h1, #branding h1 a:link, #branding h1 a:visited {

@@ -1,3 +1,4 @@
+from .admin import *  # noqa
 from .databases import DATABASES  # noqa
 from .logging import LOGGING  # noqa
 from .installed_apps import INSTALLED_APPS  # noqa
@@ -6,7 +7,7 @@ from .restframework import REST_FRAMEWORK  # noqa
 from .paths import (  # noqa
     PROJECT_ROOT, APPS_ROOT, STATIC_ROOT, STATICFILES_DIRS, MEDIA_ROOT)
 from .templates import TEMPLATES # noqa
-from .urls import STATIC_URL, MEDIA_URL  # noqa
+from .urls import ROOT_URLCONF, STATIC_URL, MEDIA_URL  # noqa
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
@@ -25,8 +26,6 @@ CORS_ORIGIN_REGEX_WHITELIST = (
     r'^(https?://)?localhost:?[\d]*?$'
 )
 
-ROOT_URLCONF = 'portfolio.urls'
-
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -39,7 +38,3 @@ AUTH_PASSWORD_VALIDATORS = [
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-
-ADMIN_TOOLS_INDEX_DASHBOARD = 'portfolio.app.custom_admin.dashboard.CustomIndexDashboard'
-ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'portfolio.app.custom_admin.dashboard.CustomAppIndexDashboard'
-ADMIN_TOOLS_THEMING_CSS = 'admin/custom_admin/css/theming.css'

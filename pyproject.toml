@@ -31,9 +31,9 @@ dj-database-url = "^0.5.0"
 tox = "^3.14"
 django-cors-headers = "^3.2"
 pillow = "^7.0"
-djangocms-admin-style = "^1.5"
 djangorestframework = "^3.11"
 django = "^3.0"
+django-admin-tools = "^0.9.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
