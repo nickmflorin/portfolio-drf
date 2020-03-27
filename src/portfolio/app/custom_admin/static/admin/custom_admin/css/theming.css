@@ -1,13 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap');
 
+:root {
+  --blue: #2196f3;
+  --white: #FFFFFF;
+  --red: rgba(255, 92, 80, 1.0);
+  --green: rgba(61, 185, 135, 1.0);
+  --light-gray: #EFEFEF;
+  --gray-hover: #7d7d7d;
+  --primary: #282828;
+  --secondary: #3C3C3C;
+  --gray-1: #474747;
+  --gray-2: #5F5F5F;
+  --gray-3: #838383;
+}
+
 #content {
     padding: 0;
     margin: 15px;
 }
 
 #header {
-    background: #2196F3 !important;
+    background: var(--blue); !important;
     padding-left: 0;
     padding-right: 0;
 }
@@ -21,28 +35,177 @@
     font-size: 22px;
 }
 
+#header #navigation-menu {
+    background: var(--white); !important;
+    border-bottom: none !important;
+    clear: both;
+    height: auto;
+    margin-top: 0px !important;
+    width: 100%;
+    z-index: 9999;
+}
+
+#header ul#navigation-menu li.first a {
+    margin: 0 0 0 12px;
+    text-indent: 14px;
+    background: none !important;
+}
+
+.dashboard-module {
+    margin: 10px 10px 5px 10px;
+    padding: 0;
+    border: 1px solid var(--light-gray) !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+}
+
+.dashboard-module ul li {
+  font-size: 14px !important;
+  padding: 5px 8px !important;
+  line-height: 20px !important;
+}
+
+.dashboard-module ul li ul li {
+  line-height: 20px !important;
+  padding: 5px 8px !important;
+}
+
+
+select {
+    height: 30px;
+    min-width: 150px !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    border-radius: 0px !important;
+}
+
+input, textarea, select, .form-row p, form .button {
+    margin: 2px 0;
+    padding: 2px 3px;
+    vertical-align: middle;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 14px !important;
+    border-radius: 0px !important;
+}
+
+th {
+    font-weight: 400 !important;
+    text-align: left;
+}
+
 a, a:visited, a:link {
-  color: #2196F3 !important;
+  color: var(--blue); !important;
 }
 
 a:hover {
-    color: #b3b3b3 !important;
-    text-decoration: none !important;
+  color: var(--gray-hover); !important;
+  text-decoration: none !important;
+}
+
+ul li {
+  list-style-type: square;
+  padding: 0 !important;
+}
+
+li, dt, dd {
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+
+textarea {
+  min-height: 150px !important;
+  max-height: 200px !important;
+  min-width: 400px !important;
+  max-width: 600px !important;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background: var(--blue) !important;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #1f8eca !important;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0px !important;
+    color: var(--white) !important;
+    cursor: pointer;
+}
+
+.submit-row a.deletelink {
+    display: block;
+    background: var(--red) !important;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 15px;
+    line-height: 15px;
+    color: var(--white) !important;
+}
+
+#changelist #toolbar form input[type="submit"] {
+    border: 1px solid #ccc;
+    font-size: 12px;
+    padding: 4px 8px;
+    margin: 0;
+    vertical-align: middle;
+    background: var(--light-gray) !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    color: var(--secondary) !important;
+}
+
+#changelist .actions .button {
+    font-size: 14px;
+    border: 1px solid var(--green);
+    border-radius: 0px !important;
+    background: var(--green) !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    height: 24px;
+    line-height: 12px;
+    padding: 6px 8px;
+    margin: 0;
+    color: var(--white) !important;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif !important;
+    padding: 8px;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    text-align: left;
+    background: var(--blue) !important;
+    color: var(--white);
+}
+
+.module caption, .inline-group h2 {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: none !important;
 }
 
 #branding h1, #branding h1 a:link, #branding h1 a:visited {
-    color: #ffffff !important;
+    color: var(--white) !important;
 }
 
 div.breadcrumbs {
-    background: #2196F3;
+    background: var(--blue) !important;
     padding: 10px 40px;
     border: none;
     font-size: 14px;
-    color: #b3b3b3;
+    color: var(--white) !important;
     text-align: left;
 }
 
 div.breadcrumbs a {
-    color: #fff !important;
+    color: var(--white) !important;
+}
+
+div.breadcrumbs a:hover, a:active {
+    color: var(--light-gray) !important;
 }

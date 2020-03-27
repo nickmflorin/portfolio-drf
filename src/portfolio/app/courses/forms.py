@@ -7,7 +7,7 @@ from .models import Course
 class CourseInlineForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 4, "cols": 80}),
-        required=True,
+        required=False,
     )
 
     class Meta:
