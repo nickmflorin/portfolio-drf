@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from portfolio.app.common.serializers import HorizonSerializer
 from portfolio.app.companies.serializers import CompanySerializer
+from portfolio.app.projects.serializers import BasicProjectSerializer
+from portfolio.app.skills.serializers import BasicSkillSerializer
 
 from .models import Experience
 
@@ -19,19 +21,9 @@ class BasicExperienceSerializer(HorizonSerializer):
 
 
 class ExperienceSerializer(BasicExperienceSerializer):
-    projects = serializers.SerializerMethodField()
-    skills = serializers.SerializerMethodField()
+    projects = BasicProjectSerializer(many=True)
+    skills = BasicSkillSerializer(many=True)
 
     class Meta:
         model = Experience
         fields = BasicExperienceSerializer.Meta.fields + ('projects', 'skills')
-
-    def get_projects(self, instance):
-        from portfolio.app.projects.serializers import BasicProjectSerializer
-        qs = instance.projects.all()
-        return BasicProjectSerializer(qs, many=True).data
-
-    def get_skills(self, instance):
-        from portfolio.app.skills.serializers import BasicSkillSerializer
-        qs = instance.skill_set.all()
-        return BasicSkillSerializer(qs, many=True).data

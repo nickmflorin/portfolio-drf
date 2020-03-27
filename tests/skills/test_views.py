@@ -15,23 +15,25 @@ def test_list_response_200(api_client, create_skill):
             'name': skills[0].name,
             'educations': [],
             'experiences': [],
-            'courses': []
+            'courses': [],
+            'projects': [],
         },
         {
             'id': skills[1].pk,
             'name': skills[1].name,
             'educations': [],
             'experiences': [],
-            'courses': []
+            'courses': [],
+            'projects': [],
         }
     ]
 
 
 @pytest.mark.django_db
 def test_detail_response_200(api_client, create_skill, create_education,
-        create_course, create_experience):
+        create_course, create_experience, create_project):
     skill = create_skill()
-
+    project = create_project()
     education = create_education()
     experience = create_experience()
     courses = [
@@ -41,6 +43,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
     skill.courses.set(courses)
     skill.experiences.add(experience)
     skill.educations.add(education)
+    skill.projects.add(project)
 
     response = api_client.get('/api/v1/skills/%s/' % skill.pk)
     assert response.status_code == 200
@@ -68,6 +71,11 @@ def test_detail_response_200(api_client, create_skill, create_education,
                 'logo': None,
                 'description': education.school.description,
             },
+        }],
+        'projects': [{
+            'id': project.id,
+            'name': project.name,
+            'description': project.description,
         }],
         'courses': [
             {

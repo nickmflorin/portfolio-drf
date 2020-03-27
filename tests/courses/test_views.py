@@ -2,12 +2,14 @@ import pytest
 
 
 @pytest.mark.django_db
-def test_list_response_200(api_client, create_education, create_course):
+def test_list_response_200(api_client, create_education, create_course, create_skill):
     education = create_education()
+    skill = create_skill()
     courses = [
         create_course(education=education),
         create_course(education=education)
     ]
+    courses[0].skills.add(skill)
     response = api_client.get('/api/v1/courses/')
 
     assert response.status_code == 200
@@ -37,7 +39,11 @@ def test_list_response_200(api_client, create_education, create_course):
                     'logo': None,
                     'description': education.school.description,
                 },
-            }
+            },
+            'skills': [{
+                'id': skill.pk,
+                'name': skill.name
+            }],
         },
         {
             'id': courses[1].pk,
@@ -64,15 +70,19 @@ def test_list_response_200(api_client, create_education, create_course):
                     'logo': None,
                     'description': education.school.description,
                 },
-            }
+            },
+            'skills': [],
         }
     ]
 
 
 @pytest.mark.django_db
-def test_detail_response_200(api_client, create_education, create_course):
+def test_detail_response_200(api_client, create_education, create_course, create_skill):
     education = create_education()
+    skill = create_skill()
     course = create_course(education=education)
+    course.skills.add(skill)
+
     response = api_client.get('/api/v1/courses/%s/' % course.pk)
 
     assert response.status_code == 200
@@ -101,5 +111,9 @@ def test_detail_response_200(api_client, create_education, create_course):
                 'logo': None,
                 'description': education.school.description,
             },
-        }
+        },
+        'skills': [{
+            'id': skill.pk,
+            'name': skill.name
+        }]
     }

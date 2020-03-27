@@ -11,3 +11,17 @@ class Project(PortfolioModel):
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
+
+    def save(self, *args, **kwargs):
+        """
+        On save, we want to force the associated education or experience to save
+        as well, so that any skills added to this project will also be
+        added to the education or experience.
+
+        NOTE:
+        ----
+        We need to investigate whether or not the extra saving is necessary,
+        because the forms might handle the save of the related model themselves.
+        """
+        self.content_object.save()
+        super(Project, self).save(*args, **kwargs)

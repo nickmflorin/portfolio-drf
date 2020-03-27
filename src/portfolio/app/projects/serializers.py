@@ -1,4 +1,7 @@
 from rest_framework import serializers
+
+from portfolio.app.skills.serializers import BasicSkillSerializer
+
 from .models import Project
 
 
@@ -12,10 +15,8 @@ class BasicProjectSerializer(serializers.ModelSerializer):
 
 
 class ProjectSerializer(BasicProjectSerializer):
-    name = serializers.CharField()
-    description = serializers.CharField()
+    skills = BasicSkillSerializer(many=True)
 
     class Meta:
         model = Project
-        # TODO: We want to reference the education and projects that are in here.
-        fields = BasicProjectSerializer.Meta.fields + ()
+        fields = BasicProjectSerializer.Meta.fields + ('skills', )

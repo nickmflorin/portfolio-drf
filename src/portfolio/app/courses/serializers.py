@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from portfolio.app.common.serializers import PortfolioSerializer
 from portfolio.app.education.serializers import BasicEducationSerializer
+from portfolio.app.skills.serializers import BasicSkillSerializer
+
 from .models import Course
 
 
@@ -16,7 +18,8 @@ class BasicCourseSerializer(PortfolioSerializer):
 
 class CourseSerializer(BasicCourseSerializer):
     education = BasicEducationSerializer()
+    skills = BasicSkillSerializer(many=True)
 
     class Meta:
         model = Course
-        fields = BasicCourseSerializer.Meta.fields + ('education', )
+        fields = BasicCourseSerializer.Meta.fields + ('education', 'skills')

@@ -1,7 +1,9 @@
 from rest_framework import serializers
 
+from portfolio.app.projects.serializers import BasicProjectSerializer
 from portfolio.app.common.serializers import HorizonSerializer
 from portfolio.app.schools.serializers import SchoolSerializer
+from portfolio.app.skills.serializers import BasicSkillSerializer
 
 from .models import Education
 
@@ -23,8 +25,8 @@ class BasicEducationSerializer(HorizonSerializer):
 
 
 class EducationSerializer(BasicEducationSerializer):
-    projects = serializers.SerializerMethodField()
-    skills = serializers.SerializerMethodField()
+    projects = BasicProjectSerializer(many=True)
+    skills = BasicSkillSerializer(many=True)
     courses = serializers.SerializerMethodField()
 
     class Meta:
@@ -33,16 +35,9 @@ class EducationSerializer(BasicEducationSerializer):
             'projects', 'skills', 'courses')
 
     def get_courses(self, instance):
+        # This has to be in a serializer method field instead of just simply doing
+        # >>> EducationSerializer()
+        # >>>   courses = BasicCourseSerializer(many=True)
+        # because this would introduce a circular import.
         from portfolio.app.courses.serializers import BasicCourseSerializer
-        courses = instance.course_set.all()
-        return BasicCourseSerializer(courses, many=True).data
-
-    def get_projects(self, instance):
-        from portfolio.app.projects.serializers import BasicProjectSerializer
-        qs = instance.projects.all()
-        return BasicProjectSerializer(qs, many=True).data
-
-    def get_skills(self, instance):
-        from portfolio.app.skills.serializers import BasicSkillSerializer
-        qs = instance.skill_set.all()
-        return BasicSkillSerializer(qs, many=True).data
+        return BasicCourseSerializer(instance.courses.all(), many=True).data
