@@ -11,7 +11,7 @@ def upload_to(instance, filename):
 
 
 class Company(PortfolioModel):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
     city = models.CharField(max_length=64)
     state = models.CharField(choices=STATES, max_length=2)
     # TODO: Migrate to django-filer
