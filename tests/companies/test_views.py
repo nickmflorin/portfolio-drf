@@ -16,6 +16,7 @@ def test_list_response_200(api_client, create_company):
             'city': companies[0].city,
             'state': companies[0].state,
             'logo': None,
+            'url': companies[0].url,
             'description': companies[0].description
         },
         {
@@ -24,6 +25,7 @@ def test_list_response_200(api_client, create_company):
             'city': companies[1].city,
             'state': companies[1].state,
             'logo': None,
+            'url': companies[1].url,
             'description': companies[1].description
         }
     ]
@@ -40,5 +42,6 @@ def test_detail_response_200(api_client, create_company):
         'city': company.city,
         'state': company.state,
         'logo': None,
+        'url': company.url,
         'description': company.description
     }

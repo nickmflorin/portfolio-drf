@@ -40,6 +40,7 @@ class CompanyFactory(PortfolioModelFactory):
     description = factory.Faker('paragraph')
     state = factory.Sequence(lambda n: STATES[n][0])
     city = factory.Faker('name')
+    url = factory.Faker('url')
     logo = None
 
     class Meta:

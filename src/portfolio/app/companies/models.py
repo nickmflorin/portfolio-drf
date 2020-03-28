@@ -12,10 +12,10 @@ def upload_to(instance, filename):
 
 class Company(PortfolioModel):
     name = models.CharField(max_length=64, unique=True)
+    logo = models.ImageField(upload_to=upload_to, null=True)
+    url = models.URLField(max_length=100, null=True, blank=True)
     city = models.CharField(max_length=64)
     state = models.CharField(choices=STATES, max_length=2)
-    # TODO: Migrate to django-filer
-    logo = models.ImageField(upload_to=upload_to, null=True)
     description = models.CharField(max_length=512, null=True, blank=True)
 
     class Meta:

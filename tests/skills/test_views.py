@@ -104,6 +104,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
                 'city': experience.company.city,
                 'state': experience.company.state,
                 'logo': None,
+                'url': experience.company.url,
                 'description': experience.company.description,
             },
         }]
