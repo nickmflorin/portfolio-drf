@@ -15,61 +15,6 @@
   --gray-3: #838383;
 }
 
-#content {
-    padding: 0;
-    margin: 15px;
-}
-
-#header {
-    background: var(--blue); !important;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-#header #branding h1 {
-    border-radius: 25px;
-    height: 31px;
-    margin: 0;
-    padding: 3px 10px;
-    line-height: 34px;
-    font-size: 22px;
-}
-
-#header #navigation-menu {
-    background: var(--white); !important;
-    border-bottom: none !important;
-    clear: both;
-    height: auto;
-    margin-top: 0px !important;
-    width: 100%;
-    z-index: 9999;
-}
-
-#header ul#navigation-menu li.first a {
-    margin: 0 0 0 12px;
-    text-indent: 14px;
-    background: none !important;
-}
-
-.dashboard-module {
-    margin: 10px 10px 5px 10px;
-    padding: 0;
-    border: 1px solid var(--light-gray) !important;
-    -moz-border-radius: 0px !important;
-    -webkit-border-radius: 0px !important;
-}
-
-.dashboard-module ul li {
-  font-size: 14px !important;
-  padding: 5px 8px !important;
-  line-height: 20px !important;
-}
-
-.dashboard-module ul li ul li {
-  line-height: 20px !important;
-  padding: 5px 8px !important;
-}
-
 select {
     min-width: 200px !important;
     font-weight: 300 !important;
@@ -130,45 +75,89 @@ textarea {
   max-width: 600px !important;
 }
 
-.button, .object-tools a:link, a.deletelink, input[type=submit], input[type=button]{
-  font-weight: 400 !important;
-  font-family: 'Roboto', sans-serif !important;
+div.breadcrumbs {
+  background: var(--white) !important;
+  padding: 16px 16px;
+  border: none;
+  font-size: 14px;
+  text-align: left;
+}
+
+div.breadcrumbs a {
+  color: var(--gray-2) !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+}
+
+div.breadcrumbs a:hover, a:active {
+  color: var(--light-gray) !important;
+}
+
+ul.messagelist {
+  margin: 20px !important;
+}
+
+ul.messagelist li {
+    display: block;
+    font-weight: 300 !important;
+    font-size: 12px !important;
+    padding: 10px 10px 10px 10px !important;
+    margin: 0 0 10px 0;
+    background: #dfd !important;
+    color: var(--secondary) !important;
+}
+
+#content {
+  padding: 0;
+  margin: 15px;
+}
+
+#header {
+  background: var(--blue); !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#header #branding h1 {
+  border-radius: 25px;
+  height: 31px;
+  margin: 0;
+  padding: 3px 10px;
+  line-height: 34px;
+  font-size: 22px;
+}
+
+#header #navigation-menu {
+  background: var(--white); !important;
+  border-bottom: none !important;
+  margin-top: 0px !important;
+}
+
+#header ul#navigation-menu li.first a {
+  margin: 0 0 0 10px !important;
+  text-indent: 10px !important;
+  background: none !important;
+}
+
+#header ul#navigation-menu li a {
+  display: block;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px 30px 9px 15px;
+  border-right: 1px solid var(--light-gray) !important;
+  color: var(--secondary) !important;
+}
+
+#header ul#navigation-menu li:hover, #header ul#navigation-menu li.over, #header ul#navigation-menu li.selected {
+  filter: brightness(0.9) !important;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
   color: var(--white) !important;
-  border-radius: 4px !important;
-  padding: 8px 15px !important;
-  line-height: 14px !important;
-  background: var(--blue) !important;
-  border: 1px solid var(--blue) !important;
-  background-image: none !important;
-  box-shadow: none !important;
-  height: auto !important;
 }
 
-.button:hover, .object-tools a:link:hover, a.deletelink:hover, input[type=submit]:hover, input[type=button]:hover {
-  filter: brightness(0.6) !important;
-}
-
-a.deletelink {
-  background: var(--red) !important;
-  border: 1px solid var(--red) !important;
-}
-
-.object-tools a:link {
-  color: var(--gray-1) !important;
-  border: 1px solid var(--light-gray) !important;
-  background: var(--light-gray) !important;
-}
-
-.object-tools a.viewsitelink, .object-tools a.golink, .object-tools a.addlink {
-    background: var(--green) !important;
-    border: 1px solid var(--green) !important;
-}
-
-.button.default, input[type=submit].default, .submit-row input.default {
-  float: right;
-  color: var(--gray-1) !important;
-  border: 1px solid var(--light-gray) !important;
-  background: var(--light-gray) !important;
+#changelist #toolbar form #searchbar {
+  vertical-align: middle !important;
 }
 
 #changelist #toolbar form input[type="submit"] {
@@ -180,6 +169,7 @@ a.deletelink {
 #changelist .actions .button {
     border: 1px solid var(--green) !important;
     background: var(--green) !important;
+    color: var(--white) !important;
 }
 
 #changelist .actions {
@@ -192,45 +182,86 @@ a.deletelink {
     vertical-align: middle;
 }
 
+
+.button, .object-tools a:link, a.deletelink, input[type=submit], input[type=button]{
+  font-weight: 400 !important;
+  font-family: 'Roboto', sans-serif !important;
+  border-radius: 4px !important;
+  padding: 8px 15px !important;
+  line-height: 14px !important;
+  color: var(--gray-1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+}
+
+.button:hover, .object-tools a:link:hover, a.deletelink:hover, input[type=submit]:hover, input[type=button]:hover {
+  filter: brightness(0.6) !important;
+}
+
+.submit-row input.default {
+  text-transform: none !important;
+}
+
+a.deletelink {
+  color: var(--white) !important;
+  background: var(--red) !important;
+  border: 1px solid var(--red) !important;
+}
+
+.object-tools a:link {
+  color: var(--gray-1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
+}
+
+.object-tools a.viewsitelink, .object-tools a.golink, .object-tools a.addlink {
+  background: var(--green) !important;
+  border: 1px solid var(--green) !important;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+  float: right;
+  color: var(--white) !important;
+  background: var(--blue) !important;
+  border: 1px solid var(--blue) !important;
+}
+
+.dashboard-module {
+  margin: 10px 10px 5px 10px;
+  padding: 0;
+  border: 1px solid var(--light-gray) !important;
+  -moz-border-radius: 0px !important;
+  -webkit-border-radius: 0px !important;
+}
+
+.dashboard-module ul li {
+  font-size: 14px !important;
+  padding: 5px 8px !important;
+  line-height: 20px !important;
+}
+
+.dashboard-module ul li ul li {
+  line-height: 20px !important;
+  padding: 5px 8px !important;
+}
+
+
 .module h2, .module caption, .inline-group h2 {
-    margin: 0;
-    font-family: 'Roboto', sans-serif !important;
-    padding: 8px;
-    font-weight: 400 !important;
-    font-size: 14px !important;
-    text-align: left;
-    background: var(--blue) !important;
-    color: var(--white);
+  margin: 0;
+  font-family: 'Roboto', sans-serif !important;
+  padding: 8px;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  text-align: left;
+  background: var(--blue) !important;
+  color: var(--white);
 }
 
 .module caption, .inline-group h2 {
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    text-transform: none !important;
-}
-
-#changelist #toolbar form #searchbar {
-  vertical-align: middle !important;
-}
-
-#branding h1, #branding h1 a:link, #branding h1 a:visited {
-    color: var(--white) !important;
-}
-
-div.breadcrumbs {
-    background: var(--white) !important;
-    padding: 16px 16px;
-    border: none;
-    font-size: 14px;
-    text-align: left;
-}
-
-div.breadcrumbs a {
-    color: var(--gray-2) !important;
-    margin-left: 6px !important;
-    margin-right: 6px !important;
-}
-
-div.breadcrumbs a:hover, a:active {
-    color: var(--light-gray) !important;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: none !important;
 }

@@ -26,6 +26,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-admin.site.site_header = "Personal Portfolio Admin"
-admin.site.site_title = "Nick Florin"
-admin.site.index_title = "Portfolio Portal"
+admin.site.site_header = settings.SITE_HEADER
+admin.site.site_title = settings.SITE_TITLE
+admin.site.index_title = settings.INDEX_TITLE
