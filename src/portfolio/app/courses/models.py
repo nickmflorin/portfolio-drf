@@ -9,6 +9,3 @@ class Course(PortfolioModel):
     description = models.CharField(max_length=512, null=True, blank=True)
     education = models.ForeignKey('education.Education',
         on_delete=models.CASCADE, related_name='courses')
-
-    def __str__(self):
-        return self.name
