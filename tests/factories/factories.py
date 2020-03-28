@@ -21,8 +21,13 @@ __all__ = (
     'ExperienceFactory',
     'CourseFactory',
     'ProjectFactory',
-    'SkillFactory'
+    'SkillFactory',
+    'SettingsModelFactory',
 )
+
+
+class SettingsModelFactory(PortfolioModelFactory):
+    pass
 
 
 class HorizonModelFactory(PortfolioModelFactory):

@@ -30,4 +30,8 @@ do
 done
 python manage.py migrate
 
+python manage.py loaddata ./portfolio/fixtures/schools.json
+python manage.py loaddata ./portfolio/fixtures/education.json
+python manage.py loaddata ./portfolio/fixtures/companies.json
+python manage.py loaddata ./portfolio/fixtures/experience.json
 python manage.py createsuperuser --email nickmflorin@gmail.com --username nickmflorin

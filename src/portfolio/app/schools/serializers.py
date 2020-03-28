@@ -1,10 +1,10 @@
 from rest_framework import serializers
 
+from portfolio.app.common.serializers import PortfolioSerializer
 from .models import School
 
 
-class SchoolSerializer(serializers.ModelSerializer):
-    id = serializers.ReadOnlyField()
+class SchoolSerializer(PortfolioSerializer):
     name = serializers.CharField()
     city = serializers.CharField()
     state = serializers.CharField()
@@ -13,4 +13,5 @@ class SchoolSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = School
-        fields = ('id', 'name', 'city', 'state', 'logo', 'description')
+        fields = PortfolioSerializer.Meta.fields + (
+            'name', 'city', 'state', 'logo', 'description')

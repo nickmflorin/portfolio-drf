@@ -37,15 +37,25 @@ class PortfolioDashboard(Dashboard):
         self.children += [
             PortfolioModelList(
                 _('Education'),
-                models=['portfolio.app.courses.*', 'portfolio.app.education.*'],
+                models=[
+                    'portfolio.app.courses.*',
+                    'portfolio.app.schools.*',
+                    'portfolio.app.education.*'
+                ],
             ),
             PortfolioModelList(
                 _('Experience'),
-                models=['portfolio.app.companies.*', 'portfolio.app.experience.*'],
+                models=[
+                    'portfolio.app.companies.*',
+                    'portfolio.app.experience.*'
+                ],
             ),
             PortfolioModelList(
                 _('Projects & Skills'),
-                models=['portfolio.app.skills.*', 'portfolio.app.projects.*'],
+                models=[
+                    'portfolio.app.skills.*',
+                    'portfolio.app.projects.*'
+                ],
             ),
             PortfolioAppList(
                 _('Administration'),
