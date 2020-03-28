@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib import admin
 
 from .models import Course
 
@@ -15,18 +14,8 @@ class CourseInlineForm(forms.ModelForm):
         fields = '__all__'
 
 
-class CourseInline(admin.TabularInline):
-    model = Course
-    form = CourseInlineForm
-    extra = 1
-
-
-class CourseForm(forms.ModelForm):
+class CourseForm(CourseInlineForm):
     description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 5, "cols": 128}),
         required=False,
     )
-
-    class Meta:
-        model = Course
-        fields = '__all__'

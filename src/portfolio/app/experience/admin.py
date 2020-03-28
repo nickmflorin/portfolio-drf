@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from portfolio.app.projects.forms import ProjectInline
+from portfolio.app.projects.admin import ProjectInline
 from portfolio.app.skills.admin import SkillExperienceInline
 
 from .forms import ExperienceForm

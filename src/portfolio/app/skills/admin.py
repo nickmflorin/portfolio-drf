@@ -3,24 +3,32 @@ from django.contrib import admin
 from .models import Skill
 
 
-class SkillProjectInline(admin.TabularInline):
+class SkillProjectInline(admin.StackedInline):
     model = Skill.projects.through
     extra = 1
+    verbose_name = "Skill"
+    verbose_name_plural = "Skills"
 
 
-class SkillCourseInline(admin.TabularInline):
+class SkillCourseInline(admin.StackedInline):
     model = Skill.courses.through
     extra = 1
+    verbose_name = "Skill"
+    verbose_name_plural = "Skills"
 
 
-class SkillEducationInline(admin.TabularInline):
+class SkillEducationInline(admin.StackedInline):
     model = Skill.educations.through
     extra = 1
+    verbose_name = "Skill"
+    verbose_name_plural = "Skills"
 
 
-class SkillExperienceInline(admin.TabularInline):
+class SkillExperienceInline(admin.StackedInline):
     model = Skill.experiences.through
     extra = 1
+    verbose_name = "Skill"
+    verbose_name_plural = "Skills"
 
 
 class SkillAdmin(admin.ModelAdmin):

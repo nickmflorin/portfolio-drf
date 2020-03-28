@@ -1,9 +1,16 @@
 from django.contrib import admin
+from django.contrib.contenttypes.admin import GenericStackedInline
 
 from portfolio.app.skills.admin import SkillProjectInline
 
-from .forms import ProjectForm
+from .forms import ProjectForm, ProjectInlineForm
 from .models import Project
+
+
+class ProjectInline(GenericStackedInline):
+    model = Project
+    form = ProjectInlineForm
+    extra = 1
 
 
 class ProjectAdmin(admin.ModelAdmin):

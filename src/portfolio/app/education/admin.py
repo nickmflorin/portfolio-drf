@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from portfolio.app.courses.forms import CourseInline
-from portfolio.app.projects.forms import ProjectInline
+from portfolio.app.courses.admin import CourseInline
+from portfolio.app.projects.admin import ProjectInline
 from portfolio.app.skills.admin import SkillEducationInline
 
 from .forms import EducationForm

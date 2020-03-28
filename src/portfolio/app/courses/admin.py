@@ -2,8 +2,14 @@ from django.contrib import admin
 
 from portfolio.app.skills.admin import SkillCourseInline
 
-from .forms import CourseForm
+from .forms import CourseForm, CourseInlineForm
 from .models import Course
+
+
+class CourseInline(admin.StackedInline):
+    model = Course
+    form = CourseInlineForm
+    extra = 1
 
 
 class CourseAdmin(admin.ModelAdmin):
