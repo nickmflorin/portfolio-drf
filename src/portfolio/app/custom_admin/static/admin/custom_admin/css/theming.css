@@ -69,7 +69,6 @@ li, dt, dd {
 }
 
 textarea {
-  min-height: 150px !important;
   max-height: 200px !important;
   min-width: 400px !important;
   max-width: 600px !important;
@@ -94,7 +93,8 @@ div.breadcrumbs a:hover, a:active {
 }
 
 ul.messagelist {
-  margin: 20px !important;
+  max-width: 1200px;
+  margin: 20px auto !important;
 }
 
 ul.messagelist li {
@@ -109,7 +109,8 @@ ul.messagelist li {
 
 #content {
   padding: 0;
-  margin: 15px;
+  margin: 20px auto !important;
+  max-width: 1200px !important;
 }
 
 #header {
@@ -182,6 +183,33 @@ ul.messagelist li {
     vertical-align: middle;
 }
 
+.dashboard-container {
+  display: flex !important;
+}
+
+.dashboard-column {
+  display: flex !important;
+  flex-direction: column !important;
+
+}
+
+h1.dashboard-title {
+    float: left;
+    padding-bottom: 0;
+    margin: 10px 10px !important;
+}
+
+.inline-related h3 {
+    margin: 0;
+    color: var(--secondary) !important;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 12px;
+    background: var(--light-gray) !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
 
 .button, .object-tools a:link, a.deletelink, input[type=submit], input[type=button]{
   font-weight: 400 !important;

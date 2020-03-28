@@ -9,56 +9,71 @@ from admin_tools.dashboard import modules, Dashboard, AppIndexDashboard
 from admin_tools.utils import get_admin_site_name
 
 
+class PortfolioModelList(modules.ModelList):
+    def __init__(self, *args, **kwargs):
+        super(PortfolioModelList, self).__init__(*args,
+            draggable=False,
+            deletable=False,
+            collapsible=False,
+            **kwargs
+        )
+
+
+class PortfolioAppList(modules.AppList):
+    def __init__(self, *args, **kwargs):
+        super(PortfolioAppList, self).__init__(*args,
+            draggable=False,
+            deletable=False,
+            collapsible=False,
+            **kwargs
+        )
+
+
 class PortfolioDashboard(Dashboard):
-    """
-    Custom index dashboard for src.
-    """
+
     def init_with_context(self, context):
         site_name = get_admin_site_name(context)
 
         self.children += [
-            modules.ModelList(
+            PortfolioModelList(
                 _('Education'),
-                models=['portfolio.app.courses.*', 'portfolio.app.education.*']
-            )
-        ]
-        self.children += [
-            modules.ModelList(
+                models=['portfolio.app.courses.*', 'portfolio.app.education.*'],
+            ),
+            PortfolioModelList(
                 _('Experience'),
-                models=['portfolio.app.companies.*', 'portfolio.app.experience.*']
-            )
-        ]
-        self.children += [
-            modules.ModelList(
+                models=['portfolio.app.companies.*', 'portfolio.app.experience.*'],
+            ),
+            PortfolioModelList(
                 _('Projects & Skills'),
-                models=['portfolio.app.skills.*', 'portfolio.app.projects.*']
+                models=['portfolio.app.skills.*', 'portfolio.app.projects.*'],
+            ),
+            PortfolioAppList(
+                _('Administration'),
+                models=('django.contrib.*',),
+            ),
+            modules.RecentActions(
+                _('Recent Actions'), 5,
+                draggable=False,
+                deletable=False,
+                collapsible=False,
+            ),
+            modules.LinkList(
+                _('Help'),
+                draggable=False,
+                deletable=False,
+                collapsible=False,
+                children=[
+                    # TODO: Make a link for the front end shell.
+                    [_('Visit API'), '/api/v1/education'],
+                    [_('Change Password'), reverse('%s:password_change' % site_name)],
+                    [_('Log Out'), reverse('%s:logout' % site_name)],
+                ]
             )
-        ]
-        self.children.append(modules.AppList(
-            _('Administration'),
-            models=('django.contrib.*',),
-        ))
 
-        self.children.append(modules.RecentActions(_('Recent Actions'), 5))
-        self.children.append(modules.LinkList(
-            _('Quick links'),
-            layout='inline',
-            draggable=False,
-            deletable=False,
-            collapsible=False,
-            children=[
-                # TODO: Make a link for the front end shell.
-                [_('Visit API'), '/api/v1/education'],
-                [_('Change Password'), reverse('%s:password_change' % site_name)],
-                [_('Log Out'), reverse('%s:logout' % site_name)],
-            ]
-        ))
+        ]
 
 
 class PortfolioAppIndexDashboard(AppIndexDashboard):
-    """
-    Custom app index dashboard for src.
-    """
     # we disable title because its redundant with the model list module
     title = ''
 
@@ -76,7 +91,4 @@ class PortfolioAppIndexDashboard(AppIndexDashboard):
         ]
 
     def init_with_context(self, context):
-        """
-        Use this method if you need to access the request context.
-        """
         return super(PortfolioAppIndexDashboard, self).init_with_context(context)
