@@ -27,5 +27,20 @@ class CourseAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return True
 
+    def save_related(self, request, form, formsets, change):
+        """
+        Since a Course must belong to an Education, any skills gained throughout
+        the course of a Project must also be consumed in the containing
+        Education.
+        """
+        value = super(CourseAdmin, self).save_related(request, form, formsets, change)
+        instance = form.instance
+
+        for skill in instance.skills.all():
+            if skill not in instance.education.skills.all():
+                instance.education.skills.add(skill)
+                instance.education.save()
+        return value
+
 
 admin.site.register(Course, CourseAdmin)
