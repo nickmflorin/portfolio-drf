@@ -15,7 +15,7 @@ class Experience(HorizonModel):
     projects = GenericRelation(Project)
 
     class Meta:
-        verbose_name_plural = "Experience History"
+        verbose_name_plural = "Experience"
 
     def __str__(self):
         return f"{self.title} at {self.company.name}"

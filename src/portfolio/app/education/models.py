@@ -16,7 +16,7 @@ class Education(HorizonModel):
     projects = GenericRelation(Project)
 
     class Meta:
-        verbose_name_plural = "Education History"
+        verbose_name_plural = "Education"
 
     def __str__(self):
         return f"{self.degree} in {self.major} from {self.school.name}"
