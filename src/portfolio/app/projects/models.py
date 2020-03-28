@@ -7,7 +7,7 @@ from portfolio.app.common.models import PortfolioModel
 
 def upload_to(instance, filename):
     ext = filename.split('.')[-1]
-    filename = f"{instance.name.lower().replace(' ','')}.{ext}"
+    filename = f"{instance.name}.{ext}"
     return f'uploads/projects/{filename}'
 
 

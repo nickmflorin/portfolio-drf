@@ -2,13 +2,13 @@ from django.contrib import admin
 
 from portfolio.app.skills.admin import SkillCourseInline
 
-from .forms import CourseForm, CourseInlineForm
+from .forms import CourseForm
 from .models import Course
 
 
 class CourseInline(admin.StackedInline):
     model = Course
-    form = CourseInlineForm
+    form = CourseForm
     extra = 1
 
 

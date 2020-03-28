@@ -3,10 +3,10 @@ from django import forms
 from .models import Project
 
 
-class ProjectInlineForm(forms.ModelForm):
+class ProjectFileForm(forms.ModelForm):
     description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 4, "cols": 80}),
-        required=True,
+        widget=forms.Textarea(attrs={"rows": 5, "cols": 128}),
+        required=False,
     )
 
     class Meta:
@@ -14,8 +14,13 @@ class ProjectInlineForm(forms.ModelForm):
         fields = '__all__'
 
 
-class ProjectForm(ProjectInlineForm):
+
+class ProjectForm(forms.ModelForm):
     description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 5, "cols": 128}),
         required=True,
     )
+
+    class Meta:
+        model = Project
+        fields = '__all__'
