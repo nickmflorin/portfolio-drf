@@ -6,7 +6,7 @@ from .models import Education
 
 class EducationForm(HorizonForm):
     description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 5, "cols": 40}),
+        widget=forms.Textarea(attrs={"rows": 5, "cols": 128}),
         required=False,
     )
 

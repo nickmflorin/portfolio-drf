@@ -21,19 +21,17 @@ class EducationAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': (
-                'school', 'degree', 'major', 'minor', 'concentration',
+                'school',
+                'degree',
+                'major',
+                'minor',
+                'concentration',
                 'gpa',
-            )
-        }),
-        ('Dates Attended', {
-            'fields': (
                 ('start_month', 'start_year'),
                 ('end_month', 'end_year'),
-                'current'
+                'current',
+                'description'
             )
-        }),
-        (None, {
-            'fields': ('description', )
         }),
     )
 

@@ -14,17 +14,14 @@ class ExperienceAdmin(admin.ModelAdmin):
     form = ExperienceForm
     fieldsets = (
         (None, {
-            'fields': ('company', 'title')
-        }),
-        ('Dates of Employment', {
             'fields': (
+                'company',
+                'title',
                 ('start_month', 'start_year'),
                 ('end_month', 'end_year'),
-                'current'
+                'current',
+                'description'
             )
-        }),
-        (None, {
-            'fields': ('description', )
         }),
     )
     inlines = [
