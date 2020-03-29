@@ -59,7 +59,10 @@ class PortfolioDashboard(Dashboard):
             ),
             PortfolioAppList(
                 _('Administration'),
-                models=('django.contrib.*',),
+                models=(
+                    'django.contrib.*',
+                    'portfolio.app.profile.*'
+                ),
             ),
             modules.RecentActions(
                 _('Recent Actions'), 5,
