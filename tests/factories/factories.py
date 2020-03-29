@@ -8,6 +8,7 @@ from portfolio.app.courses.models import Course
 from portfolio.app.education.models import Education
 from portfolio.app.experience.models import Experience
 from portfolio.app.projects.models import Project
+from portfolio.app.profile.models import Profile
 from portfolio.app.schools.models import School
 from portfolio.app.skills.models import Skill
 
@@ -22,12 +23,8 @@ __all__ = (
     'CourseFactory',
     'ProjectFactory',
     'SkillFactory',
-    'SettingsModelFactory',
+    'ProfileFactory',
 )
-
-
-class SettingsModelFactory(PortfolioModelFactory):
-    pass
 
 
 class HorizonModelFactory(PortfolioModelFactory):
@@ -38,6 +35,19 @@ class HorizonModelFactory(PortfolioModelFactory):
 
     class Meta:
         abstract = True
+
+
+class ProfileFactory(PortfolioModelFactory):
+    first_name = factory.Faker('name')
+    last_name = factory.Faker('name')
+    middle_name = factory.Faker('name')
+    email = factory.Faker('email')
+    github_url = factory.Faker('url')
+    linkedin_url = factory.Faker('url')
+    resume = factory.Faker('url')
+
+    class Meta:
+        model = Profile
 
 
 class CompanyFactory(PortfolioModelFactory):
