@@ -30,7 +30,6 @@ class PortfolioAppList(modules.AppList):
 
 
 class PortfolioDashboard(Dashboard):
-
     def init_with_context(self, context):
         site_name = get_admin_site_name(context)
 
@@ -87,13 +86,10 @@ class PortfolioDashboard(Dashboard):
 
 
 class PortfolioAppIndexDashboard(AppIndexDashboard):
-    # we disable title because its redundant with the model list module
     title = ''
 
     def __init__(self, *args, **kwargs):
         AppIndexDashboard.__init__(self, *args, **kwargs)
-
-        # append a model list module and a recent actions module
         self.children += [
             modules.ModelList(self.app_title, self.models),
             modules.RecentActions(

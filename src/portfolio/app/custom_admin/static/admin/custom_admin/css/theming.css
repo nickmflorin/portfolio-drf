@@ -50,7 +50,8 @@ th {
 }
 
 a, a:visited, a:link {
-  color: var(--blue); !important;
+  color: var(--blue) !important;
+  font-weight: 300 !important;
 }
 
 a:hover {
@@ -107,16 +108,35 @@ ul.messagelist li {
     color: var(--secondary) !important;
 }
 
+#container {
+    position: relative;
+    width: 100%;
+    min-width: 980px;
+    padding: 0;
+    height: 100vh !important;
+    /* background-color: rgb(250,250,250) !important; */
+}
+
 #content {
   padding: 0;
-  margin: 20px auto !important;
+  margin: 40px auto !important;
   max-width: 1200px !important;
+  position: relative !important;
+  top: 80px !important;
+  border: 1px solid var(--light-gray) !important;
+  border-radius: 5px !important;
+  padding: 20px !important;
+  /* background-color: rgb(250,250,250) !important; */
 }
 
 #header {
-  background: var(--blue); !important;
-  padding-left: 0;
-  padding-right: 0;
+    background: var(--blue) !important;
+    padding-left: 0;
+    padding-right: 0;
+    min-height: 0 !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 #header #branding h1 {
@@ -129,9 +149,25 @@ ul.messagelist li {
 }
 
 #header #navigation-menu {
-  background: var(--white); !important;
+  background: var(--white) !important;
   border-bottom: none !important;
   margin-top: 0px !important;
+}
+
+#header ul#navigation-menu li {
+    float: left;
+    max-width: 160px !important;
+    min-width: 100px !important;
+    line-height: 16px;
+}
+
+#header ul#navigation-menu li ul {
+    display: none;
+    position: relative !important;
+    top: auto;
+    left: auto;
+    margin-left: -1px;
+    margin-top: -1px;
 }
 
 #header ul#navigation-menu li.first a {
@@ -147,10 +183,11 @@ ul.messagelist li {
   padding: 8px 30px 9px 15px;
   border-right: 1px solid var(--light-gray) !important;
   color: var(--secondary) !important;
+  text-align: center !important;
 }
 
 #header ul#navigation-menu li:hover, #header ul#navigation-menu li.over, #header ul#navigation-menu li.selected {
-  filter: brightness(0.9) !important;
+  filter: brightness(0.96) !important;
 }
 
 #branding h1, #branding h1 a:link, #branding h1 a:visited {
@@ -233,19 +270,20 @@ h1.dashboard-title {
   text-transform: none !important;
 }
 
-a.deletelink {
-  color: var(--white) !important;
-  background: var(--red) !important;
-  border: 1px solid var(--red) !important;
-}
-
 .object-tools a:link {
   color: var(--gray-1) !important;
   border: 1px solid var(--light-gray) !important;
   background: var(--light-gray) !important;
 }
 
+a.deletelink {
+  color: var(--white) !important;
+  background: var(--red) !important;
+  border: 1px solid var(--red) !important;
+}
+
 .object-tools a.viewsitelink, .object-tools a.golink, .object-tools a.addlink {
+  color: var(--white) !important;
   background: var(--green) !important;
   border: 1px solid var(--green) !important;
 }
