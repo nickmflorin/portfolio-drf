@@ -5,7 +5,7 @@ from .models import Project
 
 class ProjectFileForm(forms.ModelForm):
     description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 5, "cols": 128}),
+        widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=False,
     )
 
@@ -14,10 +14,9 @@ class ProjectFileForm(forms.ModelForm):
         fields = '__all__'
 
 
-
 class ProjectForm(forms.ModelForm):
     description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 5, "cols": 128}),
+        widget=forms.Textarea(attrs={"rows": 10, "cols": 128}),
         required=True,
     )
 

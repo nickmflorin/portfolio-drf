@@ -95,7 +95,7 @@ div.breadcrumbs a:hover, a:active {
 
 ul.messagelist {
   max-width: 1200px;
-  margin: 20px auto !important;
+  margin: 60px auto 20px auto !important;
 }
 
 ul.messagelist li {
