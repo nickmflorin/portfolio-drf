@@ -13,8 +13,8 @@ def upload_to(instance, filename):
 
 class ProjectFile(PortfolioModel):
     file = models.FileField(upload_to=upload_to, null=True)
-    name = models.CharField(max_length=64)
-    short_description = models.CharField(max_length=128)
+    name = models.CharField(max_length=64, unique=True)
+    short_description = models.CharField(max_length=256)
     long_description = models.CharField(max_length=1024, null=True, blank=True)
     caption = models.CharField(max_length=256, null=True, blank=True)
     project = models.ForeignKey('projects.Project',
@@ -22,8 +22,8 @@ class ProjectFile(PortfolioModel):
 
 
 class Project(PortfolioModel):
-    name = models.CharField(max_length=64)
-    short_description = models.CharField(max_length=128)
+    name = models.CharField(max_length=64, unique=True)
+    short_description = models.CharField(max_length=256)
     long_description = models.CharField(max_length=1024)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()

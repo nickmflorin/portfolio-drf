@@ -4,7 +4,7 @@ from portfolio.app.common.models import PortfolioModel
 
 
 class Skill(PortfolioModel):
-    name = models.CharField(max_length=64)
+    name = models.CharField(max_length=64, unique=True)
     educations = models.ManyToManyField('education.Education',
         blank=True, related_name='skills')
     experiences = models.ManyToManyField('experience.Experience',
