@@ -42,5 +42,28 @@ class SkillAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return True
 
+    def save_related(self, request, form, formsets, change):
+        """
+        If a Skill belongs to a course, it must also belong to the consuming
+        Education.  Similarly, if a Skill belongs to a project, it must also
+        belong to the consuming Education or Experience.
+        """
+        value = super(SkillAdmin, self).save_related(request, form, formsets, change)
+        instance = form.instance
+
+        for course in instance.courses.all():
+            if instance not in course.education.skills.all():
+                course.education.skills.add(instance)
+                # TODO: Maybe only have to save course.education
+                course.save()
+
+        for project in instance.projects.all():
+            if instance not in project.content_object.skills.all():
+                project.content_object.skills.add(instance)
+                # TODO: Maybe only have to save project.content_object
+                project.save()
+
+        return value
+
 
 admin.site.register(Skill, SkillAdmin)

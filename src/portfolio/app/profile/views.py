@@ -7,7 +7,6 @@ from .serializers import ProfileSerializer
 
 
 class ProfileViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
-    queryset = Profile.objects.first()
     serializer_class = ProfileSerializer
 
     def get_object(self):

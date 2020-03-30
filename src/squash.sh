@@ -11,7 +11,6 @@ apps[6]='experience'
 apps[7]='skills'
 apps[8]='profile'
 
-python manage.py migrate
 
 delete_database(){
   cd ../
