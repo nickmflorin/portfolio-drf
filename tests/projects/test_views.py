@@ -16,14 +16,16 @@ def test_list_response_200(api_client, create_project, create_skill):
         {
             'id': projects[0].pk,
             'name': projects[0].name,
-            'description': projects[0].description,
+            'short_description': projects[0].short_description,
+            'long_description': projects[0].long_description,
             'files': [],
             'skills': [],
         },
         {
             'id': projects[1].pk,
             'name': projects[1].name,
-            'description': projects[1].description,
+            'short_description': projects[1].short_description,
+            'long_description': projects[1].long_description,
             'files': [],
             'skills': [{
                 'id': skill.pk,
@@ -44,7 +46,8 @@ def test_detail_response_200(api_client, create_project, create_skill):
     assert response.json() == {
         'id': project.pk,
         'name': project.name,
-        'description': project.description,
+        'short_description': project.short_description,
+        'long_description': project.long_description,
         'files': [],
         'skills': [{
             'id': skill.pk,

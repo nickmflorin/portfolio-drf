@@ -105,7 +105,8 @@ class CourseFactory(PortfolioModelFactory):
 
 class ProjectFactory(PortfolioModelFactory):
     name = factory.Faker('name')
-    description = factory.Faker('paragraph')
+    short_description = factory.Faker('paragraph')
+    long_description = factory.Faker('paragraph')
     content_object = factory.SubFactory(EducationFactory)
     content_type = factory.LazyAttribute(
         lambda o: ContentType.objects.get_for_model(o.content_object))

@@ -13,18 +13,10 @@ def test_list_response_200(api_client, create_skill):
         {
             'id': skills[0].pk,
             'name': skills[0].name,
-            'educations': [],
-            'experiences': [],
-            'courses': [],
-            'projects': [],
         },
         {
             'id': skills[1].pk,
             'name': skills[1].name,
-            'educations': [],
-            'experiences': [],
-            'courses': [],
-            'projects': [],
         }
     ]
 
@@ -75,7 +67,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
         'projects': [{
             'id': project.id,
             'name': project.name,
-            'description': project.description,
+            'short_description': project.short_description,
         }],
         'courses': [
             {
