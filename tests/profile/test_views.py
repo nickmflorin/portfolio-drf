@@ -1,3 +1,4 @@
+import os
 import pytest
 
 
@@ -15,5 +16,5 @@ def test_response_200(api_client, create_profile):
         'email': profile.email,
         'github_url': profile.github_url,
         'linkedin_url': profile.linkedin_url,
-        'resume': profile.resume.url,
+        'resume': os.path.join('http://testserver', profile.resume.url[1:]),
     }

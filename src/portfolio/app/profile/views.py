@@ -19,5 +19,7 @@ class ProfileViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
 
     def retrieve(self, *args):
         obj = self.get_object()
-        data = self.serializer_class(obj).data
+        # We have to pass in the request context so the absolute url can be
+        # used.
+        data = self.serializer_class(obj, context={'request': self.request}).data
         return Response(data)

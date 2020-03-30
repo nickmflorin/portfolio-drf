@@ -7,7 +7,7 @@ from .restframework import REST_FRAMEWORK  # noqa
 from .paths import (  # noqa
     PROJECT_ROOT, APPS_ROOT, STATIC_ROOT, STATICFILES_DIRS, MEDIA_ROOT)
 from .templates import TEMPLATES # noqa
-from .urls import ROOT_URLCONF, STATIC_URL, MEDIA_URL  # noqa
+from .urls import ROOT_URLCONF, STATIC_URL, MEDIA_URL, SITE_URL  # noqa
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
