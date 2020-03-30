@@ -34,7 +34,11 @@ class ProjectAdmin(admin.ModelAdmin):
         return True
 
     def has_add_permission(self, request):
-        return True
+        # We have to prevent adding projects outside of the inline forms from
+        # the other models because adding a new project without a content_type
+        # or object_id will fail, and we do not want to expose those fields in
+        # the admin because it is ugly.
+        return False
 
     def save_related(self, request, form, formsets, change):
         """
