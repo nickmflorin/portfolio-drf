@@ -15,8 +15,10 @@ class School(PortfolioModel):
     city = models.CharField(max_length=64, help_text=(
         "City that the school is located in."
     ))
-    state = models.CharField(choices=STATES, max_length=2, help_text=(
-        "State that the school is located in."
-    ))
+    state = models.CharField(
+        choices=STATES,
+        max_length=2,
+        help_text="State that the school is located in."
+    )
     logo = models.ImageField(upload_to=upload_to, null=True)
     description = models.CharField(max_length=512, null=True, blank=True)

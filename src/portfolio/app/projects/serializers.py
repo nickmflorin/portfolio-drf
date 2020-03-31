@@ -9,14 +9,13 @@ from .models import Project
 class ProjectFileSerializer(PortfolioSerializer):
     file = serializers.FileField()
     name = serializers.CharField()
-    short_description = serializers.CharField()
-    long_description = serializers.CharField()
+    description = serializers.CharField()
     caption = serializers.CharField()
 
     class Meta:
         model = Project
         fields = PortfolioSerializer.Meta.fields + (
-            'file', 'name', 'short_description', 'long_description', 'caption')
+            'file', 'name', 'description', 'caption')
 
 
 class BasicProjectSerializer(PortfolioSerializer):

@@ -27,9 +27,7 @@ class ProjectFile(PortfolioModel):
 
 
 class Project(PortfolioModel):
-    name = models.CharField(max_length=64, unique=True, help_text=(
-        "Name of the project."
-    ))
+    name = models.CharField(max_length=64, unique=True)
     short_description = models.CharField(max_length=256)
     long_description = models.CharField(max_length=1024)
     content_type = models.ForeignKey(ContentType,
@@ -41,7 +39,9 @@ class Project(PortfolioModel):
     )
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
-    display_alone = models.BooleanField(default=True, help_text=(
-        "Determines whether or not the project will be displayed on the "
-        "projects page as it's own item."
-    ))
+    display_alone = models.BooleanField(
+        default=True,
+        help_text=(
+            "Determines whether or not the project will be displayed on the "
+            "projects page as it's own item."
+        ))
