@@ -38,13 +38,19 @@ def test_list_response_200(api_client, create_project, create_skill):
 
 
 @pytest.mark.django_db
-def test_detail_response_200(api_client, create_project, create_skill):
-    project = create_project()
+def test_detail_response_200_with_education(api_client, create_project,
+        create_skill, create_education):
+
+    education = create_education()
+    project = create_project(education=education)
     skill = create_skill()
     skill.projects.add(project)
 
     response = api_client.get('/api/v1/projects/%s/' % project.pk)
     assert response.status_code == 200
+    import json
+    print(json.dumps(response.json(), indent=4))
+    import ipdb; ipdb.set_trace()
     assert response.json() == {
         'id': project.pk,
         'name': project.name,

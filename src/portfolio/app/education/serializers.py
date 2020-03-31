@@ -3,12 +3,12 @@ from rest_framework import serializers
 from portfolio.app.projects.serializers import BasicProjectSerializer
 from portfolio.app.common.serializers import HorizonSerializer
 from portfolio.app.schools.serializers import SchoolSerializer
-from portfolio.app.skills.serializers import BasicSkillSerializer
+from portfolio.app.skills.serializers import SkillSerializer
 
 from .models import Education
 
 
-class BasicEducationSerializer(HorizonSerializer):
+class EducationSerializer(HorizonSerializer):
     school = SchoolSerializer()
     degree = serializers.CharField()
     major = serializers.CharField()
@@ -22,17 +22,11 @@ class BasicEducationSerializer(HorizonSerializer):
         fields = HorizonSerializer.Meta.fields + (
             'id', 'school', 'degree', 'major', 'minor', 'concentration',
             'description', 'gpa')
-
-
-class EducationSerializer(BasicEducationSerializer):
-    projects = BasicProjectSerializer(many=True)
-    skills = BasicSkillSerializer(many=True)
-    courses = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Education
-        fields = BasicEducationSerializer.Meta.fields + (
-            'projects', 'skills', 'courses')
+        extended_fields = {
+            'projects': (BasicProjectSerializer, {'many': True}),
+            'courses': serializers.SerializerMethodField,
+            'skills': (SkillSerializer, {'many': True}),
+        }
 
     def get_courses(self, instance):
         # This has to be in a serializer method field instead of just simply doing

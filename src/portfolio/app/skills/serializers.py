@@ -21,6 +21,7 @@ class SkillSerializer(BasicSkillSerializer):
         model = Skill
         fields = BasicSkillSerializer.Meta.fields + (
             'educations', 'courses', 'experiences', 'projects')
+        collapsed = BasicSkillSerializer
 
     def get_educations(self, instance):
         # These must be written as SerializerMethodField(s) in order to avoid
