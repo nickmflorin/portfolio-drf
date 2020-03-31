@@ -10,8 +10,8 @@ def test_list_response_200(api_client, create_education, create_project,
         create_course(education=education)
     ]
     projects = [
-        create_project(content_object=education),
-        create_project(content_object=education)
+        create_project(education=education),
+        create_project(education=education)
     ]
     skill = create_skill()
     skill.educations.set([education])
@@ -82,8 +82,8 @@ def test_detail_response_200(api_client, create_education, create_project,
         create_course(education=education)
     ]
     projects = [
-        create_project(content_object=education),
-        create_project(content_object=education)
+        create_project(education=education),
+        create_project(education=education)
     ]
     skill = create_skill()
     skill.educations.set([education])

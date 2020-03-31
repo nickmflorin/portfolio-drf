@@ -6,8 +6,8 @@ def test_list_response_200(api_client, create_experience, create_project,
         create_skill):
     experience = create_experience()
     projects = [
-        create_project(content_object=experience),
-        create_project(content_object=experience)
+        create_project(experience=experience),
+        create_project(experience=experience)
     ]
     skill = create_skill()
     skill.experiences.set([experience])
@@ -59,8 +59,8 @@ def test_detail_response_200(api_client, create_experience, create_project,
         create_skill):
     experience = create_experience()
     projects = [
-        create_project(content_object=experience),
-        create_project(content_object=experience)
+        create_project(experience=experience),
+        create_project(experience=experience)
     ]
     skill = create_skill()
     skill.experiences.set([experience])
