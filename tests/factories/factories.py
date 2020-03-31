@@ -111,6 +111,7 @@ class ProjectFactory(PortfolioModelFactory):
     content_type = factory.LazyAttribute(
         lambda o: ContentType.objects.get_for_model(o.content_object))
     object_id = factory.SelfAttribute('content_object.pk')
+    display_alone = True
 
     class Meta:
         model = Project
