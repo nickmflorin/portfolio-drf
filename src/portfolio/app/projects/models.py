@@ -13,15 +13,16 @@ def upload_to(instance, filename):
 
 class ProjectFile(PortfolioModel):
     file = models.FileField(upload_to=upload_to, null=True)
-    name = models.CharField(max_length=64, unique=True,
-        help_text="Verbose name for the file that will be used for links "
-        "accessing the file."
+    name = models.CharField(
+        max_length=64,
+        unique=True,
+        help_text=(
+            "Human readable name for the file that will be displayed to users "
+            "in links to download/access the file."
+        )
     )
     description = models.CharField(max_length=1024)
-    caption = models.CharField(max_length=256, null=True, blank=True,
-        help_text="Caption for image files.  Only allowed/required when the "
-        "file is an image file."
-    )
+    caption = models.CharField(max_length=256, null=True, blank=True)
     project = models.ForeignKey('projects.Project',
         on_delete=models.CASCADE, related_name='files')
 
@@ -39,9 +40,9 @@ class Project(PortfolioModel):
     )
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
-    display_alone = models.BooleanField(
+    showcase = models.BooleanField(
         default=True,
         help_text=(
-            "Determines whether or not the project will be displayed on the "
-            "projects page as it's own item."
+            "Determines whether or not the project will be showcased on the "
+            "projects page."
         ))

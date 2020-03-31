@@ -21,12 +21,12 @@ class ProjectFileSerializer(PortfolioSerializer):
 class BasicProjectSerializer(PortfolioSerializer):
     name = serializers.CharField()
     short_description = serializers.CharField()
-    display_alone = serializers.BooleanField()
+    showcase = serializers.BooleanField()
 
     class Meta:
         model = Project
         fields = PortfolioSerializer.Meta.fields + (
-            'name', 'short_description', 'display_alone')
+            'name', 'short_description', 'showcase')
 
 
 class ProjectSerializer(BasicProjectSerializer):

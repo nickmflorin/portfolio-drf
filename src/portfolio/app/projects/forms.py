@@ -14,6 +14,14 @@ class ProjectFileForm(forms.ModelForm):
         required=False,
         help_text="Description of the file limited to 1024 characters."
     )
+    caption = forms.CharField(
+        widget=forms.Textarea(attrs={"rows": 3, "cols": 128}),
+        required=False,
+        help_text=(
+            "Caption for image files.  Only allowed/required when the "
+            "file is an image file."
+        )
+    )
 
     class Meta:
         model = Project
@@ -65,15 +73,15 @@ class ProjectForm(forms.ModelForm):
 
     def validate_long_description(self, data):
         errors = {}
-        display_alone = data['display_alone']
+        showcase = data['showcase']
         long_description = data.get('long_description')
-        if display_alone and not long_description:
+        if showcase and not long_description:
             errors['long_description'] = (
-                'Required when display alone is checked.'
+                'Required when the project is to be showcased.'
             )
-        elif not display_alone and long_description:
+        elif not showcase and long_description:
             errors['long_description'] = (
-                'Only allowed when display alone is checked.'
+                'Only allowed when project is to be showcased.'
             )
         if errors:
             raise ValidationError(errors)
