@@ -19,7 +19,8 @@ class ProjectFileFormSet(BaseInlineFormSet):
                 continue
             data = form.cleaned_data
             if data.get('DELETE') is False:
-                if data['file'].content_type in settings.IMAGE_CONTENT_TYPES:
+                ext = os.path.splitext(data['file'].name)[1]
+                if ext in settings.IMAGE_EXTENSIONS:
                     file_count += 1
         return file_count
 
