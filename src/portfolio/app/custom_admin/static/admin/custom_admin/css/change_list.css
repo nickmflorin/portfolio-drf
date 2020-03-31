@@ -6,12 +6,14 @@
   color: var(--gray1) !important;
   border: 1px solid var(--light-gray) !important;
   background: var(--light-gray) !important;
+  margin-left: 10px !important;
 }
 
 #changelist .actions .button {
     border: 1px solid var(--green) !important;
     background: var(--green) !important;
     color: var(--white) !important;
+    margin-left: 10px !important;
 }
 
 #changelist .actions {

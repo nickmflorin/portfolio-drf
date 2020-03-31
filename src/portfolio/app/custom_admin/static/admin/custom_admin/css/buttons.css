@@ -1,4 +1,4 @@
-a {
+a, .button, input {
   background-image: none !important;
   box-shadow: none !important;
   height: auto !important;
