@@ -42,13 +42,13 @@ def test_list_response_200(api_client, create_experience, create_project,
                 'id': projects[0].pk,
                 'name': projects[0].name,
                 'short_description': projects[0].short_description,
-                'display_alone': True,
+                'showcase': False,
             },
             {
                 'id': projects[1].pk,
                 'name': projects[1].name,
                 'short_description': projects[1].short_description,
-                'display_alone': True,
+                'showcase': False,
             }
         ]
     }]
@@ -96,13 +96,13 @@ def test_detail_response_200(api_client, create_experience, create_project,
                 'id': projects[0].pk,
                 'name': projects[0].name,
                 'short_description': projects[0].short_description,
-                'display_alone': True,
+                'showcase': False,
             },
             {
                 'id': projects[1].pk,
                 'name': projects[1].name,
                 'short_description': projects[1].short_description,
-                'display_alone': True,
+                'showcase': False,
             }
         ]
     }

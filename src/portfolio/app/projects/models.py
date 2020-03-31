@@ -41,7 +41,7 @@ class Project(PortfolioModel):
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
     showcase = models.BooleanField(
-        default=True,
+        default=False,
         help_text=(
             "Determines whether or not the project will be showcased on the "
             "projects page."

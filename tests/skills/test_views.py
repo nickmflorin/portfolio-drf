@@ -68,7 +68,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
             'id': project.id,
             'name': project.name,
             'short_description': project.short_description,
-            'display_alone': True,
+            'showcase': False,
         }],
         'courses': [
             {

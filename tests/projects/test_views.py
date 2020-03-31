@@ -18,7 +18,7 @@ def test_list_response_200(api_client, create_project, create_skill):
             'name': projects[0].name,
             'short_description': projects[0].short_description,
             'long_description': projects[0].long_description,
-            'display_alone': True,
+            'showcase': False,
             'files': [],
             'skills': [],
         },
@@ -27,7 +27,7 @@ def test_list_response_200(api_client, create_project, create_skill):
             'name': projects[1].name,
             'short_description': projects[1].short_description,
             'long_description': projects[1].long_description,
-            'display_alone': True,
+            'showcase': False,
             'files': [],
             'skills': [{
                 'id': skill.pk,
@@ -50,7 +50,7 @@ def test_detail_response_200(api_client, create_project, create_skill):
         'name': project.name,
         'short_description': project.short_description,
         'long_description': project.long_description,
-        'display_alone': True,
+        'showcase': False,
         'files': [],
         'skills': [{
             'id': skill.pk,
