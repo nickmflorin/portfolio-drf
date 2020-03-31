@@ -15,7 +15,6 @@ class ProjectFile(PortfolioModel):
     file = models.FileField(upload_to=upload_to, null=True)
     name = models.CharField(
         max_length=64,
-        unique=True,
         help_text=(
             "Human readable name for the file that will be displayed to users "
             "in links to download/access the file."
