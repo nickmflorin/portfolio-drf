@@ -1,6 +1,17 @@
 import datetime
+
 from django import forms
+from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+
+
+def form_validation(func):
+    def inner(instance, *args):
+        errors = {}
+        func(instance, *args, errors=errors)
+        if errors:
+            raise ValidationError(errors)
+    return inner
 
 
 class HorizonForm(forms.ModelForm):

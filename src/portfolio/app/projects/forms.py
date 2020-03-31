@@ -1,11 +1,37 @@
 import os
 from django import forms
+from django.forms.models import BaseInlineFormSet
+from django.conf import settings
 from django.core.exceptions import ValidationError
+
+from portfolio.app.common.forms import form_validation
 
 from .models import Project
 
 
-IMAGE_EXTENSIONS = ('.png', '.jpeg', '.jpg', '.gif')
+class ProjectFileFormSet(BaseInlineFormSet):
+
+    @property
+    def image_file_count(self):
+        file_count = 0
+        for form in self.forms:
+            if not hasattr(form, 'cleaned_data'):
+                continue
+            data = form.cleaned_data
+            if data.get('DELETE') is False:
+                if data['file'].content_type in settings.IMAGE_CONTENT_TYPES:
+                    file_count += 1
+        return file_count
+
+    @form_validation
+    def validate_files(self, errors):
+        if not self.image_file_count and self.instance.showcase:
+            raise ValidationError(
+                "Must include at least 1 project file when showcasing a project.")
+
+    def clean(self):
+        super(ProjectFileFormSet, self).clean()
+        self.validate_files()
 
 
 class ProjectFileForm(forms.ModelForm):
@@ -33,11 +59,11 @@ class ProjectFileForm(forms.ModelForm):
         caption = data.get('caption')
         if file:
             ext = os.path.splitext(file.name)[1]
-            if ext.lower() in IMAGE_EXTENSIONS and not caption:
+            if ext.lower() in settings.IMAGE_EXTENSIONS and not caption:
                 errors['caption'] = (
                     "Must provide caption when the file is an image file."
                 )
-            elif ext.lower() not in IMAGE_EXTENSIONS and caption:
+            elif ext.lower() not in settings.IMAGE_EXTENSIONS and caption:
                 errors['caption'] = (
                     "Captions are only allowed  for image files."
                 )
@@ -71,8 +97,8 @@ class ProjectForm(forms.ModelForm):
         model = Project
         fields = '__all__'
 
-    def validate_long_description(self, data):
-        errors = {}
+    @form_validation
+    def validate_long_description(self, data, errors):
         showcase = data['showcase']
         long_description = data.get('long_description')
         if showcase and not long_description:
@@ -83,8 +109,6 @@ class ProjectForm(forms.ModelForm):
             errors['long_description'] = (
                 'Only allowed when project is to be showcased.'
             )
-        if errors:
-            raise ValidationError(errors)
 
     def clean(self):
         data = super(ProjectForm, self).clean()

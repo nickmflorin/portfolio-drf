@@ -43,5 +43,6 @@ class Project(PortfolioModel):
         default=False,
         help_text=(
             "Determines whether or not the project will be showcased on the "
-            "projects page."
+            "projects page.  If showcasing a project, the project must include "
+            "at least 1 image file."
         ))

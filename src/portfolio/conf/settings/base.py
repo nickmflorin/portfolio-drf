@@ -1,4 +1,5 @@
 from .admin import *  # noqa
+from .constants import *  # noqa
 from .databases import DATABASES  # noqa
 from .logging import LOGGING  # noqa
 from .installed_apps import INSTALLED_APPS  # noqa
