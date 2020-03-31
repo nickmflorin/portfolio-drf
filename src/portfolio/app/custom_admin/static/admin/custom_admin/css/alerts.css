@@ -1,0 +1,25 @@
+.errornote {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  display: block;
+  padding: 10px 12px !important;
+  margin: 10px 0 10px 0 !important;
+  color: var(--red) !important;
+  border: 1px solid var(--red) !important;
+  border-radius: 0px !important;
+  background-color: rgba(255, 92, 80, 0.2) !important;
+  background-position: 5px 12px;
+}
+
+ul.errorlist li {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  display: block;
+  padding: 6px 10px !important;
+  margin: 10px 0 10px 0 !important;
+  color: var(--red) !important;
+  border: 1px solid var(--red) !important;
+  border-radius: 0px !important;
+  background-color: rgba(255, 92, 80, 0.2) !important;
+  background-position: 5px 12px;
+}
