@@ -14,11 +14,10 @@ def upload_to(instance, filename):
 class ProjectFile(PortfolioModel):
     file = models.FileField(upload_to=upload_to, null=True)
     name = models.CharField(max_length=64, unique=True,
-        help_text="Verbose name for the file that will be used to display "
-        "the downloadable or viewable file."
+        help_text="Verbose name for the file that will be used for links "
+        "accessing the file."
     )
-    short_description = models.CharField(max_length=256)
-    long_description = models.CharField(max_length=1024)
+    description = models.CharField(max_length=1024)
     caption = models.CharField(max_length=256, null=True, blank=True,
         help_text="Caption for image files.  Only allowed/required when the "
         "file is an image file."

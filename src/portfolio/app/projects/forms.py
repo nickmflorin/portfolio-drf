@@ -53,16 +53,14 @@ class ProjectForm(forms.ModelForm):
         required=True,
         help_text=(
             "Description of the project limited to 256 characters. "
-            "Required if display alone is checked."
         )
     )
     long_description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=False,
         help_text=(
-            "Description of the project limited to 1024 characters.  Will "
-            "be used when the project is listed as its own item on the projects "
-            "page."
+            "Description of the project limited to 1024 characters. "
+            "Allowed/required if display alone is checked."
         )
     )
 
