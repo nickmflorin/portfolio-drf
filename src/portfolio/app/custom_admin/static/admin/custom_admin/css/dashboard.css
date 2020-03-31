@@ -1,0 +1,28 @@
+.dashboard-container {
+  display: flex !important;
+}
+
+.dashboard-column {
+  display: flex !important;
+  flex-direction: column !important;
+
+}
+
+.dashboard-module {
+  margin: 10px 10px 5px 10px;
+  padding: 0;
+  border: 1px solid var(--light-gray) !important;
+  -moz-border-radius: 0px !important;
+  -webkit-border-radius: 0px !important;
+}
+
+.dashboard-module ul li {
+  font-size: 14px !important;
+  padding: 5px 8px !important;
+  line-height: 20px !important;
+}
+
+.dashboard-module ul li ul li {
+    padding: 0 !important;
+    vertical-align: middle;
+}

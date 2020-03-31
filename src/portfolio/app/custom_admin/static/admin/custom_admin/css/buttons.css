@@ -1,0 +1,95 @@
+a {
+  background-image: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+}
+
+a, a:visited, a:link {
+  color: var(--blue) !important;
+  font-weight: 300 !important;
+}
+
+a:hover {
+  color: var(--super-light-gray); !important;
+  text-decoration: none !important;
+}
+
+.object-tools {
+    font-size: 10px !important;
+    float: right !important;
+    margin-top: -38px !important;
+}
+
+.button, .object-tools a, input[type=submit], input[type=button]{
+  font-weight: 400 !important;
+  font-family: 'Roboto', sans-serif !important;
+  border-radius: 4px !important;
+  padding: 8px 15px !important;
+  line-height: 14px !important;
+  color: var(--gray1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
+}
+
+.button:hover, .object-tools a:link:hover, a.deletelink:hover, input[type=submit]:hover, input[type=button]:hover {
+  filter: brightness(0.6) !important;
+}
+
+a.deletelink, a.golink .object-tools a.addlink a.viewsitelink {
+  font-weight: 400 !important;
+  font-family: 'Roboto', sans-serif !important;
+  padding: 8px 15px !important;
+  line-height: 14px !important;
+}
+
+.object-tools a {
+  color: var(--gray1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
+}
+
+a.deletelink {
+  color: var(--white) !important;
+  background: var(--red) !important;
+  border: 1px solid var(--red) !important;
+}
+
+a.viewsitelink, a.golink, .object-tools a.addlink {
+  color: var(--white) !important;
+  background: var(--green) !important;
+  border: 1px solid var(--green) !important;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+  font-weight: 400 !important;
+  font-family: 'Roboto', sans-serif !important;
+  float: right;
+  color: var(--white) !important;
+  background: var(--blue) !important;
+  border: 1px solid var(--blue) !important;
+  padding: 8px 15px !important;
+  line-height: 14px !important;
+}
+
+#header a:link, #header a:visited {
+    color: var(--white) !important;
+}
+
+div.breadcrumbs a {
+  color: var(--gray-2) !important;
+  margin-left: 6px !important;
+  margin-right: 6px !important;
+}
+
+div.breadcrumbs a:hover, a:active {
+  color: var(--light-gray) !important;
+}
+
+.dashboard-module-content ul li a {
+  line-height: 20px !important;
+  padding: 5px 0px !important;
+}
+
+.dashboard-module-content ul li a.changelink {
+    margin-left: 8px !important;
+}

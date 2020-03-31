@@ -1,0 +1,62 @@
+@import "test.css";
+@import "headers.css";
+@import "structural.css";
+@import "change_list.css";
+@import "buttons.css";
+@import "forms.css";
+@import "dashboard.css";
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700&display=swap');
+
+:root {
+  --blue: #2196f3;
+  --white: #FFFFFF;
+  --red: rgba(255, 92, 80, 1.0);
+  --green: rgba(61, 185, 135, 1.0);
+  --light-gray: #EFEFEF;
+  --super-light-gray: #fafafa;
+  --primary: #282828;
+  --secondary: #3C3C3C;
+  --gray1: #474747;
+  --gray2: #5F5F5F;
+  --gray3: #838383;
+}
+
+th {
+    font-weight: 400 !important;
+    text-align: left;
+}
+
+ul li {
+  list-style-type: square;
+  padding: 0 !important;
+}
+
+li, dt, dd {
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+
+div.breadcrumbs {
+  background: var(--white) !important;
+  padding: 16px 16px;
+  border: none;
+  font-size: 14px;
+  text-align: left;
+}
+
+ul.messagelist {
+  max-width: 1200px;
+  margin: 60px auto 20px auto !important;
+}
+
+ul.messagelist li {
+    display: block;
+    font-weight: 300 !important;
+    font-size: 12px !important;
+    padding: 10px 10px 10px 10px !important;
+    margin: 0 0 10px 0;
+    background: #dfd !important;
+    color: var(--secondary) !important;
+}

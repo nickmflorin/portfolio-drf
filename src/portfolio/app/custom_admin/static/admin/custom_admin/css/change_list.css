@@ -1,0 +1,25 @@
+#changelist #toolbar form #searchbar {
+  vertical-align: middle !important;
+}
+
+#changelist #toolbar form input[type="submit"] {
+  color: var(--gray1) !important;
+  border: 1px solid var(--light-gray) !important;
+  background: var(--light-gray) !important;
+}
+
+#changelist .actions .button {
+    border: 1px solid var(--green) !important;
+    background: var(--green) !important;
+    color: var(--white) !important;
+}
+
+#changelist .actions {
+    padding: 10px;
+    background: var(--white) !important;
+    border-top: none;
+    border-bottom: none;
+    line-height: 30px !important;
+    color: var(--gray-3) !important;
+    vertical-align: middle;
+}
