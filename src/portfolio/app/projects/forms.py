@@ -9,12 +9,7 @@ IMAGE_EXTENSIONS = ('.png', '.jpeg', '.jpg', '.gif')
 
 
 class ProjectFileForm(forms.ModelForm):
-    short_description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 3, "cols": 128}),
-        required=False,
-        help_text="Description of the file limited to 256 characters."
-    )
-    long_description = forms.CharField(
+    description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=False,
         help_text="Description of the file limited to 1024 characters."
