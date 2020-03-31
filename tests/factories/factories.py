@@ -116,6 +116,25 @@ class ProjectFactory(PortfolioModelFactory):
     class Meta:
         model = Project
 
+    @classmethod
+    def create(cls, *args, **kwargs):
+        content_object = None
+        if 'education' in kwargs:
+            content_object = kwargs['education']
+            del kwargs['education']
+        elif 'experience' in kwargs:
+            if 'education' in kwargs:
+                raise Exception("Cannot provide both education and experience.")
+            content_object = kwargs['experience']
+            del kwargs['experience']
+
+        if content_object:
+            kwargs.update(
+                content_object=content_object,
+                object_id=content_object.pk,
+            )
+        return super(ProjectFactory, cls).create(*args, **kwargs)
+
 
 class SkillFactory(PortfolioModelFactory):
     name = factory.Faker('name')

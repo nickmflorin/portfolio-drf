@@ -1,5 +1,7 @@
 from rest_framework import serializers
 
+from portfolio.app.education.models import Education
+
 from portfolio.app.common.serializers import PortfolioSerializer
 from portfolio.app.skills.serializers import BasicSkillSerializer
 
@@ -38,3 +40,16 @@ class ProjectSerializer(BasicProjectSerializer):
         model = Project
         fields = BasicProjectSerializer.Meta.fields + (
             'skills', 'files', 'long_description')
+
+    def to_representation(self, instance):
+        from portfolio.app.education.serializers import BasicEducationSerializer
+        from portfolio.app.experience.serializers import BasicExperienceSerializer
+
+        data = super(ProjectSerializer, self).to_representation(instance)
+        if isinstance(instance.content_object, Education):
+            data['education'] = BasicEducationSerializer(
+                instance.content_object).data
+        else:
+            data['experience'] = BasicExperienceSerializer(
+                instance.content_object).data
+        return data
