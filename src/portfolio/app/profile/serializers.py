@@ -12,9 +12,10 @@ class ProfileSerializer(PortfolioSerializer):
     github_url = serializers.URLField()
     linkedin_url = serializers.URLField()
     resume = serializers.FileField()
+    intro = serializers.CharField()
 
     class Meta:
         model = Profile
         fields = PortfolioSerializer.Meta.fields + (
             'first_name', 'last_name', 'middle_name', 'email', 'github_url',
-            'linkedin_url', 'resume')
+            'linkedin_url', 'resume', 'intro')

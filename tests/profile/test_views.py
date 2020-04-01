@@ -6,7 +6,6 @@ import pytest
 def test_response_200(api_client, create_profile):
     profile = create_profile()
     response = api_client.get('/api/v1/profile/')
-
     assert response.status_code == 200
     assert response.json() == {
         'id': profile.id,
@@ -17,4 +16,5 @@ def test_response_200(api_client, create_profile):
         'github_url': profile.github_url,
         'linkedin_url': profile.linkedin_url,
         'resume': os.path.join('http://testserver', profile.resume.url[1:]),
+        'intro': profile.intro,
     }

@@ -82,7 +82,7 @@ class ProjectForm(forms.ModelForm):
         widget=forms.Textarea(attrs={"rows": 3, "cols": 128}),
         required=True,
         help_text=(
-            "Description of the project limited to 256 characters. "
+            "Description of the project limited to 256 characters."
         )
     )
     long_description = forms.CharField(
