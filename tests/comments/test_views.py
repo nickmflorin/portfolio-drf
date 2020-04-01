@@ -16,7 +16,7 @@ def test_list_response_200(api_client, create_comment):
             'id': comments[0].pk,
             'name': comments[0].name,
             'email': comments[0].email,
-            'value': comments[0].value,
+            'comment': comments[0].comment,
             'public': comments[0].public,
             'date_modified': comments[0].date_modified.strftime(
                 "%Y-%m-%dT%H:%M:%S.%fZ"),
@@ -27,7 +27,7 @@ def test_list_response_200(api_client, create_comment):
             'id': comments[1].pk,
             'name': comments[1].name,
             'email': comments[1].email,
-            'value': comments[1].value,
+            'comment': comments[1].comment,
             'public': comments[1].public,
             'date_modified': comments[1].date_modified.strftime(
                 "%Y-%m-%dT%H:%M:%S.%fZ"),
@@ -46,7 +46,7 @@ def test_detail_response_200(api_client, create_comment):
         'id': comment.pk,
         'name': comment.name,
         'email': comment.email,
-        'value': comment.value,
+        'comment': comment.comment,
         'public': comment.public,
         'date_modified': comment.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'date_created': comment.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
@@ -57,7 +57,7 @@ def test_detail_response_200(api_client, create_comment):
 def test_create_comment(api_client):
     data = {
         'name': 'Comment Author',
-        'value': 'Some Comment',
+        'comment': 'Some Comment',
         'email': 'author@gmail.com',
         'public': False,
     }
@@ -69,7 +69,7 @@ def test_create_comment(api_client):
         'id': comment.pk,
         'date_modified': comment.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'date_created': comment.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-        'value': 'Some Comment',
+        'comment': 'Some Comment',
         'public': False,
         'email': 'author@gmail.com',
         'name': 'Comment Author',

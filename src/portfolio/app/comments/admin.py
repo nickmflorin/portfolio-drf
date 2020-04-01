@@ -6,8 +6,8 @@ from .models import Comment
 
 class CommentAdmin(admin.ModelAdmin):
     model = Comment
-    list_display = ['name']
-    search_fields = ['name']
+    list_display = ['name', 'email', 'date_created', 'public']
+    search_fields = ['name', 'email', 'date_created', 'public']
     form = CommentForm
 
     def has_delete_permission(self, request, obj=None):

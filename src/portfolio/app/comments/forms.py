@@ -4,7 +4,7 @@ from .models import Comment
 
 
 class CommentForm(forms.ModelForm):
-    value = forms.CharField(
+    comment = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=True,
     )

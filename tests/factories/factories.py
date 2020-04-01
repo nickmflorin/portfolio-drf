@@ -41,7 +41,7 @@ class HorizonModelFactory(PortfolioModelFactory):
 
 class CommentFactory(PortfolioModelFactory):
     name = factory.Faker('name')
-    value = factory.Faker('paragraph')
+    comment = factory.Faker('paragraph')
     email = factory.Faker('email')
     public = True
 

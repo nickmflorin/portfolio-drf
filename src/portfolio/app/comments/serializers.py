@@ -8,10 +8,10 @@ class CommentSerializer(PortfolioSerializer):
     id = serializers.ReadOnlyField()
     name = serializers.CharField()
     email = serializers.CharField()
-    value = serializers.CharField()
+    comment = serializers.CharField()
     public = serializers.BooleanField()
 
     class Meta:
         model = Comment
         fields = PortfolioSerializer.Meta.fields + (
-            'name', 'email', 'value', 'public')
+            'name', 'email', 'comment', 'public')
