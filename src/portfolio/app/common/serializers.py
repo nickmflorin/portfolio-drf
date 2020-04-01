@@ -3,8 +3,8 @@ from rest_framework import serializers
 
 class PortfolioSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
-    date_created = serializers.DateTimeField()
-    date_modified = serializers.DateTimeField()
+    date_created = serializers.DateTimeField(read_only=True)
+    date_modified = serializers.DateTimeField(read_only=True)
 
     class Meta:
         fields = ('id', 'date_created', 'date_modified')
