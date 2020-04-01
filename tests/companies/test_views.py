@@ -18,8 +18,10 @@ def test_list_response_200(api_client, create_company):
             'logo': None,
             'url': companies[0].url,
             'description': companies[0].description,
-            'date_modified': companies[0].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-            'date_created': companies[0].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_modified': companies[0].date_modified.strftime(
+                "%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': companies[0].date_created.strftime(
+                "%Y-%m-%dT%H:%M:%S.%fZ"),
         },
         {
             'id': companies[1].pk,
@@ -29,8 +31,10 @@ def test_list_response_200(api_client, create_company):
             'logo': None,
             'url': companies[1].url,
             'description': companies[1].description,
-            'date_modified': companies[1].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
-            'date_created': companies[1].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_modified': companies[1].date_modified.strftime(
+                "%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': companies[1].date_created.strftime(
+                "%Y-%m-%dT%H:%M:%S.%fZ"),
         }
     ]
 
