@@ -38,7 +38,7 @@ class PortfolioMenu(Menu):
                 _('Administration'),
                 models=(
                     'django.contrib.*',
-                    'portfolio.app.profile.*'
+                    'portfolio.app.profile.*',
                     'portfolio.app.comments.*'
                 ),
             ),
