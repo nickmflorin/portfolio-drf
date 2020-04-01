@@ -17,4 +17,6 @@ def test_response_200(api_client, create_profile):
         'linkedin_url': profile.linkedin_url,
         'resume': os.path.join('http://testserver', profile.resume.url[1:]),
         'intro': profile.intro,
+        'date_modified': profile.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+        'date_created': profile.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
     }

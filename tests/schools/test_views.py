@@ -17,6 +17,8 @@ def test_list_response_200(api_client, create_school):
             'city': schools[0].city,
             'state': schools[0].state,
             'logo': None,
+            'date_modified': schools[0].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': schools[0].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         },
         {
             'id': schools[1].pk,
@@ -25,6 +27,8 @@ def test_list_response_200(api_client, create_school):
             'city': schools[1].city,
             'state': schools[1].state,
             'logo': None,
+            'date_modified': schools[1].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': schools[1].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         }
     ]
 
@@ -41,4 +45,6 @@ def test_detail_response_200(api_client, create_school):
         'city': school.city,
         'state': school.state,
         'logo': None,
+        'date_modified': school.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+        'date_created': school.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
     }

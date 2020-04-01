@@ -19,6 +19,7 @@ urlpatterns = [
         path('schools/', include('portfolio.app.schools.urls')),
         path('companies/', include('portfolio.app.companies.urls')),
         path('profile/', include('portfolio.app.profile.urls')),
+        path('comments/', include('portfolio.app.comments.urls')),
     ])),
 ]
 

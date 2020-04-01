@@ -3,6 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 
 from portfolio.app.common.constants import STATES
 
+from portfolio.app.comments.models import Comment
 from portfolio.app.companies.models import Company
 from portfolio.app.courses.models import Course
 from portfolio.app.education.models import Education
@@ -24,6 +25,7 @@ __all__ = (
     'ProjectFactory',
     'SkillFactory',
     'ProfileFactory',
+    'CommentFactory',
 )
 
 
@@ -35,6 +37,16 @@ class HorizonModelFactory(PortfolioModelFactory):
 
     class Meta:
         abstract = True
+
+
+class CommentFactory(PortfolioModelFactory):
+    name = factory.Faker('name')
+    value = factory.Faker('paragraph')
+    email = factory.Faker('email')
+    public = True
+
+    class Meta:
+        model = Comment
 
 
 class ProfileFactory(PortfolioModelFactory):

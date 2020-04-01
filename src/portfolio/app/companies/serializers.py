@@ -1,9 +1,10 @@
 from rest_framework import serializers
+from portfolio.app.common.serializers import PortfolioSerializer
 
 from .models import Company
 
 
-class CompanySerializer(serializers.ModelSerializer):
+class CompanySerializer(PortfolioSerializer):
     id = serializers.ReadOnlyField()
     name = serializers.CharField()
     city = serializers.CharField()
@@ -14,4 +15,5 @@ class CompanySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Company
-        fields = ('id', 'name', 'city', 'state', 'url', 'logo', 'description')
+        fields = PortfolioSerializer.Meta.fields + (
+            'id', 'name', 'city', 'state', 'url', 'logo', 'description')

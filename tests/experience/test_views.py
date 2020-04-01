@@ -15,6 +15,8 @@ def test_list_response_200(api_client, create_experience, create_project,
         'current': experience.current,
         'description': experience.description,
         'title': experience.title,
+        'date_modified': experience.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+        'date_created': experience.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'company': {
             'id': experience.company.pk,
             'name': experience.company.name,
@@ -23,6 +25,8 @@ def test_list_response_200(api_client, create_experience, create_project,
             'logo': None,
             'url': experience.company.url,
             'description': experience.company.description,
+            'date_modified': experience.company.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': experience.company.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         },
     }]
 
@@ -49,6 +53,8 @@ def test_detail_response_200(api_client, create_experience, create_project,
         'current': experience.current,
         'description': experience.description,
         'title': experience.title,
+        'date_modified': experience.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+        'date_created': experience.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'company': {
             'id': experience.company.pk,
             'name': experience.company.name,
@@ -57,11 +63,15 @@ def test_detail_response_200(api_client, create_experience, create_project,
             'logo': None,
             'url': experience.company.url,
             'description': experience.company.description,
+            'date_modified': experience.company.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': experience.company.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         },
         'skills': [
             {
                 'id': skill.pk,
                 'name': skill.name,
+                'date_modified': skill.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                'date_created': skill.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             }
         ],
         'projects': [
@@ -70,12 +80,16 @@ def test_detail_response_200(api_client, create_experience, create_project,
                 'name': projects[0].name,
                 'short_description': projects[0].short_description,
                 'showcase': False,
+                'date_modified': projects[0].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                'date_created': projects[0].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             },
             {
                 'id': projects[1].pk,
                 'name': projects[1].name,
                 'short_description': projects[1].short_description,
                 'showcase': False,
+                'date_modified': projects[1].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                'date_created': projects[1].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             }
         ]
     }

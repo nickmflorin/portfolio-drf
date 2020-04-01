@@ -1,14 +1,15 @@
 from rest_framework import serializers
+from portfolio.app.common.serializers import PortfolioSerializer
+
 from .models import Skill
 
 
-class NestedSkillSerializer(serializers.ModelSerializer):
-    id = serializers.ReadOnlyField()
+class NestedSkillSerializer(PortfolioSerializer):
     name = serializers.CharField()
 
     class Meta:
         model = Skill
-        fields = ('id', 'name')
+        fields = PortfolioSerializer.Meta.fields + ('name', )
 
 
 class ListSkillSerializer(NestedSkillSerializer):

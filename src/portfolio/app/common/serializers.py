@@ -3,9 +3,11 @@ from rest_framework import serializers
 
 class PortfolioSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
+    date_created = serializers.DateTimeField()
+    date_modified = serializers.DateTimeField()
 
     class Meta:
-        fields = ('id', )
+        fields = ('id', 'date_created', 'date_modified')
 
 
 class HorizonSerializer(PortfolioSerializer):

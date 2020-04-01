@@ -16,12 +16,16 @@ def test_list_response_200(api_client, create_project,
             'name': projects[0].name,
             'short_description': projects[0].short_description,
             'showcase': False,
+            'date_modified': projects[0].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': projects[0].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         },
         {
             'id': projects[1].pk,
             'name': projects[1].name,
             'short_description': projects[1].short_description,
             'showcase': False,
+            'date_modified': projects[1].date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': projects[1].date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         }
     ]
 
@@ -44,9 +48,13 @@ def test_detail_response_200_with_education(api_client, create_project, create_s
         'long_description': project.long_description,
         'showcase': False,
         'files': [],
+        'date_modified': project.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+        'date_created': project.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'skills': [{
             'id': skill.pk,
-            'name': skill.name
+            'name': skill.name,
+            'date_modified': skill.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': skill.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         }],
         'education': {
             'id': education.pk,
@@ -61,6 +69,8 @@ def test_detail_response_200_with_education(api_client, create_project, create_s
             'minor': education.minor,
             'concentration': education.concentration,
             'description': education.description,
+            'date_modified': education.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': education.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             'school': {
                 'id': education.school.pk,
                 'name': education.school.name,
@@ -68,6 +78,8 @@ def test_detail_response_200_with_education(api_client, create_project, create_s
                 'state': education.school.state,
                 'logo': None,
                 'description': education.school.description,
+                'date_modified': education.school.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                'date_created': education.school.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             },
         }
     }
@@ -91,9 +103,13 @@ def test_detail_response_200_with_experience(api_client, create_project, create_
         'long_description': project.long_description,
         'showcase': False,
         'files': [],
+        'date_modified': project.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+        'date_created': project.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'skills': [{
             'id': skill.pk,
-            'name': skill.name
+            'name': skill.name,
+            'date_modified': skill.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': skill.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         }],
         'experience': {
             'id': experience.pk,
@@ -104,6 +120,8 @@ def test_detail_response_200_with_experience(api_client, create_project, create_
             'current': experience.current,
             'description': experience.description,
             'title': experience.title,
+            'date_modified': experience.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'date_created': experience.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             'company': {
                 'id': experience.company.pk,
                 'name': experience.company.name,
@@ -112,6 +130,8 @@ def test_detail_response_200_with_experience(api_client, create_project, create_
                 'logo': None,
                 'url': experience.company.url,
                 'description': experience.company.description,
+                'date_modified': experience.company.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                'date_created': experience.company.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
             },
         }
     }
