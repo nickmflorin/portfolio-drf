@@ -39,6 +39,7 @@ class PortfolioMenu(Menu):
                 models=(
                     'django.contrib.*',
                     'portfolio.app.profile.*'
+                    'portfolio.app.comments.*'
                 ),
             ),
         ]
