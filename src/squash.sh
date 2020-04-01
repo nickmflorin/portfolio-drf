@@ -10,6 +10,7 @@ apps[5]='projects'
 apps[6]='experience'
 apps[7]='skills'
 apps[8]='profile'
+apps[9]='comments'
 
 
 delete_database(){
