@@ -1,9 +1,10 @@
-from rest_framework import viewsets
+from portfolio.app.common.views import PartitionedReadOnlyViewSet
 
 from .models import Project
-from .serializers import ProjectSerializer
+from .serializers import DetailProjectSerializer, ListProjectSerializer
 
 
-class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
+class ProjectViewSet(PartitionedReadOnlyViewSet):
     queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
+    detail_serializer_class = DetailProjectSerializer
+    list_serializer_class = ListProjectSerializer

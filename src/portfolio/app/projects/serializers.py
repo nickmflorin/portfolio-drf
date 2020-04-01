@@ -3,7 +3,7 @@ from rest_framework import serializers
 from portfolio.app.education.models import Education
 
 from portfolio.app.common.serializers import PortfolioSerializer
-from portfolio.app.skills.serializers import BasicSkillSerializer
+from portfolio.app.skills.serializers import NestedSkillSerializer
 
 from .models import Project
 
@@ -20,7 +20,7 @@ class ProjectFileSerializer(PortfolioSerializer):
             'file', 'name', 'description', 'caption')
 
 
-class BasicProjectSerializer(PortfolioSerializer):
+class NestedProjectSerializer(PortfolioSerializer):
     name = serializers.CharField()
     short_description = serializers.CharField()
     showcase = serializers.BooleanField()
@@ -31,25 +31,32 @@ class BasicProjectSerializer(PortfolioSerializer):
             'name', 'short_description', 'showcase')
 
 
-class ProjectSerializer(BasicProjectSerializer):
-    skills = BasicSkillSerializer(many=True)
+class ListProjectSerializer(NestedProjectSerializer):
+
+    class Meta:
+        model = Project
+        fields = NestedProjectSerializer.Meta.fields
+
+
+class DetailProjectSerializer(ListProjectSerializer):
+    skills = NestedSkillSerializer(many=True)
     files = ProjectFileSerializer(many=True)
     long_description = serializers.CharField()
 
     class Meta:
         model = Project
-        fields = BasicProjectSerializer.Meta.fields + (
+        fields = ListProjectSerializer.Meta.fields + (
             'skills', 'files', 'long_description')
 
     def to_representation(self, instance):
-        from portfolio.app.education.serializers import BasicEducationSerializer
-        from portfolio.app.experience.serializers import BasicExperienceSerializer
+        from portfolio.app.education.serializers import NestedEducationSerializer
+        from portfolio.app.experience.serializers import NestedExperienceSerializer
 
-        data = super(ProjectSerializer, self).to_representation(instance)
+        data = super(DetailProjectSerializer, self).to_representation(instance)
         if isinstance(instance.content_object, Education):
-            data['education'] = BasicEducationSerializer(
+            data['education'] = NestedEducationSerializer(
                 instance.content_object).data
         else:
-            data['experience'] = BasicExperienceSerializer(
+            data['experience'] = NestedExperienceSerializer(
                 instance.content_object).data
         return data

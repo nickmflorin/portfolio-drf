@@ -1,13 +1,13 @@
 from rest_framework import serializers
 
 from portfolio.app.common.serializers import PortfolioSerializer
-from portfolio.app.education.serializers import BasicEducationSerializer
-from portfolio.app.skills.serializers import BasicSkillSerializer
+from portfolio.app.education.serializers import NestedEducationSerializer
+from portfolio.app.skills.serializers import NestedSkillSerializer
 
 from .models import Course
 
 
-class BasicCourseSerializer(PortfolioSerializer):
+class NestedCourseSerializer(PortfolioSerializer):
     name = serializers.CharField()
     description = serializers.CharField()
 
@@ -16,10 +16,17 @@ class BasicCourseSerializer(PortfolioSerializer):
         fields = PortfolioSerializer.Meta.fields + ('name', 'description')
 
 
-class CourseSerializer(BasicCourseSerializer):
-    education = BasicEducationSerializer()
-    skills = BasicSkillSerializer(many=True)
+class ListCourseSerializer(NestedCourseSerializer):
 
     class Meta:
         model = Course
-        fields = BasicCourseSerializer.Meta.fields + ('education', 'skills')
+        fields = NestedCourseSerializer.Meta.fields
+
+
+class DetailCourseSerializer(ListCourseSerializer):
+    education = NestedEducationSerializer()
+    skills = NestedSkillSerializer(many=True)
+
+    class Meta:
+        model = Course
+        fields = ListCourseSerializer.Meta.fields + ('education', 'skills')

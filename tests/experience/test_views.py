@@ -5,13 +5,6 @@ import pytest
 def test_list_response_200(api_client, create_experience, create_project,
         create_skill):
     experience = create_experience()
-    projects = [
-        create_project(experience=experience),
-        create_project(experience=experience)
-    ]
-    skill = create_skill()
-    skill.experiences.set([experience])
-
     response = api_client.get('/api/v1/experience/')
     assert response.json() == [{
         'id': experience.pk,
@@ -31,26 +24,6 @@ def test_list_response_200(api_client, create_experience, create_project,
             'url': experience.company.url,
             'description': experience.company.description,
         },
-        'skills': [
-            {
-                'id': skill.pk,
-                'name': skill.name,
-            }
-        ],
-        'projects': [
-            {
-                'id': projects[0].pk,
-                'name': projects[0].name,
-                'short_description': projects[0].short_description,
-                'showcase': False,
-            },
-            {
-                'id': projects[1].pk,
-                'name': projects[1].name,
-                'short_description': projects[1].short_description,
-                'showcase': False,
-            }
-        ]
     }]
 
 

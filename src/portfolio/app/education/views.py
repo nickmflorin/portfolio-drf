@@ -1,9 +1,10 @@
-from rest_framework import viewsets
+from portfolio.app.common.views import PartitionedReadOnlyViewSet
 
 from .models import Education
-from .serializers import EducationSerializer
+from .serializers import DetailEducationSerializer, ListEducationSerializer
 
 
-class EducationViewSet(viewsets.ReadOnlyModelViewSet):
+class EducationViewSet(PartitionedReadOnlyViewSet):
     queryset = Education.objects.all()
-    serializer_class = EducationSerializer
+    list_serializer_class = ListEducationSerializer
+    detail_serializer_class = DetailEducationSerializer

@@ -1,14 +1,14 @@
 from rest_framework import serializers
 
-from portfolio.app.projects.serializers import BasicProjectSerializer
+from portfolio.app.projects.serializers import NestedProjectSerializer
 from portfolio.app.common.serializers import HorizonSerializer
 from portfolio.app.schools.serializers import SchoolSerializer
-from portfolio.app.skills.serializers import BasicSkillSerializer
+from portfolio.app.skills.serializers import NestedSkillSerializer
 
 from .models import Education
 
 
-class BasicEducationSerializer(HorizonSerializer):
+class NestedEducationSerializer(HorizonSerializer):
     school = SchoolSerializer()
     degree = serializers.CharField()
     major = serializers.CharField()
@@ -24,20 +24,23 @@ class BasicEducationSerializer(HorizonSerializer):
             'description', 'gpa')
 
 
-class EducationSerializer(BasicEducationSerializer):
-    projects = BasicProjectSerializer(many=True)
-    skills = BasicSkillSerializer(many=True)
+class ListEducationSerializer(NestedEducationSerializer):
+
+    class Meta:
+        model = Education
+        fields = NestedEducationSerializer.Meta.fields
+
+
+class DetailEducationSerializer(ListEducationSerializer):
+    projects = NestedProjectSerializer(many=True)
+    skills = NestedSkillSerializer(many=True)
     courses = serializers.SerializerMethodField()
 
     class Meta:
         model = Education
-        fields = BasicEducationSerializer.Meta.fields + (
+        fields = NestedEducationSerializer.Meta.fields + (
             'projects', 'skills', 'courses')
 
     def get_courses(self, instance):
-        # This has to be in a serializer method field instead of just simply doing
-        # >>> EducationSerializer()
-        # >>>   courses = BasicCourseSerializer(many=True)
-        # because this would introduce a circular import.
-        from portfolio.app.courses.serializers import BasicCourseSerializer
-        return BasicCourseSerializer(instance.courses.all(), many=True).data
+        from portfolio.app.courses.serializers import NestedCourseSerializer
+        return NestedCourseSerializer(instance.courses.all(), many=True).data

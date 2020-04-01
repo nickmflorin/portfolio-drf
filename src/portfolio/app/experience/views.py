@@ -1,9 +1,10 @@
-from rest_framework import viewsets
+from portfolio.app.common.views import PartitionedReadOnlyViewSet
 
 from .models import Experience
-from .serializers import ExperienceSerializer
+from .serializers import DetailExperienceSerializer, ListExperienceSerializer
 
 
-class ExperienceViewSet(viewsets.ReadOnlyModelViewSet):
+class ExperienceViewSet(PartitionedReadOnlyViewSet):
     queryset = Experience.objects.all()
-    serializer_class = ExperienceSerializer
+    detail_serializer_class = DetailExperienceSerializer
+    list_serializer_class = ListExperienceSerializer
