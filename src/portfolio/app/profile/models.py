@@ -19,8 +19,8 @@ class Profile(PortfolioModel):
     github_url = models.URLField(max_length=100)
     linkedin_url = models.URLField(max_length=100)
     resume = models.FileField(upload_to=upload_resume_to, null=True)
-    intro = models.CharField(max_length=2048)
     headshot = models.ImageField(upload_to=upload_headshot_to, null=True)
+    intro = models.CharField(max_length=2048)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
