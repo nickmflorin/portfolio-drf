@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=24)),
                 ('github_url', models.URLField(max_length=100)),
                 ('linkedin_url', models.URLField(max_length=100)),
-                ('resume', models.FileField(null=True, upload_to=portfolio.app.profile.models.upload_to)),
+                ('resume', models.FileField(null=True, upload_to=portfolio.app.profile.models.upload_resume_to)),
                 ('intro', models.CharField(max_length=2048)),
             ],
             options={
