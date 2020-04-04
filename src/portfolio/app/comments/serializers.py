@@ -17,8 +17,8 @@ class CommentSerializer(PortfolioSerializer):
             'name', 'email', 'comment', 'public')
 
     def validate(self, data):
-        if data['public'] is False:
-            if not data['email']:
-                raise serializers.ValidationError(
-                    "Email must be provided for non-public comments.")
+        errors = {}
+        if data['public'] is False and not data['email']:
+            errors['email'] = "Email must be provided for non-public comments."
+            raise serializers.ValidationError(errors)
         return data
