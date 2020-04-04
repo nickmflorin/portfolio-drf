@@ -8,9 +8,7 @@ def upload_resume_to(instance, filename):
 
 
 def upload_headshot_to(instance, filename):
-    ext = filename.split('.')[-1]
-    filename = f"{instance.name.lower().replace(' ','')}.{ext}"
-    return f'uploads/{filename}'
+    return f'uploads/headshots/{filename}'
 
 
 class Profile(PortfolioModel):
