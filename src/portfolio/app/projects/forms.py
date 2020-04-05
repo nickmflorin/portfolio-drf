@@ -90,7 +90,7 @@ class ProjectForm(forms.ModelForm):
         required=False,
         help_text=(
             "Description of the project limited to 1024 characters. "
-            "Allowed/required if display alone is checked."
+            "Only allowed, but required, if showcase is checked."
         )
     )
 

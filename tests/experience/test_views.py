@@ -45,7 +45,6 @@ def test_detail_response_200(api_client, create_experience, create_project,
     ]
     skill = create_skill()
     skill.experiences.set([experience])
-
     response = api_client.get('/api/v1/experience/%s/' % experience.pk)
     assert response.status_code == 200
     assert response.json() == {
