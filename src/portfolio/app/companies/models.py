@@ -24,7 +24,7 @@ class Company(PortfolioModel):
         help_text="State that the company is headquartered in."
     )
     description = models.CharField(
-        max_length=512,
+        max_length=1024,
         null=True,
         blank=True,
         help_text="Description of the company's industry and work."
