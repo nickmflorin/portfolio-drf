@@ -109,5 +109,5 @@ class ProjectForm(forms.ModelForm):
 
     def clean(self):
         data = super(ProjectForm, self).clean()
-        self.validate_long_description(data)
+        self.validate_showcase_description(data)
         return data
