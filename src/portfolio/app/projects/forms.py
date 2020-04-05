@@ -66,7 +66,7 @@ class ProjectFileForm(forms.ModelForm):
                 )
             elif ext.lower() not in settings.IMAGE_EXTENSIONS and caption:
                 errors['caption'] = (
-                    "Captions are only allowed  for image files."
+                    "Captions are only allowed for image files."
                 )
         if errors:
             raise ValidationError(errors)
@@ -78,14 +78,14 @@ class ProjectFileForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
-    short_description = forms.CharField(
+    description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 3, "cols": 128}),
         required=True,
         help_text=(
             "Description of the project limited to 256 characters."
         )
     )
-    long_description = forms.CharField(
+    showcase_description = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=False,
         help_text=(
@@ -99,16 +99,12 @@ class ProjectForm(forms.ModelForm):
         fields = '__all__'
 
     @form_validation
-    def validate_long_description(self, data, errors):
+    def validate_showcase_description(self, data, errors):
         showcase = data['showcase']
-        long_description = data.get('long_description')
-        if showcase and not long_description:
-            errors['long_description'] = (
+        showcase_description = data.get('showcase_description')
+        if showcase and not showcase_description:
+            errors['showcase_description'] = (
                 'Required when the project is to be showcased.'
-            )
-        elif not showcase and long_description:
-            errors['long_description'] = (
-                'Only allowed when project is to be showcased.'
             )
 
     def clean(self):

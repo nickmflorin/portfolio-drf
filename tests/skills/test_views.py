@@ -85,7 +85,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
         'projects': [{
             'id': project.id,
             'name': project.name,
-            'short_description': project.short_description,
+            'description': project.description,
             'showcase': False,
             'date_modified': project.date_modified.strftime(
                 "%Y-%m-%dT%H:%M:%S.%fZ"),

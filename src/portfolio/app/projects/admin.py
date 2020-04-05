@@ -22,8 +22,7 @@ class ProjectFileInline(admin.StackedInline):
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
-    list_display = ['name']
-    search_fields = ['name']
+    list_display = ['name', 'date_created', 'date_modified', 'showcase']
     form = ProjectForm
     exclude = ['content_type', 'object_id']
     inlines = [

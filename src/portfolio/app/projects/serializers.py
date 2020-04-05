@@ -22,13 +22,13 @@ class ProjectFileSerializer(PortfolioSerializer):
 
 class NestedProjectSerializer(PortfolioSerializer):
     name = serializers.CharField()
-    short_description = serializers.CharField()
+    description = serializers.CharField()
     showcase = serializers.BooleanField()
 
     class Meta:
         model = Project
         fields = PortfolioSerializer.Meta.fields + (
-            'name', 'short_description', 'showcase')
+            'name', 'description', 'showcase')
 
 
 class ListProjectSerializer(NestedProjectSerializer):
@@ -41,12 +41,12 @@ class ListProjectSerializer(NestedProjectSerializer):
 class DetailProjectSerializer(ListProjectSerializer):
     skills = NestedSkillSerializer(many=True)
     files = ProjectFileSerializer(many=True)
-    long_description = serializers.CharField()
+    showcase_description = serializers.CharField()
 
     class Meta:
         model = Project
         fields = ListProjectSerializer.Meta.fields + (
-            'skills', 'files', 'long_description')
+            'skills', 'files', 'showcase_description')
 
     def to_representation(self, instance):
         from portfolio.app.education.serializers import NestedEducationSerializer

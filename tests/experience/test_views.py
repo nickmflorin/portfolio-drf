@@ -87,7 +87,7 @@ def test_detail_response_200(api_client, create_experience, create_project,
             {
                 'id': projects[0].pk,
                 'name': projects[0].name,
-                'short_description': projects[0].short_description,
+                'description': projects[0].description,
                 'showcase': False,
                 'date_modified': projects[0].date_modified.strftime(
                     "%Y-%m-%dT%H:%M:%S.%fZ"),
@@ -97,7 +97,7 @@ def test_detail_response_200(api_client, create_experience, create_project,
             {
                 'id': projects[1].pk,
                 'name': projects[1].name,
-                'short_description': projects[1].short_description,
+                'description': projects[1].description,
                 'showcase': False,
                 'date_modified': projects[1].date_modified.strftime(
                     "%Y-%m-%dT%H:%M:%S.%fZ"),
