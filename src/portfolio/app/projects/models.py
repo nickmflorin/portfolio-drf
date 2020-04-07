@@ -28,7 +28,7 @@ class ProjectFile(PortfolioModel):
 
 class Project(PortfolioModel):
     name = models.CharField(max_length=64, unique=True)
-    description = models.CharField(max_length=512)
+    description = models.CharField(max_length=1024)
     showcase_description = models.CharField(max_length=4096, null=True, blank=True)
     content_type = models.ForeignKey(ContentType,
         on_delete=models.CASCADE,
