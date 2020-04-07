@@ -6,6 +6,8 @@ import sys
 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.conf.settings.local')
+    settings = os.environ['DJANGO_SETTINGS_MODULE']
+    sys.stdout.write(f'Using Settings {settings}\n')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
