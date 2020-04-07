@@ -79,14 +79,14 @@ class ProjectFileForm(forms.ModelForm):
 
 class ProjectForm(forms.ModelForm):
     description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 3, "cols": 128}),
+        widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=True,
         help_text=(
             "Description of the project limited to 256 characters."
         )
     )
     showcase_description = forms.CharField(
-        widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
+        widget=forms.Textarea(attrs={"rows": 8, "cols": 128}),
         required=False,
         help_text=(
             "Description of the project limited to 4096 characters. "
