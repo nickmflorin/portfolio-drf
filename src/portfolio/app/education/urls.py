@@ -6,5 +6,5 @@ from .views import EducationViewSet
 app_name = 'education'
 
 router = routers.SimpleRouter()
-router.register('', EducationViewSet)
+router.register('', EducationViewSet, basename='education')
 urlpatterns = router.urls

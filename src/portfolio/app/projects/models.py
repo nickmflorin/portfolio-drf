@@ -29,7 +29,7 @@ class ProjectFile(PortfolioModel):
 class Project(PortfolioModel):
     name = models.CharField(max_length=64, unique=True)
     description = models.CharField(max_length=512)
-    showcase_description = models.CharField(max_length=2048, null=True, blank=True)
+    showcase_description = models.CharField(max_length=4096, null=True, blank=True)
     content_type = models.ForeignKey(ContentType,
         on_delete=models.CASCADE,
         limit_choices_to={'model__in': (

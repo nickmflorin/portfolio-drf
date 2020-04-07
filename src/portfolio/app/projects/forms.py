@@ -89,7 +89,7 @@ class ProjectForm(forms.ModelForm):
         widget=forms.Textarea(attrs={"rows": 6, "cols": 128}),
         required=False,
         help_text=(
-            "Description of the project limited to 1024 characters. "
+            "Description of the project limited to 4096 characters. "
             "Only allowed, but required, if showcase is checked."
         )
     )
