@@ -206,6 +206,14 @@ pytest = ">=3.6"
 
 [[package]]
 category = "main"
+description = "Add .env support to your django/flask apps in development and deployments"
+name = "python-dotenv"
+optional = false
+python-versions = "*"
+version = "0.12.0"
+
+[[package]]
+category = "main"
 description = "World timezone definitions, modern and historical"
 name = "pytz"
 optional = false
@@ -290,7 +298,7 @@ debug = []
 docs = []
 
 [metadata]
-content-hash = "a1e7d05021ccf143846090bf5a3e92bcc38510d37456d26fd348c2ab104ac306"
+content-hash = "844e00a4a499105b3bf7ed261e25676afdf1390fa99e1bf3f3b146e8cdf8ad6c"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -315,6 +323,7 @@ py = ["5e27081401262157467ad6e7f851b7aa402c5852dbcb3dae06768434de5752aa", "c20fd
 pyparsing = ["4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f", "c342dccb5250c08d45fd6f8b4a559613ca603b57498511740e65cd11a2e7dcec"]
 pytest = ["3f193df1cfe1d1609d4c583838bea3d532b18d6160fd3f55c9447fdca30848ec", "e246cf173c01169b9617fc07264b7b1316e78d7a650055235d6d897bc80d9660"]
 pytest-django = ["456fa6854d04ee625d6bbb8b38ca2259e7040a6f93333bfe8bc8159b7e987203", "489b904f695f9fb880ce591cf5a4979880afb467763b1f180c07574554bdfd26"]
+python-dotenv = ["81822227f771e0cab235a2939f0f265954ac4763cafd806d845801c863bf372f", "92b3123fb2d58a284f76cc92bfe4ee6c502c32ded73e8b051c4f6afc8b6751ed"]
 pytz = ["1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d", "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"]
 six = ["236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a", "8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"]
 sqlparse = ["022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e", "e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"]

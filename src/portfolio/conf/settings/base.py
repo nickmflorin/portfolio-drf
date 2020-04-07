@@ -1,3 +1,5 @@
+from portfolio.conf import config
+
 from .admin import *  # noqa
 from .constants import *  # noqa
 from .databases import DATABASES  # noqa
@@ -17,7 +19,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-SECRET_KEY = 'sc8en5z!!0jc4!mb5mom_ox-ucn)bajz^b%xcich8@0n!rd(n*'
+SECRET_KEY = config('DJANGO_SECRET_KEY',
+    'sc8en5z!!0jc4!mb5mom_ox-ucn)bajz^b%xcich8@0n!rd(n*'
+)
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
