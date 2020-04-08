@@ -34,6 +34,7 @@ pip-log.txt
 # Environment
 .venv
 venv
+env
 .python-version
 .env
 .env-docker
