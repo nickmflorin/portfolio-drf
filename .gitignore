@@ -30,7 +30,6 @@ pip-log.txt
 # Local Development
 /src/portfolio/conf/settings/dev.py
 /media/uploads
-fixtures
 
 # Environment
 .venv
