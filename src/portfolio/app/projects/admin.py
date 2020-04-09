@@ -3,15 +3,14 @@ from django.contrib.contenttypes.admin import GenericStackedInline
 
 from portfolio.app.skills.admin import SkillProjectInline
 
-from .forms import ProjectForm, ProjectFileForm, ProjectFileFormSet
+from .forms import ProjectForm, ProjectFileForm, ProjectFileFormSet, ProjectInlineForm
 from .models import Project, ProjectFile
 
 
 class ProjectInline(GenericStackedInline):
     model = Project
-    form = ProjectForm
+    form = ProjectInlineForm
     extra = 1
-    fields = ['name', 'description']
 
 
 class ProjectFileInline(admin.StackedInline):

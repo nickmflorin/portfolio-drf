@@ -64,17 +64,20 @@ class ProjectFileForm(forms.ModelForm):
         return data
 
 
-class ProjectForm(forms.ModelForm):
+class ProjectInlineForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = ('name', 'description')
+
+
+class ProjectForm(ProjectInlineForm):
 
     @form_validation
     def validate_showcase_description(self, data, errors):
         showcase = data['showcase']
         showcase_description = data.get('showcase_description')
-        if showcase and not showcase_description:
+        if showcase is True and not showcase_description:
             errors['showcase_description'] = (
                 'Required when the project is to be showcased.'
             )
