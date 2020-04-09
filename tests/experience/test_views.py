@@ -15,6 +15,7 @@ def test_list_response_200(api_client, create_experience, create_project,
         'current': experience.current,
         'description': experience.description,
         'title': experience.title,
+        'short_title': experience.short_title,
         'date_modified': experience.date_modified.strftime(
             "%Y-%m-%dT%H:%M:%S.%fZ"),
         'date_created': experience.date_created.strftime(
@@ -56,6 +57,7 @@ def test_detail_response_200(api_client, create_experience, create_project,
         'current': experience.current,
         'description': experience.description,
         'title': experience.title,
+        'short_title': experience.short_title,
         'date_modified': experience.date_modified.strftime(
             "%Y-%m-%dT%H:%M:%S.%fZ"),
         'date_created': experience.date_created.strftime(

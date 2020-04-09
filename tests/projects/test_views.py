@@ -128,6 +128,7 @@ def test_detail_response_200_with_experience(api_client, create_project, create_
             'current': experience.current,
             'description': experience.description,
             'title': experience.title,
+            'short_title': experience.short_title,
             'date_modified': experience.date_modified.strftime(
                 "%Y-%m-%dT%H:%M:%S.%fZ"),
             'date_created': experience.date_created.strftime(

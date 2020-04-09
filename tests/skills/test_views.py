@@ -120,6 +120,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
             'end_year': experience.end_year,
             'current': experience.current,
             'title': experience.title,
+            'short_title': experience.short_title,
             'description': experience.description,
             'date_modified': experience.date_modified.strftime(
                 "%Y-%m-%dT%H:%M:%S.%fZ"),

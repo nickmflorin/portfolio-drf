@@ -100,6 +100,7 @@ class EducationFactory(HorizonModelFactory):
 
 class ExperienceFactory(HorizonModelFactory):
     title = factory.Faker('name')
+    short_title = factory.Faker('name')
     description = factory.Faker('paragraph')
     company = factory.SubFactory(CompanyFactory)
 

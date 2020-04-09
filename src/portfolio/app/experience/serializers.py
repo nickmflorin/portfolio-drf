@@ -11,13 +11,14 @@ from .models import Experience
 class NestedExperienceSerializer(HorizonSerializer):
     company = CompanySerializer()
     title = serializers.CharField()
+    short_title = serializers.CharField()
     description = serializers.CharField()
     current = serializers.BooleanField()
 
     class Meta:
         model = Experience
         fields = HorizonSerializer.Meta.fields + (
-            'company', 'title', 'description', 'current')
+            'company', 'title', 'description', 'current', 'short_title')
 
 
 class ListExperienceSerializer(NestedExperienceSerializer):

@@ -12,6 +12,7 @@ class Experience(HorizonModel):
         max_length=64,
         help_text="Name of your role at the company."
     )
+    short_title = models.CharField(max_length=32, null=True, blank=True)
     description = RichTextField(config_name='description')
     projects = GenericRelation(Project)
 
