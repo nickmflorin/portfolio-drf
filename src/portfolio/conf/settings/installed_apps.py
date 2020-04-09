@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'ckeditor',
+    'storages',
     'portfolio',
     'portfolio.app.custom_admin',
     'portfolio.app.courses',

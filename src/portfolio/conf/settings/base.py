@@ -9,7 +9,7 @@ from .installed_apps import INSTALLED_APPS  # noqa
 from .middleware import MIDDLEWARE  # noqa
 from .restframework import REST_FRAMEWORK  # noqa
 from .paths import (  # noqa
-    PROJECT_ROOT, APPS_ROOT, STATIC_ROOT, STATICFILES_DIRS, MEDIA_ROOT)
+    PROJECT_ROOT, APPS_ROOT, STATIC_ROOT, STATICFILES_DIRS)
 from .templates import TEMPLATES # noqa
 from .urls import ROOT_URLCONF, STATIC_URL, MEDIA_URL, SITE_URL  # noqa
 

@@ -8,7 +8,7 @@ from portfolio.app.common.constants import STATES
 def upload_to(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{instance.name.lower().replace(' ','')}.{ext}"
-    return f'uploads/{filename}'
+    return f'uploads/schools/{filename}'
 
 
 class School(PortfolioModel):
@@ -22,4 +22,4 @@ class School(PortfolioModel):
         help_text="State that the school is located in."
     )
     logo = models.ImageField(upload_to=upload_to, null=True)
-    description = RichTextField(config_name='description')
+    description = RichTextField(config_name='description', null=True, blank=True)

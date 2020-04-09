@@ -8,7 +8,7 @@ from portfolio.app.common.constants import STATES
 def upload_to(instance, filename):
     ext = filename.split('.')[-1]
     filename = f"{instance.name.lower().replace(' ','')}.{ext}"
-    return f'uploads/{filename}'
+    return f'uploads/companies/{filename}'
 
 
 class Company(PortfolioModel):
