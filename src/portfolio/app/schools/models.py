@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 from portfolio.app.common.models import PortfolioModel
@@ -21,4 +22,4 @@ class School(PortfolioModel):
         help_text="State that the school is located in."
     )
     logo = models.ImageField(upload_to=upload_to, null=True)
-    description = models.CharField(max_length=512, null=True, blank=True)
+    description = RichTextField(config_name='description')

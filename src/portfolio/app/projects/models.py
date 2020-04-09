@@ -1,3 +1,5 @@
+from ckeditor.fields import RichTextField
+
 from django.db import models
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
@@ -17,19 +19,25 @@ class ProjectFile(PortfolioModel):
         max_length=64,
         help_text=(
             "Human readable name for the file that will be displayed to users "
-            "in links to download/access the file."
+            "in links to download or access the file."
         )
     )
-    description = models.CharField(max_length=1024)
-    caption = models.CharField(max_length=256, null=True, blank=True)
+    description = RichTextField(config_name='description')
+    caption = RichTextField(config_name='caption', help_text=(
+        "Caption for image files.  Only allowed/required when the "
+        "file is an image file."
+    ))
     project = models.ForeignKey('projects.Project',
         on_delete=models.CASCADE, related_name='files')
 
 
 class Project(PortfolioModel):
     name = models.CharField(max_length=64, unique=True)
-    description = models.CharField(max_length=1024)
-    showcase_description = models.CharField(max_length=4096, null=True, blank=True)
+    description = RichTextField(config_name='description')
+    showcase_description = RichTextField(config_name='long_description', help_text=(
+        "Long description of the project to be used when the project is showcased. "
+        "Only allowed, but also required, if showcase is checked."
+    ))
     content_type = models.ForeignKey(ContentType,
         on_delete=models.CASCADE,
         limit_choices_to={'model__in': (

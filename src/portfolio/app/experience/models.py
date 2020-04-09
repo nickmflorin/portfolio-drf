@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 
@@ -11,7 +12,7 @@ class Experience(HorizonModel):
         max_length=64,
         help_text="Name of your role at the company."
     )
-    description = models.CharField(max_length=512, null=True, blank=True)
+    description = RichTextField(config_name='description')
     projects = GenericRelation(Project)
 
     class Meta:

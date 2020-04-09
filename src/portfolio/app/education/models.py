@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from django.contrib.contenttypes.fields import GenericRelation
 
@@ -12,7 +13,7 @@ class Education(HorizonModel):
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, null=True, blank=True)
     gpa = models.FloatField(null=True)
-    description = models.CharField(max_length=512, null=True, blank=True)
+    description = RichTextField(config_name='description')
     projects = GenericRelation(Project)
 
     class Meta:

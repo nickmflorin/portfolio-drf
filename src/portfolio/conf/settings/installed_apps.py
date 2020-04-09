@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'ckeditor',
     'portfolio',
     'portfolio.app.custom_admin',
     'portfolio.app.courses',

@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 from portfolio.app.common.models import PortfolioModel
@@ -20,7 +21,10 @@ class Profile(PortfolioModel):
     linkedin_url = models.URLField(max_length=100)
     resume = models.FileField(upload_to=upload_resume_to, null=True)
     headshot = models.ImageField(upload_to=upload_headshot_to, null=True)
-    intro = models.CharField(max_length=2048)
+    intro = RichTextField(
+        config_name='html',
+        help_text="Intro text to be displayed on the landing page."
+    )
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

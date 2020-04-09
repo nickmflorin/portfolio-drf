@@ -1,6 +1,7 @@
 from portfolio.conf import config
 
 from .admin import *  # noqa
+from .ckeditor import CKEDITOR_CONFIGS  # noqa
 from .constants import *  # noqa
 from .databases import DATABASES  # noqa
 from .logging import LOGGING  # noqa

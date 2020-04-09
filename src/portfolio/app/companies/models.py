@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
 from portfolio.app.common.models import PortfolioModel
@@ -23,10 +24,8 @@ class Company(PortfolioModel):
         max_length=2,
         help_text="State that the company is headquartered in."
     )
-    description = models.CharField(
-        max_length=1024,
-        null=True,
-        blank=True,
+    description = RichTextField(
+        config_name='description',
         help_text="Description of the company's industry and work."
     )
 
