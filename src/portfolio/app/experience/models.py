@@ -20,4 +20,4 @@ class Experience(HorizonModel):
         verbose_name_plural = "Experience"
 
     def __str__(self):
-        return f"{self.title} at {self.company.name}"
+        return f"{self.short_title or self.title} at {self.company.name}"

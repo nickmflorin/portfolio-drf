@@ -11,6 +11,7 @@ class ProjectInline(GenericStackedInline):
     model = Project
     form = ProjectForm
     extra = 1
+    fields = ['name', 'description']
 
 
 class ProjectFileInline(admin.StackedInline):
