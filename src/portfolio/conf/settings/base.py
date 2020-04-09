@@ -24,6 +24,7 @@ SECRET_KEY = config('DJANGO_SECRET_KEY',
     'sc8en5z!!0jc4!mb5mom_ox-ucn)bajz^b%xcich8@0n!rd(n*'
 )
 DEBUG = True
+DEV = False
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_CREDENTIALS = True
