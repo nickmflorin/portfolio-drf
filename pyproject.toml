@@ -37,6 +37,7 @@ django-admin-tools = "^0.9.0"
 python-dotenv = "^0.12.0"
 django-ckeditor = "^5.9"
 boto3 = "^1.12"
+django-storages = "^1.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"

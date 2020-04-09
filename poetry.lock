@@ -138,6 +138,17 @@ version = "1.2.2"
 
 [[package]]
 category = "main"
+description = "Support for many storage backends in Django"
+name = "django-storages"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.9.1"
+
+[package.dependencies]
+Django = ">=1.11"
+
+[[package]]
+category = "main"
 description = "Web APIs for Django, made easy."
 name = "djangorestframework"
 optional = false
@@ -394,7 +405,7 @@ debug = []
 docs = []
 
 [metadata]
-content-hash = "b6216e874a69859f4c8f3447ac3bf832dcb5831c4b71edf513c1600afc8686c3"
+content-hash = "0b8cad3ab0d9efdc5ae50b2f130a21b41f44cfbe9f2fd1897d24f28cd6a8fcdc"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -412,6 +423,7 @@ django-admin-tools = ["428d1b6a572ee364c35086d7bec34344cc43105839e5637dbb900b9ca
 django-ckeditor = ["71c3c7bb46b0cbfb9712ef64af0d2a406eab233f44ecd7c42c24bdfa39ae3bde", "e4d112851a72c5bf8b586e1c674d34084cab16d28f2553ad15cc770d1e9639c7"]
 django-cors-headers = ["a5960addecc04527ab26617e51b8ed42f0adab4594b24bb0f3c33e2bd3857c3f", "a785b5f446f6635810776d9f5f5d23e6a2a2f728ea982648370afaf0dfdf2627"]
 django-js-asset = ["8ec12017f26eec524cab436c64ae73033368a372970af4cf42d9354fcb166bdd", "c163ae80d2e0b22d8fb598047cd0dcef31f81830e127cfecae278ad574167260"]
+django-storages = ["3103991c2ee8cef8a2ff096709973ffe7106183d211a79f22cf855f33533d924", "a59e9923cbce7068792f75344ed7727021ee4ac20f227cf17297d0d03d141e91"]
 djangorestframework = ["05809fc66e1c997fd9a32ea5730d9f4ba28b109b9da71fccfa5ff241201fd0a4", "e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f"]
 docutils = ["6c4f696463b79f1fb8ba0c594b63840ebd41f059e92b31957c46b74a4599b6d0", "9e4d7ecfc600058e07ba661411a2b7de2fd0fafa17d1a7f7361cd47b1175c827", "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"]
 filelock = ["18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59", "929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"]
