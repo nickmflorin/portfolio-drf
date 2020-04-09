@@ -7,7 +7,7 @@ from .models import Comment
 class CommentSerializer(PortfolioSerializer):
     id = serializers.ReadOnlyField()
     name = serializers.CharField()
-    email = serializers.CharField()
+    email = serializers.CharField(required=False, allow_blank=True, allow_null=True)
     comment = serializers.CharField()
     public = serializers.BooleanField()
 
@@ -18,7 +18,7 @@ class CommentSerializer(PortfolioSerializer):
 
     def validate(self, data):
         errors = {}
-        if data['public'] is False and not data['email']:
+        if data['public'] is False and not data.get('email'):
             errors['email'] = "Email must be provided for non-public comments."
             raise serializers.ValidationError(errors)
         return data
