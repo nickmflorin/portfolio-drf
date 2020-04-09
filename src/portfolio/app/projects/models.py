@@ -23,10 +23,15 @@ class ProjectFile(PortfolioModel):
         )
     )
     description = RichTextField(config_name='description')
-    caption = RichTextField(config_name='caption', help_text=(
-        "Caption for image files.  Only allowed/required when the "
-        "file is an image file."
-    ))
+    caption = RichTextField(
+        null=True,
+        blank=True,
+        config_name='caption',
+        help_text=(
+            "Caption for image files.  Only allowed/required when the "
+            "file is an image file."
+        )
+    )
     project = models.ForeignKey('projects.Project',
         on_delete=models.CASCADE, related_name='files')
 
@@ -34,10 +39,15 @@ class ProjectFile(PortfolioModel):
 class Project(PortfolioModel):
     name = models.CharField(max_length=64, unique=True)
     description = RichTextField(config_name='description')
-    showcase_description = RichTextField(config_name='long_description', help_text=(
-        "Long description of the project to be used when the project is showcased. "
-        "Only allowed, but also required, if showcase is checked."
-    ))
+    showcase_description = RichTextField(
+        null=True,
+        blank=True,
+        config_name='long_description',
+        help_text=(
+            "Long description of the project to be used when the project is showcased. "
+            "Only allowed, but also required, if showcase is checked."
+        )
+    )
     content_type = models.ForeignKey(ContentType,
         on_delete=models.CASCADE,
         limit_choices_to={'model__in': (
