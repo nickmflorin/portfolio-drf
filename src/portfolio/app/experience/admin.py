@@ -17,6 +17,7 @@ class ExperienceAdmin(admin.ModelAdmin):
             'fields': (
                 'company',
                 'title',
+                'short_title',
                 ('start_month', 'start_year'),
                 ('end_month', 'end_year'),
                 'current',
