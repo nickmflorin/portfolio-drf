@@ -1,1 +1,1 @@
-[{"model": "comments.comment", "pk": 56, "fields": {"date_created": "2020-04-04T20:47:17.874Z", "date_modified": "2020-04-04T20:47:17.874Z", "name": "Nick M Florin", "email": "nickmflorin@gmail.com", "comment": "This is a test comment!", "public": true}}]
+[{"model": "comments.comment", "pk": 60, "fields": {"date_created": "2020-04-07T20:27:54.278Z", "date_modified": "2020-04-07T20:27:54.278Z", "name": "Nick", "email": "nickmflorin@gmail.com", "comment": "Test This", "public": false}}]
