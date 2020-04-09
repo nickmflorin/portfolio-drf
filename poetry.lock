@@ -78,6 +78,17 @@ version = "0.9.0"
 
 [[package]]
 category = "main"
+description = "Django admin CKEditor integration."
+name = "django-ckeditor"
+optional = false
+python-versions = "*"
+version = "5.9.0"
+
+[package.dependencies]
+django-js-asset = ">=1.2.2"
+
+[[package]]
+category = "main"
 description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
 name = "django-cors-headers"
 optional = false
@@ -86,6 +97,14 @@ version = "3.2.1"
 
 [package.dependencies]
 Django = ">=1.11"
+
+[[package]]
+category = "main"
+description = "script tag with additional attributes for django.forms.Media"
+name = "django-js-asset"
+optional = false
+python-versions = "*"
+version = "1.2.2"
 
 [[package]]
 category = "main"
@@ -298,7 +317,7 @@ debug = []
 docs = []
 
 [metadata]
-content-hash = "844e00a4a499105b3bf7ed261e25676afdf1390fa99e1bf3f3b146e8cdf8ad6c"
+content-hash = "28a2caab209b091eec1eb6df78bc5f8abb0524e0158d16a4bd4ec2c17ba1e3cc"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -311,7 +330,9 @@ distlib = ["2e166e231a26b36d6dfe35a48c4464346620f8645ed0ace01ee31822b288de21"]
 dj-database-url = ["4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163", "851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"]
 django = ["50b781f6cbeb98f673aa76ed8e572a019a45e52bdd4ad09001072dfd91ab07c8", "89e451bfbb815280b137e33e454ddd56481fdaa6334054e6e031041ee1eda360"]
 django-admin-tools = ["428d1b6a572ee364c35086d7bec34344cc43105839e5637dbb900b9cabd6adf8", "d1ecc7664b17110c4c1a38e9709de932b7f711521951720b95705205983218a2"]
+django-ckeditor = ["71c3c7bb46b0cbfb9712ef64af0d2a406eab233f44ecd7c42c24bdfa39ae3bde", "e4d112851a72c5bf8b586e1c674d34084cab16d28f2553ad15cc770d1e9639c7"]
 django-cors-headers = ["a5960addecc04527ab26617e51b8ed42f0adab4594b24bb0f3c33e2bd3857c3f", "a785b5f446f6635810776d9f5f5d23e6a2a2f728ea982648370afaf0dfdf2627"]
+django-js-asset = ["8ec12017f26eec524cab436c64ae73033368a372970af4cf42d9354fcb166bdd", "c163ae80d2e0b22d8fb598047cd0dcef31f81830e127cfecae278ad574167260"]
 djangorestframework = ["05809fc66e1c997fd9a32ea5730d9f4ba28b109b9da71fccfa5ff241201fd0a4", "e782087823c47a26826ee5b6fa0c542968219263fb3976ec3c31edab23a4001f"]
 filelock = ["18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59", "929b7d63ec5b7d6b71b0fa5ac14e030b3f70b75747cef1b10da9b879fef15836"]
 importlib-metadata = ["06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302", "b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"]

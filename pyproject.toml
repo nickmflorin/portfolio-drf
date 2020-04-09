@@ -35,6 +35,7 @@ djangorestframework = "^3.11"
 django = "^3.0"
 django-admin-tools = "^0.9.0"
 python-dotenv = "^0.12.0"
+django-ckeditor = "^5.9"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
