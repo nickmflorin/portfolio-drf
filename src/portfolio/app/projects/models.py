@@ -22,7 +22,7 @@ class ProjectFile(PortfolioModel):
             "in links to download or access the file."
         )
     )
-    description = RichTextField(config_name='description')
+    description = RichTextField(config_name='description', null=True, blank=True)
     caption = RichTextField(
         null=True,
         blank=True,
