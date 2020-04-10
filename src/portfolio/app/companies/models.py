@@ -26,7 +26,9 @@ class Company(PortfolioModel):
     )
     description = RichTextField(
         config_name='description',
-        help_text="Description of the company's industry and work."
+        help_text="Description of the company's industry and work.",
+        null=True,
+        blank=True
     )
 
     class Meta:
