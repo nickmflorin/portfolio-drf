@@ -27,7 +27,6 @@ DEBUG = True
 DEV = False
 LIVE = not DEBUG and not DEV
 
-ALLOWED_HOSTS = ['django-env.eba-5tpm7fui.us-west-2.elasticbeanstalk.com']
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_REGEX_WHITELIST = (
     r'^(https?://)?([\w\.-]*?)\.nickflorin\.com:?[\d]*?$',

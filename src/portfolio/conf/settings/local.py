@@ -7,3 +7,5 @@ DEBUG = True
 DEV = False
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+
+ALLOWED_HOSTS = ["*"]
