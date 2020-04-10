@@ -44,3 +44,8 @@ env
 .cache
 pip-delete-this-directory.txt
 /pip-wheel-metadata/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
