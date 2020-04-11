@@ -1,11 +1,15 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
 import os
 import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.conf.settings.local')
+    # Settings module must be specified in .env file, but can be overridden by
+    # explicitly setting ENV variable DJANGO_SETTINGS_MODULE or by specifying
+    # as argv --settings=<DJANGO_SETTINGS_MODULE>.
+    from portfolio.conf import config
+    settings_module = config('DJANGO_SETTINGS_MODULE', required=True)
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:
         from django.core.management import execute_from_command_line
     except ImportError:
