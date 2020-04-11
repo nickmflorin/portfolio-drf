@@ -37,7 +37,6 @@ pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==7.0.0
 pluggy==0.13.1
--e git+git@github.com:nickmflorin/portfolio-drf.git@b2e271f0072e9f8671a57ba53cedd6349b4f4dac#egg=portfolio
 prompt-toolkit==3.0.4
 ptyprocess==0.6.0
 py==1.8.1
@@ -60,4 +59,3 @@ urllib3==1.25.8
 virtualenv==20.0.10
 wcwidth==0.1.8
 zipp==3.1.0
--e git://github.com/hensing/PyDDE.git#egg=PyDDE
