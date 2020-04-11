@@ -60,3 +60,4 @@ urllib3==1.25.8
 virtualenv==20.0.10
 wcwidth==0.1.8
 zipp==3.1.0
+-e git://github.com/hensing/PyDDE.git#egg=PyDDE
