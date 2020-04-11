@@ -1,8 +1,14 @@
 import os
+import re
+
 from django import forms
 from django.forms.models import BaseInlineFormSet
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.contrib.contenttypes.models import ContentType
+
+from portfolio.app.education.models import Education
+from portfolio.app.experience.models import Experience
 
 from portfolio.app.common.forms import form_validation
 
@@ -73,6 +79,40 @@ class ProjectInlineForm(forms.ModelForm):
 
 class ProjectForm(ProjectInlineForm):
 
+    education_or_experience = forms.ChoiceField()
+
+    class Meta:
+        model = Project
+        fields = ('name', 'description', 'showcase', 'showcase_description')
+
+    def __init__(self, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
+        # Since the Experience or Education is referenced as a GenericForeignKey
+        # on the Project model, we have no way of directly changing this value
+        # without individual char fields for object_id and content_type (which
+        # is ugly).  We instead initialize the ChoiceField with all of the
+        # Experience and Education objects.
+        available_objects = (
+            list(Education.objects.all()) + list(Experience.objects.all()))
+        object_choices = []
+        for obj in available_objects:
+            object_choices.append([self._choice_value_for_model(obj), str(obj)])
+
+        self.fields['education_or_experience'].choices = object_choices
+        if self.instance.content_object:
+            self.fields['education_or_experience'].initial = self._choice_value_for_model(
+                self.instance.content_object)
+
+    def _choice_value_for_model(self, obj):
+        content_type_id = ContentType.objects.get_for_model(obj.__class__).id
+        return "type:%s-id:%s" % (content_type_id, obj.id)
+
+    def _model_for_choice_value(self, value):
+        content_type_id = int(value.split('-')[0].split(':')[1])
+        object_id = int(value.split('-')[1].split(':')[1])
+        content_type = ContentType.objects.get(id=content_type_id)
+        return content_type.model_class().objects.get(pk=object_id)
+
     @form_validation
     def validate_showcase_description(self, data, errors):
         showcase = data['showcase']
@@ -86,3 +126,8 @@ class ProjectForm(ProjectInlineForm):
         data = super(ProjectForm, self).clean()
         self.validate_showcase_description(data)
         return data
+
+    def save(self, *args, **kwargs):
+        education_or_experience = self.cleaned_data['education_or_experience']
+        self.instance.content_object = self._model_for_choice_value(education_or_experience)
+        return super(ProjectForm, self).save(*args, **kwargs)
