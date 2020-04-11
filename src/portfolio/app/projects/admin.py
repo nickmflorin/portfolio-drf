@@ -45,10 +45,11 @@ class ProjectAdmin(admin.ModelAdmin):
         value = super(ProjectAdmin, self).save_related(request, form, formsets, change)
         instance = form.instance
 
-        for skill in instance.skills.all():
-            if skill not in instance.content_object.skills.all():
-                instance.content_object.skills.add(skill)
-                instance.content_object.save()
+        if instance.content_object:
+            for skill in instance.skills.all():
+                if skill not in instance.content_object.skills.all():
+                    instance.content_object.skills.add(skill)
+                    instance.content_object.save()
         return value
 
 

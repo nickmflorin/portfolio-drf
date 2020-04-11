@@ -79,11 +79,12 @@ class ProjectInlineForm(forms.ModelForm):
 
 class ProjectForm(ProjectInlineForm):
 
-    education_or_experience = forms.ChoiceField()
+    education_or_experience = forms.ChoiceField(required=False)
 
     class Meta:
         model = Project
-        fields = ('name', 'description', 'showcase', 'showcase_description')
+        fields = ('name', 'description', 'showcase', 'showcase_description',
+            'education_or_experience')
 
     def __init__(self, *args, **kwargs):
         super(ProjectForm, self).__init__(*args, **kwargs)
@@ -94,7 +95,7 @@ class ProjectForm(ProjectInlineForm):
         # Experience and Education objects.
         available_objects = (
             list(Education.objects.all()) + list(Experience.objects.all()))
-        object_choices = []
+        object_choices = [(None, '-----')]
         for obj in available_objects:
             object_choices.append([self._choice_value_for_model(obj), str(obj)])
 
@@ -116,10 +117,16 @@ class ProjectForm(ProjectInlineForm):
     @form_validation
     def validate_showcase_description(self, data, errors):
         showcase = data['showcase']
+        education_or_experience = data['education_or_experience']
+
         showcase_description = data.get('showcase_description')
         if showcase is True and not showcase_description:
             errors['showcase_description'] = (
                 'Required when the project is to be showcased.'
+            )
+        elif showcase is False and not education_or_experience:
+            errors['education_or_experience'] = (
+                'Only allowed to be null if the project is being showcased.'
             )
 
     def clean(self):
@@ -129,5 +136,9 @@ class ProjectForm(ProjectInlineForm):
 
     def save(self, *args, **kwargs):
         education_or_experience = self.cleaned_data['education_or_experience']
-        self.instance.content_object = self._model_for_choice_value(education_or_experience)
+        if education_or_experience:
+            self.instance.content_object = self._model_for_choice_value(education_or_experience)
+        else:
+            self.instance.object_id = None
+            self.instance.content_type = None
         return super(ProjectForm, self).save(*args, **kwargs)
