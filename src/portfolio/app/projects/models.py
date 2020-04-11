@@ -49,13 +49,18 @@ class Project(PortfolioModel):
         )
     )
     content_type = models.ForeignKey(ContentType,
+        blank=True,
+        null=True,
         on_delete=models.CASCADE,
         limit_choices_to={'model__in': (
             'education.Education',
             'experience.Experience',
         )}
     )
-    object_id = models.PositiveIntegerField()
+    object_id = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
     content_object = GenericForeignKey('content_type', 'object_id')
     showcase = models.BooleanField(
         default=False,
