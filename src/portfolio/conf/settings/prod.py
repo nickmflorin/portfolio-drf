@@ -11,7 +11,8 @@ CORS_ORIGIN_REGEX_WHITELIST = (r'^(https?://)?([\w\.-]*?)\.nickflorin\.com$',)
 ALLOWED_HOSTS = [
     'http://%s' % AWS_EC2_DOMAIN,  # noqa
     'http://%s' % AWS_EC2_DOMAIN,  # noqa
-    'AWS_EC2_DOMAIN',
+    AWS_EC2_DOMAIN,  # noqa
+    AWS_EC2_IP_ADDRESS,  # noqa
 
 ]
 
