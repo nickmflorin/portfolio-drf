@@ -24,7 +24,6 @@ urlpatterns = [
 ]
 
 if settings.DEBUG:
-    # TODO: Figure out how to serve static files when DEBUG != True.
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
