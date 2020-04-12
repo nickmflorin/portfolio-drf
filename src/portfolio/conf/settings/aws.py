@@ -1,5 +1,7 @@
 from portfolio.conf import config
 
+AWS_EC2_IP = "34.220.105.201"
+
 AWS_ACCESS_KEY_ID = config('AWS_PORTFOLIO_GROUP_ACCESS_KEY_ID', required=True)
 AWS_SECRET_ACCESS_KEY = config('AWS_PORTFOLIO_GROUP_SECRET_ACCESS_KEY', required=True)
 
