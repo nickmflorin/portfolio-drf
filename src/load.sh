@@ -31,7 +31,7 @@ load_data() {
   do
     local application=${apps[i]}
     echo "Loading Data for Application ${application}"
-    python manage.py loaddata ./portfolio/fixtures/${application}.json
+    sudo python manage.py loaddata ./portfolio/fixtures/${application}.json
   done
 }
 
