@@ -7,10 +7,9 @@ apps[2]='courses'
 apps[3]='companies'
 apps[4]='experience'
 apps[5]='projects'
-apps[6]='experience'
-apps[7]='skills'
-apps[8]='profile'
-apps[9]='comments'
+apps[6]='skills'
+apps[7]='profile'
+apps[8]='comments'
 
 
 migrate_database(){
