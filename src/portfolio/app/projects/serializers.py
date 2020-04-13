@@ -13,11 +13,12 @@ class ProjectFileSerializer(PortfolioSerializer):
     name = serializers.CharField()
     description = serializers.CharField()
     caption = serializers.CharField()
+    relative_order = serializers.IntegerField()
 
     class Meta:
         model = Project
         fields = PortfolioSerializer.Meta.fields + (
-            'file', 'name', 'description', 'caption')
+            'file', 'name', 'description', 'caption', 'relative_order')
 
 
 class NestedProjectSerializer(PortfolioSerializer):

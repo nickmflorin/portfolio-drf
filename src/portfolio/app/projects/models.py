@@ -34,6 +34,7 @@ class ProjectFile(PortfolioModel):
     )
     project = models.ForeignKey('projects.Project',
         on_delete=models.CASCADE, related_name='files')
+    relative_order = models.IntegerField(default=0)
 
 
 class Project(PortfolioModel):
