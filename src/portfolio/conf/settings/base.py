@@ -26,8 +26,6 @@ SECRET_KEY = config('DJANGO_SECRET_KEY',
     'sc8en5z!!0jc4!mb5mom_ox-ucn)bajz^b%xcich8@0n!rd(n*'
 )
 DEBUG = True
-DEV = False
-LIVE = not DEBUG and not DEV
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_REGEX_WHITELIST = (r'^(https?://)?localhost:?[\d]*?$', )
