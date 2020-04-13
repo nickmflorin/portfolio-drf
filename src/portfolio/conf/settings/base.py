@@ -30,11 +30,7 @@ DEV = False
 LIVE = not DEBUG and not DEV
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_REGEX_WHITELIST = (
-    r'^(https?://)?([\w\.-]*?)\.nickflorin\.com:?[\d]*?$',
-    r'^(https?://)?localhost:?[\d]*?$',
-    r'^(https?://)?nickflorin.com:?[\d]*?$',
-)
+CORS_ORIGIN_REGEX_WHITELIST = (r'^(https?://)?localhost:?[\d]*?$', )
 
 WSGI_APPLICATION = 'wsgi.application'
 
