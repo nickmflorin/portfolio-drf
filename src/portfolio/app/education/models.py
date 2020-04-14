@@ -13,7 +13,11 @@ class Education(HorizonModel):
     minor = models.CharField(max_length=64, unique=True, null=True, blank=True)
     concentration = models.CharField(max_length=64, null=True, blank=True)
     gpa = models.FloatField(null=True)
-    description = RichTextField(config_name='description')
+    description = RichTextField(
+        config_name='description',
+        null=True,
+        blank=True
+    )
     projects = GenericRelation(Project)
 
     class Meta:
