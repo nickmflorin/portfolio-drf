@@ -25,30 +25,3 @@ class Education(HorizonModel):
 
     def __str__(self):
         return f"{self.degree} in {self.major} from {self.school.name}"
-
-    def save(self, *args, **kwargs):
-        """
-        On save, we want to add any skills that were added to the projects or
-        courses to also be added to the Education instance.
-
-        NOTE:
-        ----
-        This is problematic if we are removing skills from a project or course,
-        because there is no way to know whether the skill belonged to the
-        Education instance via a Project, Course or added separately.
-
-        A better long term implementation might be to use the m2m_changed signal.
-        """
-        for project in self.projects.all():
-            for skill in project.skills.all():
-                # Might have to put try except, can't access self.skills before
-                # model has pk and is saved.
-                if skill not in self.skills.all():
-                    self.skills.add(skill)
-        for course in self.courses.all():
-            for skill in course.skills.all():
-                # Might have to put try except, can't access self.skills before
-                # model has pk and is saved.
-                if skill not in self.skills.all():
-                    self.skills.add(skill)
-        super(Education, self).save(*args, **kwargs)
