@@ -142,15 +142,26 @@ class ProjectForm(ProjectInlineForm):
         education_or_experience = data['education_or_experience']
 
         description = data.get('description')
-        if education_or_experience is not None and not description:
+        if education_or_experience != "" and not description:
             errors['description'] = (
                 'Required when the project is tied to an education or experience.'
+            )
+
+    @form_validation
+    def validate_for_resume(self, data, errors):
+        education_or_experience = data['education_or_experience']
+        include_in_resume = data['include_in_resume']
+        if not education_or_experience and include_in_resume:
+            errors['include_in_resume'] = (
+                "Cannot include in resume if the project is not tied to an "
+                "education or experience."
             )
 
     def clean(self):
         data = super(ProjectForm, self).clean()
         self.validate_showcase_description(data)
         self.validate_description(data)
+        self.validate_for_resume(data)
         return data
 
     def save(self, *args, **kwargs):
