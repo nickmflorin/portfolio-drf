@@ -58,6 +58,7 @@ class ProfileFactory(PortfolioModelFactory):
     linkedin_url = factory.Faker('url')
     resume = factory.Faker('url')
     intro = factory.Faker('paragraph')
+    tagline = factory.Faker('paragraph')
 
     class Meta:
         model = Profile

@@ -21,6 +21,7 @@ class Profile(PortfolioModel):
     resume = models.FileField(upload_to=upload_resume_to, null=True)
     headshot = models.ImageField(upload_to=upload_headshot_to, null=True)
     intro = models.CharField(max_length=512)
+    tagline = models.CharField(max_length=256, null=True, blank=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

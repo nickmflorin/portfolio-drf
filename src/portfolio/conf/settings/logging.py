@@ -10,10 +10,6 @@ LOGGING = {
         'verbose': {
             'format': '[portfolio] %(name)s %(levelname)s [%(module)s:L%(lineno)d; %(funcName)s()]: %(message)s',  # noqa
         },
-        'json': {
-            '()': 'portfolio.core.logger.JsonLogFormatter',
-            'logger_name': 'portfolio'
-        },
         'django.server': {
             '()': 'django.utils.log.ServerFormatter',
             'format': '[{server_time}] {message}',
@@ -31,7 +27,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'stream': sys.stdout,
-            'formatter': 'json',
+            'formatter': 'verbose'
         },
         'django.server': {
             'level': 'INFO',

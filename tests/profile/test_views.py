@@ -20,4 +20,5 @@ def test_response_200(api_client, create_profile):
         'date_modified': profile.date_modified.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'date_created': profile.date_created.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
         'headshot': None,
+        'tagline': profile.tagline,
     }
