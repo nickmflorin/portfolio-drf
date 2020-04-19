@@ -46,7 +46,7 @@ class Project(PortfolioModel):
         help_text="Required if the project is tied to an education or an experience."
     )
     resume_description = models.CharField(
-        max_length=256,
+        max_length=512,
         null=True,
         blank=True,
         help_text=(
