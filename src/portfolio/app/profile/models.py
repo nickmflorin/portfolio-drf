@@ -20,16 +20,16 @@ class Profile(PortfolioModel):
     last_name = models.CharField(max_length=24)
     middle_name = models.CharField(max_length=24)
     email = models.EmailField(max_length=24)
-    address = models.CharField(max_length=128, null=True, blank=True)
+    address = models.CharField(max_length=128)
     # TODO: Come up with a better field for this.
-    phone = models.CharField(max_length=10, null=True, blank=True)
+    phone = models.CharField(max_length=10)
     github_url = models.URLField(max_length=100)
     linkedin_url = models.URLField(max_length=100)
-    resume = models.FileField(upload_to=upload_resume_to, null=True)
-    headshot = models.ImageField(upload_to=upload_headshot_to, null=True)
+    resume = models.FileField(upload_to=upload_resume_to)
+    headshot = models.ImageField(upload_to=upload_headshot_to)
     logo = models.ImageField(upload_to=upload_logo_to)
     intro = models.CharField(max_length=512)
-    tagline = models.CharField(max_length=256, null=True, blank=True)
+    tagline = models.CharField(max_length=256)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
