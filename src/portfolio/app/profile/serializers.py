@@ -14,10 +14,13 @@ class ProfileSerializer(PortfolioSerializer):
     resume = serializers.FileField()
     intro = serializers.CharField()
     tagline = serializers.CharField()
+    address = serializers.CharField()
+    logo = serializers.ImageField()
     headshot = serializers.ImageField()
 
     class Meta:
         model = Profile
         fields = PortfolioSerializer.Meta.fields + (
             'first_name', 'last_name', 'middle_name', 'email', 'github_url',
-            'linkedin_url', 'resume', 'intro', 'headshot', 'tagline')
+            'linkedin_url', 'resume', 'intro', 'headshot', 'tagline',
+            'address', 'logo')

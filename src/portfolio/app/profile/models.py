@@ -4,11 +4,15 @@ from portfolio.app.common.models import PortfolioModel
 
 
 def upload_resume_to(instance, filename):
-    return f'uploads/resumes/{filename}'
+    return f'uploads/profile/resumes/{filename}'
 
 
 def upload_headshot_to(instance, filename):
-    return f'uploads/headshots/{filename}'
+    return f'uploads/profile/headshots/{filename}'
+
+
+def upload_logo_to(instance, filename):
+    return f'uploads/profile/brand/{filename}'
 
 
 class Profile(PortfolioModel):
@@ -22,6 +26,8 @@ class Profile(PortfolioModel):
     headshot = models.ImageField(upload_to=upload_headshot_to, null=True)
     intro = models.CharField(max_length=512)
     tagline = models.CharField(max_length=256, null=True, blank=True)
+    address = models.CharField(max_length=128, null=True, blank=True)
+    logo = models.ImageField(upload_to=upload_logo_to)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

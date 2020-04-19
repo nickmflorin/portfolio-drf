@@ -59,6 +59,7 @@ class ProfileFactory(PortfolioModelFactory):
     resume = factory.Faker('url')
     intro = factory.Faker('paragraph')
     tagline = factory.Faker('paragraph')
+    address = factory.Faker('address')
 
     class Meta:
         model = Profile
