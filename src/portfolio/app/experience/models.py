@@ -13,7 +13,6 @@ class Experience(HorizonModel):
         help_text="Name of your role at the company."
     )
     short_title = models.CharField(max_length=32, null=True, blank=True)
-    description = RichTextField(config_name='description')
     include_in_resume = models.BooleanField(
         default=True,
         help_text=(
@@ -21,6 +20,7 @@ class Experience(HorizonModel):
             "auto generated resume."
         )
     )
+    description = RichTextField(config_name='description')
     projects = GenericRelation(Project)
 
     class Meta:
