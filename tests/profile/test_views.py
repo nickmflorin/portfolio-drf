@@ -23,4 +23,5 @@ def test_response_200(api_client, create_profile):
         'tagline': profile.tagline,
         'logo': None,
         'address': profile.address,
+        'phone': profile.phone,
     }

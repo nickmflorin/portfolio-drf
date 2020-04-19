@@ -15,6 +15,7 @@ class ProfileSerializer(PortfolioSerializer):
     intro = serializers.CharField()
     tagline = serializers.CharField()
     address = serializers.CharField()
+    phone = serializers.CharField()
     logo = serializers.ImageField()
     headshot = serializers.ImageField()
 
@@ -23,4 +24,4 @@ class ProfileSerializer(PortfolioSerializer):
         fields = PortfolioSerializer.Meta.fields + (
             'first_name', 'last_name', 'middle_name', 'email', 'github_url',
             'linkedin_url', 'resume', 'intro', 'headshot', 'tagline',
-            'address', 'logo')
+            'address', 'logo', 'phone')

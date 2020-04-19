@@ -21,6 +21,8 @@ class Profile(PortfolioModel):
     middle_name = models.CharField(max_length=24)
     email = models.EmailField(max_length=24)
     address = models.CharField(max_length=128, null=True, blank=True)
+    # TODO: Come up with a better field for this.
+    phone = models.CharField(max_length=10, null=True, blank=True)
     github_url = models.URLField(max_length=100)
     linkedin_url = models.URLField(max_length=100)
     resume = models.FileField(upload_to=upload_resume_to, null=True)

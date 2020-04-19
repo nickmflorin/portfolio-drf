@@ -60,6 +60,7 @@ class ProfileFactory(PortfolioModelFactory):
     intro = factory.Faker('paragraph')
     tagline = factory.Faker('paragraph')
     address = factory.Faker('address')
+    phone = factory.Faker('phone_number')
 
     class Meta:
         model = Profile
