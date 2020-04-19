@@ -14,11 +14,13 @@ class NestedExperienceSerializer(HorizonSerializer):
     short_title = serializers.CharField()
     description = serializers.CharField()
     current = serializers.BooleanField()
+    include_in_resume = serializers.BooleanField()
 
     class Meta:
         model = Experience
         fields = HorizonSerializer.Meta.fields + (
-            'company', 'title', 'description', 'current', 'short_title')
+            'company', 'title', 'description', 'current', 'short_title',
+            'include_in_resume')
 
 
 class ListExperienceSerializer(NestedExperienceSerializer):

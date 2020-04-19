@@ -50,6 +50,7 @@ def test_detail_response_200(api_client, create_education, create_course, create
             'start_year': education.start_year,
             'end_year': education.end_year,
             'current': education.current,
+            'include_in_resume': True,
             'degree': education.degree,
             'major': education.major,
             'gpa': education.gpa,

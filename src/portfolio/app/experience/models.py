@@ -14,6 +14,13 @@ class Experience(HorizonModel):
     )
     short_title = models.CharField(max_length=32, null=True, blank=True)
     description = RichTextField(config_name='description')
+    include_in_resume = models.BooleanField(
+        default=True,
+        help_text=(
+            "Determines whether or not the experience will be included in the "
+            "auto generated resume."
+        )
+    )
     projects = GenericRelation(Project)
 
     class Meta:

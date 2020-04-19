@@ -16,12 +16,13 @@ class NestedEducationSerializer(HorizonSerializer):
     minor = serializers.CharField()
     concentration = serializers.CharField()
     description = serializers.CharField()
+    include_in_resume = serializers.BooleanField()
 
     class Meta:
         model = Education
         fields = HorizonSerializer.Meta.fields + (
             'id', 'school', 'degree', 'major', 'minor', 'concentration',
-            'description', 'gpa')
+            'description', 'gpa', 'include_in_resume')
 
 
 class ListEducationSerializer(NestedEducationSerializer):

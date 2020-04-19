@@ -18,6 +18,13 @@ class Education(HorizonModel):
         null=True,
         blank=True
     )
+    include_in_resume = models.BooleanField(
+        default=True,
+        help_text=(
+            "Determines whether or not the experience will be included in the "
+            "auto generated resume."
+        )
+    )
     projects = GenericRelation(Project)
 
     class Meta:
