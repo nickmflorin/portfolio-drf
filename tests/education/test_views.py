@@ -120,6 +120,7 @@ def test_detail_response_200(api_client, create_education, create_project,
                 'name': projects[0].name,
                 'description': projects[0].description,
                 'showcase': False,
+                'include_in_resume': True,
                 'date_modified': projects[0].date_modified.strftime(
                     "%Y-%m-%dT%H:%M:%S.%fZ"),
                 'date_created': projects[0].date_created.strftime(
@@ -130,6 +131,7 @@ def test_detail_response_200(api_client, create_education, create_project,
                 'name': projects[1].name,
                 'description': projects[1].description,
                 'showcase': False,
+                'include_in_resume': True,
                 'date_modified': projects[1].date_modified.strftime(
                     "%Y-%m-%dT%H:%M:%S.%fZ"),
                 'date_created': projects[1].date_created.strftime(

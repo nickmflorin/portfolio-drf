@@ -87,6 +87,7 @@ def test_detail_response_200(api_client, create_skill, create_education,
             'name': project.name,
             'description': project.description,
             'showcase': False,
+            'include_in_resume': True,
             'date_modified': project.date_modified.strftime(
                 "%Y-%m-%dT%H:%M:%S.%fZ"),
             'date_created': project.date_created.strftime(

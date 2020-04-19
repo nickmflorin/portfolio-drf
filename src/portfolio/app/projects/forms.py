@@ -80,11 +80,19 @@ class ProjectInlineForm(forms.ModelForm):
 class ProjectForm(ProjectInlineForm):
 
     education_or_experience = forms.ChoiceField(required=False)
+    resume_description = forms.CharField(
+        widget=forms.Textarea(attrs={"rows": 4, "cols": 128}),
+        required=False,
+        help_text=(
+            "If included, will be used instead of the description for the auto "
+            "generated resume."
+        )
+    )
 
     class Meta:
         model = Project
-        fields = ('name', 'description', 'showcase', 'showcase_description',
-            'education_or_experience')
+        fields = ('name', 'description', 'resume_description', 'showcase',
+            'showcase_description', 'education_or_experience', 'include_in_resume')
 
     def __init__(self, *args, **kwargs):
         super(ProjectForm, self).__init__(*args, **kwargs)
@@ -129,9 +137,20 @@ class ProjectForm(ProjectInlineForm):
                 'Only allowed to be null if the project is being showcased.'
             )
 
+    @form_validation
+    def validate_description(self, data, errors):
+        education_or_experience = data['education_or_experience']
+
+        description = data.get('description')
+        if education_or_experience is not None and not description:
+            errors['description'] = (
+                'Required when the project is tied to an education or experience.'
+            )
+
     def clean(self):
         data = super(ProjectForm, self).clean()
         self.validate_showcase_description(data)
+        self.validate_description(data)
         return data
 
     def save(self, *args, **kwargs):

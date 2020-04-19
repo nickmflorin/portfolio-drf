@@ -39,7 +39,21 @@ class ProjectFile(PortfolioModel):
 
 class Project(PortfolioModel):
     name = models.CharField(max_length=64, unique=True)
-    description = RichTextField(config_name='description')
+    description = RichTextField(
+        config_name='description',
+        null=True,
+        blank=True,
+        help_text="Required if the project is tied to an education or an experience."
+    )
+    resume_description = models.CharField(
+        max_length=256,
+        null=True,
+        blank=True,
+        help_text=(
+            "If included, will be used instead of the description for the auto "
+            "generated resume."
+        )
+    )
     showcase_description = RichTextField(
         null=True,
         blank=True,
@@ -70,3 +84,10 @@ class Project(PortfolioModel):
             "projects page.  If showcasing a project, the project must include "
             "at least 1 image file."
         ))
+    include_in_resume = models.BooleanField(
+        default=True,
+        help_text=(
+            "Determines whether or not the project will be included in the "
+            "auto generated resume."
+        )
+    )
