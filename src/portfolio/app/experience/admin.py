@@ -21,6 +21,7 @@ class ExperienceAdmin(admin.ModelAdmin):
                 ('start_month', 'start_year'),
                 ('end_month', 'end_year'),
                 'current',
+                'include_in_resume',
                 'description'
             )
         }),
