@@ -20,7 +20,11 @@ class Experience(HorizonModel):
             "auto generated resume."
         )
     )
-    description = RichTextField(config_name='description')
+    description = RichTextField(
+        config_name='description',
+        null=True,
+        blank=True
+    )
     projects = GenericRelation(Project)
 
     class Meta:
