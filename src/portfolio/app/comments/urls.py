@@ -6,5 +6,5 @@ from .views import CommentViewSet
 app_name = 'comments'
 
 router = routers.SimpleRouter()
-router.register('', CommentViewSet)
+router.register('', CommentViewSet, basename='comments')
 urlpatterns = router.urls

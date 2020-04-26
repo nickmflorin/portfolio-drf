@@ -14,4 +14,6 @@ class CommentViewSet(mixins.CreateModelMixin, mixins.ListModelMixin,
         mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     permission_classes = [AllowAny | ReadOnly]
     serializer_class = CommentSerializer
-    queryset = Comment.objects.filter(public=True).all()
+
+    def get_queryset(self):
+        return Comment.objects.filter(public=True).all()
