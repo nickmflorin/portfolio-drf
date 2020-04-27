@@ -13,7 +13,6 @@ __pycache__
 .installed.cfg
 *.egg
 MANIFEST
-db.sqlite3
 
 # Testing
 .pytest_cache
