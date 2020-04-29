@@ -3,10 +3,6 @@ from django.db import models
 from portfolio.app.common.models import PortfolioModel
 
 
-def upload_resume_to(instance, filename):
-    return f'uploads/profile/resumes/{filename}'
-
-
 def upload_headshot_to(instance, filename):
     return f'uploads/profile/headshots/{filename}'
 
@@ -25,7 +21,6 @@ class Profile(PortfolioModel):
     phone = models.CharField(max_length=10)
     github_url = models.URLField(max_length=100)
     linkedin_url = models.URLField(max_length=100)
-    resume = models.FileField(upload_to=upload_resume_to)
     headshot = models.ImageField(upload_to=upload_headshot_to)
     logo = models.ImageField(upload_to=upload_logo_to)
     intro = models.CharField(max_length=512)

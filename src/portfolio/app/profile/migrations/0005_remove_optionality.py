@@ -31,12 +31,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='profile',
-            name='resume',
-            field=models.FileField(default='', upload_to=portfolio.app.profile.models.upload_resume_to),
-            preserve_default=False,
-        ),
-        migrations.AlterField(
-            model_name='profile',
             name='tagline',
             field=models.CharField(default='', max_length=256),
             preserve_default=False,
