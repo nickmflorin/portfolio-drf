@@ -10,6 +10,9 @@ from portfolio.app.experience.serializers import DetailExperienceSerializer
 from portfolio.app.skills.models import Skill
 from portfolio.app.skills.serializers import NestedSkillSerializer
 
+from portfolio.app.profile.models import Profile
+from portfolio.app.profile.serializers import ProfileSerializer
+
 
 class ResumeViewSet(viewsets.ViewSet):
 
@@ -17,8 +20,14 @@ class ResumeViewSet(viewsets.ViewSet):
         education = Education.objects.filter(include_in_resume=True).all()
         experience = Experience.objects.filter(include_in_resume=True).all()
         skills = Skill.objects.all()
+        profile = Profile.objects.first()
+
         return Response({
-            'education': DetailEducationSerializer(education, many=True).data,
-            'experience': DetailExperienceSerializer(experience, many=True).data,
-            'skills': NestedSkillSerializer(skills, many=True).data
+            'education': DetailEducationSerializer(education, many=True,
+                context={'request': request}).data,
+            'experience': DetailExperienceSerializer(experience, many=True,
+                context={'request': request}).data,
+            'skills': NestedSkillSerializer(skills, many=True,
+                context={'request': request}).data,
+            'profile': ProfileSerializer(profile, context={'request': request}).data
         })
