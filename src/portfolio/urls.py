@@ -20,6 +20,7 @@ urlpatterns = [
         path('companies/', include('portfolio.app.companies.urls')),
         path('profile/', include('portfolio.app.profile.urls')),
         path('comments/', include('portfolio.app.comments.urls')),
+        path('resume/', include('portfolio.app.resume.urls')),
     ])),
 ]
 

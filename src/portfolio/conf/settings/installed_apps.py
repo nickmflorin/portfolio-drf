@@ -25,4 +25,5 @@ INSTALLED_APPS = [
     'portfolio.app.schools',
     'portfolio.app.profile',
     'portfolio.app.comments',
+    'portfolio.app.resume',
 ]
